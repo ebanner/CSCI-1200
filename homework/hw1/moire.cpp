@@ -11,10 +11,16 @@ bool is_isosceles_triangle(const string &pattern);
 void usage();
 void draw_moire_square(const string &pattern, const int height, ofstream &out_file);
 void draw_moire_right_triangle(const string &pattern, const int height, ofstream &out_file);
+void draw_moire_isosceles_triangle(const string &pattern, const int height, ofstream &out_file);
 
 /* Prints out a Moire pattern */
 int main(int argc, char **argv)
 {
+    if (argc != 5) {
+        usage();
+        return 1;
+    }
+
     string pattern = argv[1];
     int height; 
     stringstream(argv[2]) >> height;
@@ -27,6 +33,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
+    // decide which shape to draw
     if (is_square(shape)) {
         draw_moire_square(pattern, height, out_file);
 
@@ -34,7 +41,7 @@ int main(int argc, char **argv)
         draw_moire_right_triangle(pattern, height, out_file);
 
     } else if (is_isosceles_triangle(shape)) {
-        //draw_moire_isosceles_triangle(pattern, height, out_file);
+        draw_moire_isosceles_triangle(pattern, height, out_file);
 
     } else {
         cerr << "Invalid shape: " << shape << endl;
@@ -68,11 +75,10 @@ void usage()
 
 void draw_moire_square(const string &pattern, const int height, ofstream &out_file)
 {
-    string star_row(height, '*');
     int offset = 0; // offset into the pattern
     
     // print the beginning row of stars
-    out_file << star_row << endl;
+    out_file << string(height, '*') << endl;
 
     for (int r = 1; r <= height-1; r++) {
         // print the leading star
@@ -89,7 +95,7 @@ void draw_moire_square(const string &pattern, const int height, ofstream &out_fi
         out_file << '*' << endl;
     }
     // print the ending row of stars
-    out_file << star_row << endl;
+    out_file << string(height, '*') << endl;
 }
 
 void draw_moire_right_triangle(const string &pattern, const int height, ofstream &out_file)
@@ -121,7 +127,52 @@ void draw_moire_right_triangle(const string &pattern, const int height, ofstream
         chars++;
     }
 
-    string star_row(1+chars+1, '*');
     // print the ending row of stars
-    cout << star_row << endl;
+    cout << string(1+chars+1, '*') << endl;
+}
+
+void draw_moire_isosceles_triangle(const string &pattern, const int height, ofstream &out_file)
+{
+    int width = 2*height - 1;
+    int mid, spaces;
+    /* The middle offset is the same number as the number of leading spaces to 
+     * start off. */
+    mid = spaces = width / 2;
+    // number of character from pattern on a row
+    int chars = 1;
+    // offset into `pattern' so we know which character to print
+    int offset = 0;
+
+    // print the first star all by itself
+    for (int c = 0; c < spaces; c++)
+        cout << ' ';
+    // print leading star and newline
+    cout << '*' << endl;
+
+    // decrement the number of spaces for the next row
+    spaces--;
+
+    for (int r = 1; r <= height-2; r++) {
+        // print the leading spaces
+        for (int c = 0; c < spaces; c++)
+            cout << ' ';
+        // print the leading star
+        cout << '*';
+
+        // print the character on the current row
+        for (int c = 0; c < chars; c++) {
+            cout << pattern[offset];
+            offset = (offset+1) % pattern.length();
+        }
+        // print the trailing star and newline
+        cout << '*' << endl;
+
+        // increment the number of character to print on the next row
+        chars += 2;
+        // decrement the number of spaces to print on the next row
+        spaces--;
+    }
+
+    // print bottom row of stars
+    cout << string(width, '*') << endl;
 }
