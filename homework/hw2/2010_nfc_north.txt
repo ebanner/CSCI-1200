@@ -1,0 +1,36 @@
+Sunday September 12 2010
+  Lions 7 7 0 0 0 14
+  Bears 3 10 0 6 0 19
+Sunday September 26 2010
+  Lions 7 3 0 0 0 10
+  Vikings 7 7 10 0 0 24
+Monday September 27 2010
+  Packers 7 3 0 7 0 17
+  Bears 0 7 0 13 0 20
+Sunday October 3 2010
+  Lions 0 14 6 6 0 26
+  Packers 7 14 7 0 0 28
+Sunday October 24 2010
+  Vikings 7 10 7 0 0 24
+  Packers 7 7 14 0 0 28
+Sunday November 14 2010
+  Vikings 3 7 3 0 0 13
+  Bears 0 14 6 7 0 27
+Sunday November 21 2010
+  Packers 0 17 7 7 0 31
+  Vikings 3 0 0 0 0 3
+Sunday December 5 2010
+  Bears 7 7 3 7 0 24
+  Lions 7 10 3 0 0 20
+Sunday December 12 2010
+  Packers 0 0 3 0 0 3
+  Lions 0 0 0 7 0 7
+Monday December 20 2010
+  Bears 10 7 20 3 0 40
+  Vikings 7 0 7 0 0 14
+Sunday January 2 2011
+  Vikings 0 0 7 6 0 13
+  Lions 0 10 3 7 0 20
+Sunday January 2 2011
+  Bears 0 3 0 0 0 3
+  Packers 0 0 3 7 0 10

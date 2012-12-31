@@ -51,7 +51,7 @@ int main(int argc, char **argv)
     // print `Games' by point differential
     print_point_differential_table(output_file_str, games, longest_name);
 
-    cout << endl;
+    output_file_str << endl;
 
     // translate the summaries for each game into a vector of `Teams'
     vector<Team> teams = populate_teams(games);

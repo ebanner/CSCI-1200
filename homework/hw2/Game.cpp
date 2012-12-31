@@ -32,8 +32,8 @@ void Game::print(ofstream &output_file_str, const int longestName[]) const {
         outcome = " lost to ";
     else
         outcome = " tied ";
-    output_file_str << setw(longestName[0]+3) << left << visitorSummary.getName() <<
-        setw(11) << left << outcome << setw(longestName[1]+3) << left <<
+    output_file_str << setw(longestName[0]+5) << left << visitorSummary.getName() <<
+        setw(11) << left << outcome << setw(longestName[1]+5) << left <<
         homeSummary.getName() << setw(2) << right << visitorSummary.getScore()
         << " - " << setw(2) << right << homeSummary.getScore() << endl;
 }

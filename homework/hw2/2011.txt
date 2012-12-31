@@ -1,0 +1,768 @@
+Thursday   September   8 2011
+  Saints      7 10 10  7  0   34
+  Packers    21  7  7  7  0   42
+Sunday     September  11 2011
+  Falcons     3  0  3  6  0   12
+  Bears      10  6 14  0  0   30
+Sunday     September  11 2011
+  Bengals    10  3  0 14  0   27
+  Browns      0 14  3  0  0   17
+Sunday     September  11 2011
+  Bills      14  6 14  7  0   41
+  Chiefs      0  7  0  0  0    7
+Sunday     September  11 2011
+  Eagles     14  3  7  7  0   31
+  Rams        7  3  3  0  0   13
+Sunday     September  11 2011
+  Lions       6 14  7  0  0   27
+  Buccaneers 10  3  0  7  0   20
+Sunday     September  11 2011
+  Titans      0  0  7  7  0   14
+  Jaguars     7  3  3  3  0   16
+Sunday     September  11 2011
+  Steelers    0  7  0  0  0    7
+  Ravens     14  7 11  3  0   35
+Sunday     September  11 2011
+  Colts       0  0  0  7  0    7
+  Texans     17 17  0  0  0   34
+Sunday     September  11 2011
+  Panthers    7  7  7  0  0   21
+  Cardinals   7  0  7 14  0   28
+Sunday     September  11 2011
+  Vikings     7 10  0  0  0   17
+  Chargers    7  0  7 10  0   24
+Sunday     September  11 2011
+  Seahawks    0  0  7 10  0   17
+  49ers       0 16  0 17  0   33
+Sunday     September  11 2011
+  Giants      7  7  0  0  0   14
+  Redskins    0 14  7  7  0   28
+Sunday     September  11 2011
+  Cowboys     7  3  7  7  0   24
+  Jets        0  7  3 17  0   27
+Monday     September  12 2011
+  Patriots    7  7 14 10  0   38
+  Dolphins    7  0 10  7  0   24
+Monday     September  12 2011
+  Raiders     0 16  0  7  0   23
+  Broncos     3  0 10  7  0   20
+Sunday     September  18 2011
+  Raiders     0 21  0 14  0   35
+  Bills       0  3 14 21  0   38
+Sunday     September  18 2011
+  Chiefs      3  0  0  0  0    3
+  Lions       7 13  7 21  0   48
+Sunday     September  18 2011
+  Ravens      0 10  0  3  0   13
+  Titans      0 10 10  6  0   26
+Sunday     September  18 2011
+  Browns      0 14  0 13  0   27
+  Colts       3  6  3  7  0   19
+Sunday     September  18 2011
+  Buccaneers  0  0 10 14  0   24
+  Vikings     7 10  0  3  0   20
+Sunday     September  18 2011
+  Bears       7  3  3  0  0   13
+  Saints      3 13  7  7  0   30
+Sunday     September  18 2011
+  Jaguars     3  0  0  0  0    3
+  Jets        9  6 14  3  0   32
+Sunday     September  18 2011
+  Seahawks    0  0  0  0  0    0
+  Steelers    7 10  7  0  0   24
+Sunday     September  18 2011
+  Cardinals   7  0  7  7  0   21
+  Redskins    0 10  0 12  0   22
+Sunday     September  18 2011
+  Packers     0  7 16  7  0   30
+  Panthers   10  3  0 10  0   23
+Sunday     September  18 2011
+  Cowboys     0  7  7 10  3   27 
+  49ers       0 14  7  3  0   24 
+Sunday     September  18 2011
+  Bengals     0  3 12  7  0   22
+  Broncos     7  3  7  7  0   24
+Sunday     September  18 2011
+  Texans      6 10  0  7  0   23
+  Dolphins    3  0  7  3  0   13
+Sunday     September  18 2011
+  Chargers    7  0  0 14  0   21
+  Patriots    7 13  0 15  0   35
+Sunday     September  18 2011
+  Eagles      0 10 21  0  0   31
+  Falcons     7  7  7 14  0   35
+Monday     September  19 2011
+  Rams        6  0 10  0  0   16
+  Giants      7 14  7  0  0   28
+Sunday     September  25 2011
+  Patriots   14  7  3  7  0   31
+  Bills       0 10  7 17  0   34
+Sunday     September  25 2011
+  49ers       0  0  3 10  0   13
+  Bengals     3  0  0  5  0    8
+Sunday     September  25 2011
+  Dolphins    7  3  3  3  0   16
+  Browns      0  7  3  7  0   17
+Sunday     September  25 2011
+  Broncos     7  0  7  0  0   14
+  Titans      0 10  0  7  0   17
+Sunday     September  25 2011
+  Lions       0  0 10 13  3   26 
+  Vikings     6 14  0  3  0   23 
+Sunday     September  25 2011
+  Texans     10  6  3 14  0   33
+  Saints      0 10  7 23  0   40
+Sunday     September  25 2011
+  Giants     14  0  0 15  0   29
+  Eagles      0 13  3  0  0   16
+Sunday     September  25 2011
+  Jaguars     0 10  0  0  0   10
+  Panthers    2  3  3  8  0   16
+Sunday     September  25 2011
+  Jets        7 10  0  7  0   24
+  Raiders     7 10  7 10  0   34
+Sunday     September  25 2011
+  Ravens     21  6  3  7  0   37
+  Rams        0  0  7  0  0    7
+Sunday     September  25 2011
+  Chiefs      0  0  7 10  0   17
+  Chargers    0 10  7  3  0   20
+Sunday     September  25 2011
+  Packers     7 10  3  7  0   27
+  Bears       0 10  0  7  0   17
+Sunday     September  25 2011
+  Cardinals   0 10  0  0  0   10
+  Seahawks    3  3  7  0  0   13
+Sunday     September  25 2011
+  Falcons     0  3  0 10  0   13
+  Buccaneers  3 10  3  0  0   16
+Sunday     September  25 2011
+  Steelers   10  0  0 13  0   23
+  Colts       0 13  0  7  0   20
+Monday     September  26 2011
+  Redskins    6  3  7  0  0   16
+  Cowboys     3  6  3  6  0   18
+Sunday     October     2 2011
+  Panthers    3 17  0  9  0   29
+  Bears      10 14  0 10  0   34
+Sunday     October     2 2011
+  Bills       0 17  0  3  0   20
+  Bengals     3  0 10 10  0   23
+Sunday     October     2 2011
+  Titans      7 14 10  0  0   31
+  Browns      3  3  0  7  0   13
+Sunday     October     2 2011
+  Lions       0  3 14 17  0   34
+  Cowboys     7 13 10  0  0   30
+Sunday     October     2 2011
+  Vikings     7  0  3  7  0   17
+  Chiefs      3  6  6  7  0   22
+Sunday     October     2 2011
+  Redskins    7  7  3  0  0   17
+  Rams        0  0  0 10  0   10
+Sunday     October     2 2011
+  49ers       0  3 14  7  0   24
+  Eagles      7 13  3  0  0   23
+Sunday     October     2 2011
+  Saints      7  7  6  3  0   23
+  Jaguars     0 10  0  0  0   10
+Sunday     October     2 2011
+  Steelers    0  0  7  3  0   10
+  Texans      7  3  0  7  0   17
+Sunday     October     2 2011
+  Giants      0 10  0 21  0   31
+  Cardinals   3  3 14  7  0   27
+Sunday     October     2 2011
+  Falcons     7 17  3  3  0   30
+  Seahawks    0  7 14  7  0   28
+Sunday     October     2 2011
+  Broncos     3 14  0  6  0   23
+  Packers    14 14 14  7  0   49
+Sunday     October     2 2011
+  Patriots    7 10  7  7  0   31
+  Raiders     3  7  3  6  0   19
+Sunday     October     2 2011
+  Dolphins    7  3  3  3  0   16
+  Chargers    7  6 10  3  0   26
+Sunday     October     2 2011
+  Jets        7 10  0  0  0   17
+  Ravens     17 10  7  0  0   34
+Monday     October     3 2011
+  Colts       3  7  7  0  0   17
+  Buccaneers  0  7 10  7  0   24
+Sunday     October     9 2011
+  Eagles      0  7  7 10  0   24
+  Bills       7 14 10  0  0   31
+Sunday     October     9 2011
+  Chiefs      0 14  7  7  0   28
+  Colts       7 17  0  0  0   24
+Sunday     October     9 2011
+  Cardinals   0  3  7  0  0   10
+  Vikings    28  0  3  3  0   34
+Sunday     October     9 2011
+  Seahawks   14  0  2 20  0   36
+  Giants      7  7  0 11  0   25
+Sunday     October     9 2011
+  Titans      3  0  7  7  0   17
+  Steelers    7 14  7 10  0   38
+Sunday     October     9 2011
+  Saints     10 10  3  7  0   30
+  Panthers    6  7  7  7  0   27
+Sunday     October     9 2011
+  Bengals     7  6  0 17  0   30
+  Jaguars     7  6  0  7  0   20
+Sunday     October     9 2011
+  Raiders     3  9  3 10  0   25
+  Texans      7  7  3  3  0   20
+Sunday     October     9 2011
+  Buccaneers  3  0  0  0  0    3
+  49ers       7 17 10 14  0   48
+Sunday     October     9 2011
+  Chargers    6 17  0  6  0   29
+  Broncos     7  3  0 14  0   24
+Sunday     October     9 2011
+  Jets        0  7  7  7  0   21
+  Patriots    7  3 14  6  0   30
+Sunday     October     9 2011
+  Packers     0  6  9 10  0   25
+  Falcons     7  7  0  0  0   14
+Monday     October    10 2011
+  Bears       0 10  0  3  0   13
+  Lions       0  7 14  3  0   24
+Sunday     October    16 2011
+  Panthers    3  7  7  0  0   17
+  Falcons     7  7  0 17  0   31
+Sunday     October    16 2011
+  Colts       0  7  0 10  0   17
+  Bengals     7  3 10  7  0   27
+Sunday     October    16 2011
+  49ers       0 12  3 10  0   25
+  Lions      10  0  3  6  0   19
+Sunday     October    16 2011
+  Rams        0  3  0  0  0    3
+  Packers     3 21  0  0  0   24
+Sunday     October    16 2011
+  Bills      14  3  0  7  0   24
+  Giants      7 10  7  3  0   27
+Sunday     October    16 2011
+  Jaguars     0  3  7  3  0   13
+  Steelers    7 10  0  0  0   17
+Sunday     October    16 2011
+  Eagles      7 13  0  0  0   20
+  Redskins    0  3  3  7  0   13
+Sunday     October    16 2011
+  Browns      0  7  0 10  0   17
+  Raiders     7  7 10  0  0   24
+Sunday     October    16 2011
+  Texans      0  7  7  0  0   14
+  Ravens      7  3  6 13  0   29
+Sunday     October    16 2011
+  Cowboys     3  7  3  3  0   16
+  Patriots    3 10  0  7  0   20
+Sunday     October    16 2011
+  Saints      7  3  3  7  0   20
+  Buccaneers  3 17  3  3  0   26
+Sunday     October    16 2011
+  Vikings     0  3  7  0  0   10
+  Bears      16 10 10  3  0   39
+Monday     October    17 2011
+  Dolphins    3  3  0  0  0    6
+  Jets        7  7  3  7  0   24
+Sunday     October    23 2011
+  Seahawks    0  0  3  0  0    3
+  Browns      0  3  0  3  0    6
+Sunday     October    23 2011
+  Falcons    10  7  3  3  0   23
+  Lions       3  3 10  0  0   16
+Sunday     October    23 2011
+  Texans      3 17  7 14  0   41
+  Titans      0  0  7  0  0    7
+Sunday     October    23 2011
+  Broncos     0  0  0 15  3   18 
+  Dolphins    0  6  0  9  0   15 
+Sunday     October    23 2011
+  Chargers    7 14  0  0  0   21
+  Jets        3  7  7 10  0   27
+Sunday     October    23 2011
+  Bears       7  7  7  3  0   24
+  Buccaneers  2  3  0 13  0   18
+Sunday     October    23 2011
+  Redskins    0  6  7  7  0   20
+  Panthers    3  6 14 10  0   33
+Sunday     October    23 2011
+  Chiefs     14  0  7  7  0   28
+  Raiders     0  0  0  0  0    0
+Sunday     October    23 2011
+  Steelers    7 10  9  6  0   32
+  Cardinals   0  7  7  6  0   20
+Sunday     October    23 2011
+  Rams        0  7  0  0  0    7
+  Cowboys     7 10  3 14  0   34
+Sunday     October    23 2011
+  Packers     7  6 20  0  0   33
+  Vikings     7 10  0 10  0   27
+Sunday     October    23 2011
+  Colts       0  7  0  0  0    7
+  Saints     21 13 14 14  0   62
+Monday     October    24 2011
+  Ravens      0  0  0  7  0    7
+  Jaguars     3  3  3  3  0   12
+Sunday     October    30 2011
+  Colts       0  0  3  7  0   10
+  Titans      3 17  0  7  0   27
+Sunday     October    30 2011
+  Saints      0  0  7 14  0   21
+  Rams        0 17  7  7  0   31
+Sunday     October    30 2011
+  Dolphins    7  7  3  0  0   17
+  Giants      3  7  0 10  0   20
+Sunday     October    30 2011
+  Vikings     7  7  7  3  0   24
+  Panthers    0 14  7  0  0   21
+Sunday     October    30 2011
+  Cardinals   3 21  0  3  0   27
+  Ravens      0  6 14 10  0   30
+Sunday     October    30 2011
+  Jaguars     0  7  0  7  0   14
+  Texans      7  0  7 10  0   24
+Sunday     October    30 2011
+  Redskins    0  0  0  0  0    0
+  Bills       7  6  7  3  0   23
+Sunday     October    30 2011
+  Lions       7 17 14  7  0   45
+  Broncos     3  0  0  7  0   10
+Sunday     October    30 2011
+  Patriots    0 10  0  7  0   17
+  Steelers    7 10  3  5  0   25
+Sunday     October    30 2011
+  Browns      0  3  0  7  0   10
+  49ers      10  7  0  3  0   20
+Sunday     October    30 2011
+  Bengals    10  7  0 17  0   34
+  Seahawks    0  3  3  6  0   12
+Sunday     October    30 2011
+  Cowboys     0  0  0  7  0    7
+  Eagles     14 10  3  7  0   34
+Monday     October    31 2011
+  Chargers    0  3  9  8  0   20 
+  Chiefs     10  3  0  7  3   23 
+Sunday     November    6 2011
+  Jets        0  3 17  7  0   27
+  Bills       0  0  3  8  0   11
+Sunday     November    6 2011
+  Seahawks    3  3  0  7  0   13
+  Cowboys     3  3  7 10  0   23
+Sunday     November    6 2011
+  Falcons    14  7  7  3  0   31
+  Colts       0  7  0  0  0    7
+Sunday     November    6 2011
+  Dolphins    7  7 14  3  0   31
+  Chiefs      3  0  0  0  0    3
+Sunday     November    6 2011
+  Buccaneers  0  3  3 10  0   16
+  Saints      7 10  7  3  0   27
+Sunday     November    6 2011
+  49ers       0 13  3  3  0   19
+  Redskins    0  3  0  8  0   11
+Sunday     November    6 2011
+  Browns      3  0  3  6  0   12
+  Texans     14 10  3  3  0   30
+Sunday     November    6 2011
+  Bengals     0  7  7 10  0   24
+  Titans      3 14  0  0  0   17
+Sunday     November    6 2011
+  Broncos     7  0 17 14  0   38
+  Raiders     3 14  7  0  0   24
+Sunday     November    6 2011
+  Giants      0  0 10 14  0   24
+  Patriots    0  0  3 17  0   20
+Sunday     November    6 2011
+  Rams        3  6  4  0  0   13 
+  Cardinals   3  0  3  7  6   19 
+Sunday     November    6 2011
+  Packers    21  7  3 14  0   45
+  Chargers    7 10  7 14  0   38
+Sunday     November    6 2011
+  Ravens      3  6  7  7  0   23
+  Steelers    0  6  0 14  0   20
+Monday     November    7 2011
+  Bears       7 10  3 10  0   30
+  Eagles      0 10 14  0  0   24
+Thursday   November   10 2011
+  Raiders     7 10  7  0  0   24
+  Chargers    3  0 14  0  0   17
+Sunday     November   13 2011
+  Saints      3  7  7  6  3   26 
+  Falcons     3  3  7 10  0   23 
+Sunday     November   13 2011
+  Steelers   14  3  7  0  0   24
+  Bengals     7  3  7  0  0   17
+Sunday     November   13 2011
+  Rams        0 10  0  3  0   13
+  Browns      3  6  3  0  0   12
+Sunday     November   13 2011
+  Bills       0  7  0  0  0    7
+  Cowboys    14 14  6 10  0   44
+Sunday     November   13 2011
+  Jaguars     3  0  7  7  0   17
+  Colts       0  3  0  0  0    3
+Sunday     November   13 2011
+  Broncos     7  3  0  7  0   17
+  Chiefs      0  0  7  3  0   10
+Sunday     November   13 2011
+  Redskins    3  3  3  0  0    9
+  Dolphins    7  3  3  7  0   20
+Sunday     November   13 2011
+  Cardinals   0  7  0 14  0   21
+  Eagles      0 14  0  3  0   17
+Sunday     November   13 2011
+  Texans      9  7 14  7  0   37
+  Buccaneers  0  3  0  6  0    9
+Sunday     November   13 2011
+  Titans     14  3  3 10  0   30
+  Panthers    0  0  3  0  0    3
+Sunday     November   13 2011
+  Ravens      0  7  3  7  0   17
+  Seahawks   10  9  3  0  0   22
+Sunday     November   13 2011
+  Lions       0  6  0  7  0   13
+  Bears      10 10 17  0  0   37
+Sunday     November   13 2011
+  Giants      3  3  7  7  0   20
+  49ers       3  6  3 15  0   27
+Sunday     November   13 2011
+  Patriots    6  7 10 14  0   37
+  Jets        0  9  0  7  0   16
+Monday     November   14 2011
+  Vikings     0  0  7  0  0    7
+  Packers    14  3 14 14  0   45
+Thursday   November   17 2011
+  Jets        0  3  7  3  0   13
+  Broncos     3  0  7  7  0   17
+Sunday     November   20 2011
+  Jaguars     0  7  0  3  0   10
+  Browns      0  7  0  7  0   14
+Sunday     November   20 2011
+  Panthers   10 17  0  8  0   35
+  Lions       0 14 14 21  0   49
+Sunday     November   20 2011
+  Buccaneers  0 10  3 13  0   26
+  Packers     7 14  0 14  0   35
+Sunday     November   20 2011
+  Bills       3  3  0  2  0    8
+  Dolphins   14 14  7  0  0   35
+Sunday     November   20 2011
+  Raiders     3 21  3  0  0   27
+  Vikings     7  0  0 14  0   21
+Sunday     November   20 2011
+  Cowboys     7  3  0 14  3   27 
+  Redskins    0 14  3  7  0   24 
+Sunday     November   20 2011
+  Bengals     7  0  7 10  0   24
+  Ravens      0 14 10  7  0   31
+Sunday     November   20 2011
+  Seahawks    0 10  7  7  0   24
+  Rams        7  0  0  0  0    7
+Sunday     November   20 2011
+  Cardinals   0  0  0  7  0    7
+  49ers       6  3 14  0  0   23
+Sunday     November   20 2011
+  Titans      0  3  7  7  0   17
+  Falcons     7  6 10  0  0   23
+Sunday     November   20 2011
+  Chargers    3  7  7  3  0   20
+  Bears       3 14 14  0  0   31
+Sunday     November   20 2011
+  Eagles      0 10  0  7  0   17
+  Giants      0  3  0  7  0   10
+Monday     November   21 2011
+  Chiefs      3  0  0  0  0    3
+  Patriots    0 10 17  7  0   34
+Thursday   November   24 2011
+  Packers     0  7 17  3  0   27
+  Lions       0  0  0 15  0   15
+Thursday   November   24 2011
+  Dolphins    3  3 10  3  0   19
+  Cowboys     0 10  0 10  0   20
+Thursday   November   24 2011
+  49ers       3  0  3  0  0    6
+  Ravens      3  3  0 10  0   16
+Sunday     November   27 2011
+  Vikings     0  0  7  7  0   14
+  Falcons     7 10  0  7  0   24
+Sunday     November   27 2011
+  Browns      7 10  3  0  0   20
+  Bengals     7  0 10  6  0   23
+Sunday     November   27 2011
+  Buccaneers  3  7  7  0  0   17
+  Titans      7  3  0 13  0   23
+Sunday     November   27 2011
+  Panthers    3  7  7 10  0   27
+  Colts       0 10  3  6  0   19
+Sunday     November   27 2011
+  Cardinals   3  0 17  3  0   23
+  Rams        7  3  0 10  0   20
+Sunday     November   27 2011
+  Bills       7  7  7  3  0   24
+  Jets        0 14  7  7  0   28
+Sunday     November   27 2011
+  Texans      7 13  0  0  0   20
+  Jaguars     7  3  0  3  0   13
+Sunday     November   27 2011
+  Bears       0  7  0 13  0   20
+  Raiders     6  6  6  7  0   25
+Sunday     November   27 2011
+  Redskins    7  0  0 16  0   23
+  Seahawks    0  7  3  7  0   17
+Sunday     November   27 2011
+  Patriots    7 17  7  7  0   38
+  Eagles     10  3  0  7  0   20
+Sunday     November   27 2011
+  Broncos     0  7  3  3  3   16 
+  Chargers    3  7  3  0  0   13 
+Sunday     November   27 2011
+  Steelers    0 13  0  0  0   13
+  Chiefs      3  3  0  3  0    9
+Monday     November   28 2011
+  Giants      0  3  7 14  0   24
+  Saints      0 21 14 14  0   49
+Thursday   December    1 2011
+  Eagles      0  7  0  7  0   14
+  Seahawks    7 10  7  7  0   31
+Sunday     December    4 2011
+  Titans     10  7  3  3  0   23
+  Bills       7  3  0  7  0   17
+Sunday     December    4 2011
+  Chiefs      0  7  3  0  0   10
+  Bears       0  3  0  0  0    3
+Sunday     December    4 2011
+  Raiders     0  0  0 14  0   14
+  Dolphins    6  7 21  0  0   34
+Sunday     December    4 2011
+  Broncos     7  0 14 14  0   35
+  Vikings     5 10  7 10  0   32
+Sunday     December    4 2011
+  Colts       0  3  0 21  0   24
+  Patriots    3 14 14  0  0   31
+Sunday     December    4 2011
+  Bengals     0  7  0  0  0    7
+  Steelers    0 28  7  0  0   35
+Sunday     December    4 2011
+  Panthers   14 10  7  7  0   38
+  Buccaneers  3  9  0  7  0   19
+Sunday     December    4 2011
+  Jets        7  3  3 21  0   34
+  Redskins    7  6  0  6  0   19
+Sunday     December    4 2011
+  Falcons     0  3  7  0  0   10
+  Texans      3  7  0  7  0   17
+Sunday     December    4 2011
+  Ravens      0 10  7  7  0   24
+  Browns      0  0  3  7  0   10
+Sunday     December    4 2011
+  Packers     7 14  7 10  0   38
+  Giants     10  7  7 11  0   35
+Sunday     December    4 2011
+  Cowboys     0 10  3  0  0   13 
+  Cardinals   3  0  3  7  6   19 
+Sunday     December    4 2011
+  Rams        0  0  0  0  0    0
+  49ers       3  6 10  7  0   26
+Sunday     December    4 2011
+  Lions       0  7 10  0  0   17
+  Saints      3 21  0  7  0   31
+Monday     December    5 2011
+  Chargers   10 14  7  7  0   38
+  Jaguars     0 14  0  0  0   14
+Thursday   December    8 2011
+  Browns      3  0  0  0  0    3
+  Steelers    7  0  0  7  0   14
+Sunday     December   11 2011
+  Texans      3  0  7 10  0   20
+  Bengals     6 10  3  0  0   19
+Sunday     December   11 2011
+  Vikings     7  7  7  7  0   28
+  Lions      21 10  0  3  0   34
+Sunday     December   11 2011
+  Saints      3  3  3 13  0   22
+  Titans      0  3  7  7  0   17
+Sunday     December   11 2011
+  Eagles      0 24  0  2  0   26
+  Dolphins    7  0  3  0  0   10
+Sunday     December   11 2011
+  Chiefs      3  0  0  7  0   10
+  Jets        7 21  7  2  0   37
+Sunday     December   11 2011
+  Patriots   14  6 14  0  0   34
+  Redskins   10 10  7  0  0   27
+Sunday     December   11 2011
+  Falcons     7  0 10 14  0   31
+  Panthers    7 16  0  0  0   23
+Sunday     December   11 2011
+  Buccaneers  7  7  0  0  0   14
+  Jaguars     0 28  0 13  0   41
+Sunday     December   11 2011
+  Colts       0  3  0  7  0   10
+  Ravens     10  7  7  0  0   24
+Sunday     December   11 2011
+  Bears       0  0  7  3  0   10 
+  Broncos     0  0  0 10  3   13 
+Sunday     December   11 2011
+  49ers       3  9  7  0  0   19
+  Cardinals   0  7  7  7  0   21
+Sunday     December   11 2011
+  Raiders     0  0  7  9  0   16
+  Packers    14 17 12  3  0   46
+Sunday     December   11 2011
+  Bills       0  0 10  0  0   10
+  Chargers    7  9 14  7  0   37
+Sunday     December   11 2011
+  Giants      5 10  7 15  0   37
+  Cowboys     7 10  3 14  0   34
+Monday     December   12 2011
+  Rams        0  3  3  7  0   13
+  Seahawks   10  0 10 10  0   30
+Thursday   December   15 2011
+  Jaguars     0  0  7  7  0   14
+  Falcons    10 17 14  0  0   41
+Saturday   December   17 2011
+  Cowboys    14 14  3  0  0   31
+  Buccaneers  0  0 15  0  0   15
+Sunday     December   18 2011
+  Dolphins    0 13  7 10  0   30
+  Bills       7  0  0 16  0   23
+Sunday     December   18 2011
+  Seahawks    7  0 17 14  0   38
+  Bears       7  7  0  0  0   14
+Sunday     December   18 2011
+  Titans      0  6  0  7  0   13
+  Colts       3  0 14 10  0   27
+Sunday     December   18 2011
+  Packers     0  0  7  7  0   14
+  Chiefs      6  0  3 10  0   19
+Sunday     December   18 2011
+  Bengals     3  0 10  7  0   20
+  Rams        0  6  0  7  0   13
+Sunday     December   18 2011
+  Saints      7 14 14  7  0   42
+  Vikings     3 10  0  7  0   20
+Sunday     December   18 2011
+  Redskins    3 14  3  3  0   23
+  Giants      0  3  0  7  0   10
+Sunday     December   18 2011
+  Panthers    7 14  0  7  0   28
+  Texans      0  0  6  7  0   13
+Sunday     December   18 2011
+  Lions       7  7  0 14  0   28
+  Raiders     7 10  0 10  0   27
+Sunday     December   18 2011
+  Patriots    7 20  7  7  0   41
+  Broncos    13  3  0  7  0   23
+Sunday     December   18 2011
+  Jets        0 13  0  6  0   19
+  Eagles     14 14 10  7  0   45
+Sunday     December   18 2011
+  Browns      7  3  7  0  0   17 
+  Cardinals   0  7  0 10  3   20 
+Sunday     December   18 2011
+  Ravens      0  7  0  7  0   14
+  Chargers    7 10 14  3  0   34
+Monday     December   19 2011
+  Steelers    0  0  3  0  0    3
+  49ers       3  3  7  7  0   20
+Thursday   December   22 2011
+  Texans     10  0  3  3  0   16
+  Colts       3  3  3 10  0   19
+Saturday   December   24 2011
+  Broncos     7  0  7  0  0   14
+  Bills       0 17  6 17  0   40
+Saturday   December   24 2011
+  Cardinals   0  0  0 16  0   16
+  Bengals    10 10  3  0  0   23
+Saturday   December   24 2011
+  Jaguars     7  3  0  7  0   17
+  Titans     10  7  3  3  0   23
+Saturday   December   24 2011
+  Raiders     3  0  7  3  3   16 
+  Chiefs      3  0  3  7  0   13 
+Saturday   December   24 2011
+  Dolphins    3 14  0  7  0   24
+  Patriots    0  0 17 10  0   27
+Saturday   December   24 2011
+  Giants      0 10  7 12  0   29
+  Jets        7  0  0  7  0   14
+Saturday   December   24 2011
+  Rams        0  0  0  0  0    0
+  Steelers    3  7  3 14  0   27
+Saturday   December   24 2011
+  Vikings     3  7 13 10  0   33
+  Redskins    0 10 10  6  0   26
+Saturday   December   24 2011
+  Buccaneers  0 10  0  6  0   16
+  Panthers   10 10 21  7  0   48
+Saturday   December   24 2011
+  Browns      0  0  7  7  0   14
+  Ravens     10  7  3  0  0   20
+Saturday   December   24 2011
+  Chargers    0  0 10  0  0   10
+  Lions      10 14  7  7  0   38
+Saturday   December   24 2011
+  Eagles      7  7  3  3  0   20
+  Cowboys     0  0  0  7  0    7
+Saturday   December   24 2011
+  49ers       0  3 10  6  0   19
+  Seahawks    7  3  0  7  0   17
+Sunday     December   25 2011
+  Bears       0  3  7 11  0   21
+  Packers     7  7 14  7  0   35
+Monday     December   26 2011
+  Falcons    10  0  3  3  0   16
+  Saints      7 14 10 14  0   45
+Sunday     January     1 2012
+  Lions       9 10 15  7  0   41
+  Packers    10 14  7 14  0   45
+Sunday     January     1 2012
+  49ers       7 13  7  7  0   34
+  Rams        7  0  3 17  0   27
+Sunday     January     1 2012
+  Jets        7  3  0  7  0   17
+  Dolphins    3  3  0 13  0   19
+Sunday     January     1 2012
+  Bears       0 14  0  3  0   17
+  Vikings    10  3  0  0  0   13
+Sunday     January     1 2012
+  Bills      21  0  0  0  0   21
+  Patriots    0 14 14 21  0   49
+Sunday     January     1 2012
+  Panthers    7 10  0  0  0   17
+  Saints     14 10 14  7  0   45
+Sunday     January     1 2012
+  Redskins    0  0  7  3  0   10
+  Eagles      3  7  3 21  0   34
+Sunday     January     1 2012
+  Colts       0  3  3  7  0   13
+  Jaguars     7  3  6  3  0   19
+Sunday     January     1 2012
+  Titans      0 13  3  7  0   23
+  Texans      7  3  3  9  0   22
+Sunday     January     1 2012
+  Buccaneers  0  7 11  6  0   24
+  Falcons    21 21  0  3  0   45
+Sunday     January     1 2012
+  Ravens     10  7  0  7  0   24
+  Bengals     3  0  7  6  0   16
+Sunday     January     1 2012
+  Steelers    0  3 10  0  0   13
+  Browns      0  6  3  0  0    9
+Sunday     January     1 2012
+  Chiefs      7  0  0  0  0    7
+  Broncos     0  0  3  0  0    3
+Sunday     January     1 2012
+  Chargers    7 17  7  7  0   38
+  Raiders     7  6  6  7  0   26
+Sunday     January     1 2012
+  Seahawks    0  3  7 10  0   20 
+  Cardinals   7  3  7  3  3   23 
+Sunday     January     1 2012
+  Cowboys     0  0  7  7  0   14
+  Giants      7 14  0 10  0   31

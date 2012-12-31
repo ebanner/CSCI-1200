@@ -1,0 +1,768 @@
+Thursday   September   9 2010
+  Vikings     0  9  0  0  0    9
+  Saints      7  0  7  0  0   14
+Sunday     September  12 2010
+  Dolphins    3  7  0  5  0   15
+  Bills       0  3  0  7  0   10
+Sunday     September  12 2010
+  Lions       7  7  0  0  0   14
+  Bears       3 10  0  6  0   19
+Sunday     September  12 2010
+  Raiders     3  3  0  7  0   13
+  Titans     10 14  7  7  0   38
+Sunday     September  12 2010
+  Bengals     0  3 14  7  0   24
+  Patriots   10 14  7  7  0   38
+Sunday     September  12 2010
+  Panthers    3 13  0  2  0   18
+  Giants      7  7 10  7  0   31
+Sunday     September  12 2010
+  Falcons     0  3  3  3  0    9 
+  Steelers    3  0  3  3  6   15 
+Sunday     September  12 2010
+  Browns      7  7  0  0  0   14
+  Buccaneers  3  7  0  7  0   17
+Sunday     September  12 2010
+  Broncos     0  7  7  3  0   17
+  Jaguars     0  7 10  7  0   24
+Sunday     September  12 2010
+  Colts       0 10  0 14  0   24
+  Texans      6  7  7 14  0   34
+Sunday     September  12 2010
+  Cardinals   0 10  0  7  0   17
+  Rams        0 10  3  0  0   13
+Sunday     September  12 2010
+  Packers     0 13 14  0  0   27
+  Eagles      3  0  7 10  0   20
+Sunday     September  12 2010
+  49ers       3  3  0  0  0    6
+  Seahawks    0 14 14  3  0   31
+Sunday     September  12 2010
+  Cowboys     0  0  7  0  0    7
+  Redskins    3  7  0  3  0   13
+Monday     September  13 2010
+  Ravens      0  7  3  0  0   10
+  Jets        3  3  0  3  0    9
+Monday     September  13 2010
+  Chargers    7  0  7  0  0   14
+  Chiefs      7 14  0  0  0   21
+Sunday     September  19 2010
+  Cardinals   0  7  0  0  0    7
+  Falcons     7 17 10  7  0   41
+Sunday     September  19 2010
+  Ravens      0  0  7  3  0   10
+  Bengals     0  6  3  6  0   15
+Sunday     September  19 2010
+  Chiefs      3  7  3  3  0   16
+  Browns      0 14  0  0  0   14
+Sunday     September  19 2010
+  Bears      10 10  0  7  0   27
+  Cowboys     7  7  3  3  0   20
+Sunday     September  19 2010
+  Eagles      7 14  7  7  0   35
+  Lions       7 10  0 15  0   32
+Sunday     September  19 2010
+  Bills       0  7  0  0  0    7
+  Packers    13  0 14  7  0   34
+Sunday     September  19 2010
+  Steelers    7  6  0  6  0   19
+  Titans      3  0  0  8  0   11
+Sunday     September  19 2010
+  Dolphins    7  0  7  0  0   14
+  Vikings     0  0  7  3  0   10
+Sunday     September  19 2010
+  Buccaneers  7  7  3  3  0   20
+  Panthers    0  7  0  0  0    7
+Sunday     September  19 2010
+  Seahawks    0  0  7  7  0   14
+  Broncos     7 10  7  7  0   31
+Sunday     September  19 2010
+  Rams        0  7  0  7  0   14
+  Raiders     0  3 10  3  0   16
+Sunday     September  19 2010
+  Patriots    0 14  0  0  0   14
+  Jets        0 10 11  7  0   28
+Sunday     September  19 2010
+  Jaguars     3  3  0  7  0   13
+  Chargers    7 14  3 14  0   38
+Sunday     September  19 2010
+  Texans      0  7 10 10  3   30 
+  Redskins    6 14  7  0  0   27 
+Sunday     September  19 2010
+  Giants      0  0  7  7  0   14
+  Colts       7 17  7  7  0   38
+Monday     September  20 2010
+  Saints      9  0  7  9  0   25
+  49ers       0  7  7  8  0   22
+Sunday     September  26 2010
+  49ers       0  3  0  7  0   10
+  Chiefs      0 10 14  7  0   31
+Sunday     September  26 2010
+  Lions       7  3  0  0  0   10
+  Vikings     7  7 10  0  0   24
+Sunday     September  26 2010
+  Bills       3 13  7  7  0   30
+  Patriots    7 10 14  7  0   38
+Sunday     September  26 2010
+  Falcons     7  7  3  7  3   27 
+  Saints     14  0  7  3  0   24 
+Sunday     September  26 2010
+  Titans      3  7  9 10  0   29
+  Giants      0 10  0  0  0   10
+Sunday     September  26 2010
+  Steelers    7 21  3  7  0   38
+  Buccaneers  3  3  0  7  0   13
+Sunday     September  26 2010
+  Bengals     7  3  0 10  0   20
+  Panthers    0  0  7  0  0    7
+Sunday     September  26 2010
+  Browns      3  7  0  7  0   17
+  Ravens      7  7  0 10  0   24
+Sunday     September  26 2010
+  Cowboys     0 10  7 10  0   27
+  Texans      0  3  0 10  0   13
+Sunday     September  26 2010
+  Redskins    0 13  3  0  0   16
+  Rams       14  0  7  9  0   30
+Sunday     September  26 2010
+  Eagles      7  7 14  0  0   28
+  Jaguars     0  3  0  0  0    3
+Sunday     September  26 2010
+  Colts       6  7  7  7  0   27
+  Broncos     0  3 10  0  0   13
+Sunday     September  26 2010
+  Raiders    13  7  0  3  0   23
+  Cardinals  10  7  7  0  0   24
+Sunday     September  26 2010
+  Chargers    0  0 12  8  0   20
+  Seahawks    0 10  7 10  0   27
+Sunday     September  26 2010
+  Jets        7  7  7 10  0   31
+  Dolphins    0 10 10  3  0   23
+Monday     September  27 2010
+  Packers     7  3  0  7  0   17
+  Bears       0  7  0 13  0   20
+Sunday     October     3 2010
+  49ers      14  0  0  0  0   14
+  Falcons     0 10  3  3  0   16
+Sunday     October     3 2010
+  Jets        7 10 21  0  0   38
+  Bills       0  7  0  7  0   14
+Sunday     October     3 2010
+  Bengals     0 10  3  7  0   20
+  Browns      3 10 10  0  0   23
+Sunday     October     3 2010
+  Lions       0 14  6  6  0   26
+  Packers     7 14  7  0  0   28
+Sunday     October     3 2010
+  Broncos     0 10  6 10  0   26
+  Titans      0 10 10  0  0   20
+Sunday     October     3 2010
+  Seahawks    0  3  0  0  0    3
+  Rams        7  3  7  3  0   20
+Sunday     October     3 2010
+  Panthers    0  7  7  0  0   14
+  Saints      0 10  3  3  0   16
+Sunday     October     3 2010
+  Ravens      0 10  0  7  0   17
+  Steelers    7  0  0  7  0   14
+Sunday     October     3 2010
+  Texans     14  0 10  7  0   31
+  Raiders     7  7  0 10  0   24
+Sunday     October     3 2010
+  Colts       7  7  0 14  0   28
+  Jaguars     7  7  7 10  0   31
+Sunday     October     3 2010
+  Redskins   14  3  0  0  0   17
+  Eagles      0  6  0  6  0   12
+Sunday     October     3 2010
+  Cardinals   0  7  0  3  0   10
+  Chargers    7 21 10  3  0   41
+Sunday     October     3 2010
+  Bears       0  0  0  3  0    3
+  Giants      3  0  7  7  0   17
+Monday     October     4 2010
+  Patriots    0  6 21 14  0   41
+  Dolphins    7  0  7  0  0   14
+Sunday     October    10 2010
+  Jaguars     3 10 14  9  0   36
+  Bills      10  3  7  6  0   26
+Sunday     October    10 2010
+  Buccaneers  0  7  7 10  0   24
+  Bengals     7  3  3  8  0   21
+Sunday     October    10 2010
+  Falcons     0  6  7  7  0   20
+  Browns      0  7  3  0  0   10
+Sunday     October    10 2010
+  Rams        3  3  0  0  0    6
+  Lions       3 21  7 13  0   44
+Sunday     October    10 2010
+  Chiefs      0  3  6  0  0    9
+  Colts       3  3  3 10  0   19
+Sunday     October    10 2010
+  Packers     7  3  3  0  0   13 
+  Redskins    0  3  0 10  3   16 
+Sunday     October    10 2010
+  Bears      17  0  0  6  0   23
+  Panthers    3  0  3  0  0    6
+Sunday     October    10 2010
+  Broncos     0  7  0 10  0   17
+  Ravens      7 10  0 14  0   31
+Sunday     October    10 2010
+  Giants     14 10  3  7  0   34
+  Texans      0  3  7  0  0   10
+Sunday     October    10 2010
+  Saints     10  3  0  7  0   20
+  Cardinals   0 10  3 17  0   30
+Sunday     October    10 2010
+  Titans     10  7  3 14  0   34
+  Cowboys     3  7  7 10  0   27
+Sunday     October    10 2010
+  Chargers    0 17  7  3  0   27
+  Raiders    12  3  7 13  0   35
+Sunday     October    10 2010
+  Eagles      7 10  0 10  0   27
+  49ers       7  3  0 14  0   24
+Monday     October    11 2010
+  Vikings     0  0  7 13  0   20
+  Jets        3  6  6 14  0   29
+Sunday     October    17 2010
+  Seahawks    7  7  2  7  0   23
+  Bears       7  6  0  7  0   20
+Sunday     October    17 2010
+  Dolphins    7  3  3  7  3   23 
+  Packers    10  0  0 10  0   20 
+Sunday     October    17 2010
+  Chargers    0  3  7  7  0   17
+  Rams       10  7  0  3  0   20
+Sunday     October    17 2010
+  Ravens      3  7  7  3  0   20 
+  Patriots    7  0  3 10  3   23 
+Sunday     October    17 2010
+  Lions       7  3  0 10  0   20
+  Giants      7  7  7  7  0   28
+Sunday     October    17 2010
+  Falcons     0  7  3  7  0   17
+  Eagles     14  7  7  3  0   31
+Sunday     October    17 2010
+  Browns      3  0  0  7  0   10
+  Steelers    0  7  7 14  0   28
+Sunday     October    17 2010
+  Saints      7 10  7  7  0   31
+  Buccaneers  0  0  0  6  0    6
+Sunday     October    17 2010
+  Chiefs      7  7 10  7  0   31
+  Texans      0  7  7 21  0   35
+Sunday     October    17 2010
+  Jets        0  7  3 14  0   24
+  Broncos     0 10  7  3  0   20
+Sunday     October    17 2010
+  Raiders     3  3  0  3  0    9
+  49ers       0  3  7  7  0   17
+Sunday     October    17 2010
+  Cowboys     7  7  0  7  0   21
+  Vikings     7  0 14  3  0   24
+Sunday     October    17 2010
+  Colts       7 10  7  3  0   27
+  Redskins    7  0 10  7  0   24
+Monday     October    18 2010
+  Titans      7 10  3 10  0   30
+  Jaguars     0  0  3  0  0    3
+Sunday     October    24 2010
+  Bengals     3  0 22  7  0   32
+  Falcons     7 17  0 15  0   39
+Sunday     October    24 2010
+  Redskins    7  3  7  0  0   17
+  Bears       7  7  0  0  0   14
+Sunday     October    24 2010
+  Eagles      0 13  3  3  0   19
+  Titans      0  7  3 27  0   37
+Sunday     October    24 2010
+  Jaguars     3 10  7  0  0   20
+  Chiefs      7  7 14 14  0   42
+Sunday     October    24 2010
+  Steelers    0 17  3  3  0   23
+  Dolphins    6 10  3  3  0   22
+Sunday     October    24 2010
+  Browns     10 10  0 10  0   30
+  Saints      0  3  0 14  0   17
+Sunday     October    24 2010
+  Rams        0 17  0  0  0   17
+  Buccaneers  3  3  6  6  0   18
+Sunday     October    24 2010
+  49ers       7  3  0 10  0   20
+  Panthers    3  7  3 10  0   23
+Sunday     October    24 2010
+  Bills      10 14  0 10  0   34 
+  Ravens      3 17 14  0  3   37 
+Sunday     October    24 2010
+  Cardinals   0  0  7  3  0   10
+  Seahawks    3  7  9  3  0   22
+Sunday     October    24 2010
+  Raiders    24 14 21  0  0   59
+  Broncos     0  7  7  0  0   14
+Sunday     October    24 2010
+  Patriots    7  6  7  3  0   23
+  Chargers    3  0  0 17  0   20
+Sunday     October    24 2010
+  Vikings     7 10  7  0  0   24
+  Packers     7  7 14  0  0   28
+Monday     October    25 2010
+  Giants      7 17 14  3  0   41
+  Cowboys    10 10  0 15  0   35
+Sunday     October    31 2010
+  Dolphins    3  9  3  7  0   22
+  Bengals     7  7  0  0  0   14
+Sunday     October    31 2010
+  Jaguars     7  7 14  7  0   35
+  Cowboys     3  0  0 14  0   17
+Sunday     October    31 2010
+  Redskins    0 13  0 12  0   25
+  Lions       0  7  7 23  0   37
+Sunday     October    31 2010
+  Bills       0  0  3  7  0   10 
+  Chiefs      0  7  0  3  3   13 
+Sunday     October    31 2010
+  Panthers    0  3  0  7  0   10
+  Rams        0 10  0 10  0   20
+Sunday     October    31 2010
+  Packers     3  0  0  6  0    9
+  Jets        0  0  0  0  0    0
+Sunday     October    31 2010
+  Broncos     0  0  7  9  0   16
+  49ers       3  0  0 21  0   24
+Sunday     October    31 2010
+  Titans      5 14  0  6  0   25
+  Chargers    7  7 10  9  0   33
+Sunday     October    31 2010
+  Seahawks    0  0  0  3  0    3
+  Raiders     3  7  3 20  0   33
+Sunday     October    31 2010
+  Vikings     0  7  3  8  0   18
+  Patriots    0  7 14  7  0   28
+Sunday     October    31 2010
+  Buccaneers  7 17  7  7  0   38
+  Cardinals   7  7 14  7  0   35
+Sunday     October    31 2010
+  Steelers    0  3  0  7  0   10
+  Saints      0  3  3 14  0   20
+Monday     November    1 2010
+  Texans      0  3  7  7  0   17
+  Colts       7 10 10  3  0   30
+Sunday     November    7 2010
+  Buccaneers  0 14  7  0  0   21
+  Falcons     7 10 10  0  0   27
+Sunday     November    7 2010
+  Bears       0  7  7  8  0   22
+  Bills       0  7  6  6  0   19
+Sunday     November    7 2010
+  Patriots    0  7  0  7  0   14
+  Browns     10  7  7 10  0   34
+Sunday     November    7 2010
+  Jets        0 10  0 10  3   23 
+  Lions       7  0  6  7  0   20 
+Sunday     November    7 2010
+  Cardinals   0 14  7  3  0   24 
+  Vikings     0 10  0 14  3   27 
+Sunday     November    7 2010
+  Saints      7 10 10  7  0   34
+  Panthers    3  0  0  0  0    3
+Sunday     November    7 2010
+  Dolphins    7  3  0  0  0   10
+  Ravens      7  6  7  6  0   26
+Sunday     November    7 2010
+  Chargers   14  0  7  8  0   29
+  Texans     10 10  3  0  0   23
+Sunday     November    7 2010
+  Giants     21 14  6  0  0   41
+  Seahawks    0  0  0  7  0    7
+Sunday     November    7 2010
+  Chiefs      0 10  3  7  0   20 
+  Raiders     0  0 14  6  3   23 
+Sunday     November    7 2010
+  Colts       0 17  0  7  0   24
+  Eagles     13  3  3  7  0   26
+Sunday     November    7 2010
+  Cowboys     0  7  0  0  0    7
+  Packers     0 28  7 10  0   45
+Monday     November    8 2010
+  Steelers   10 10  0  7  0   27
+  Bengals     0  7  0 14  0   21
+Thursday   November   11 2010
+  Ravens      0  0  7 14  0   21
+  Falcons     0 10  3 13  0   26
+Sunday     November   14 2010
+  Lions       0  3  0  9  0   12
+  Bills       0  7  7  0  0   14
+Sunday     November   14 2010
+  Vikings     3  7  3  0  0   13
+  Bears       0 14  6  7  0   27
+Sunday     November   14 2010
+  Jets        3 14  0  3  6   26 
+  Browns     10  3  0  7  0   20 
+Sunday     November   14 2010
+  Bengals     0 10  0  7  0   17
+  Colts      10 10  0  3  0   23
+Sunday     November   14 2010
+  Titans     10  0  7  0  0   17
+  Dolphins    7  3 10  9  0   29
+Sunday     November   14 2010
+  Panthers    3  7  6  0  0   16
+  Buccaneers  7 14  0 10  0   31
+Sunday     November   14 2010
+  Texans      3  0 14  7  0   24
+  Jaguars     3 14  0 14  0   31
+Sunday     November   14 2010
+  Chiefs      0 10  7 12  0   29
+  Broncos    21 14  7  7  0   49
+Sunday     November   14 2010
+  Cowboys     6 13 14  0  0   33
+  Giants      3  3 14  0  0   20
+Sunday     November   14 2010
+  Seahawks    7 10  9 10  0   36
+  Cardinals   7  3  0  8  0   18
+Sunday     November   14 2010
+  Rams        3  7  7  3  0   20 
+  49ers       7  3  0 10  3   23 
+Sunday     November   14 2010
+  Patriots   10  0 13 16  0   39
+  Steelers    0  3  0 23  0   26
+Monday     November   15 2010
+  Eagles     28 17 14  0  0   59
+  Redskins    0 14  7  7  0   28
+Thursday   November   18 2010
+  Bears       3  3 10  0  0   16
+  Dolphins    0  0  0  0  0    0
+Sunday     November   21 2010
+  Bills       7  7 14 21  0   49
+  Bengals     7 24  0  0  0   31
+Sunday     November   21 2010
+  Lions       0 10  9  0  0   19
+  Cowboys     7  0 14 14  0   35
+Sunday     November   21 2010
+  Redskins    7  3  3  3  3   19 
+  Titans      7  3  3  3  0   16 
+Sunday     November   21 2010
+  Cardinals   3  0  3  7  0   13
+  Chiefs      0 14  7 10  0   31
+Sunday     November   21 2010
+  Packers     0 17  7  7  0   31
+  Vikings     3  0  0  0  0    3
+Sunday     November   21 2010
+  Texans      0  7  0 20  0   27
+  Jets        3 10  7 10  0   30
+Sunday     November   21 2010
+  Raiders     3  0  0  0  0    3
+  Steelers    0 21  0 14  0   35
+Sunday     November   21 2010
+  Ravens     10  7  3 17  0   37
+  Panthers    0  3  3  7  0   13
+Sunday     November   21 2010
+  Browns      0  7 10  3  0   20
+  Jaguars     3  7  0 14  0   24
+Sunday     November   21 2010
+  Falcons     3 13  7 11  0   34
+  Rams        7  3  7  0  0   17
+Sunday     November   21 2010
+  Seahawks    3 13  0  3  0   19
+  Saints      7 20  7  0  0   34
+Sunday     November   21 2010
+  Buccaneers  0  7  7  7  0   21
+  49ers       0  0  0  0  0    0
+Sunday     November   21 2010
+  Colts       0 14  0 14  0   28
+  Patriots    7 14  7  3  0   31
+Sunday     November   21 2010
+  Giants      0  3  7  7  0   17
+  Eagles      7  6  3 11  0   27
+Monday     November   22 2010
+  Broncos     7  0  0  7  0   14
+  Chargers    7 14  7  7  0   35
+Thursday   November   25 2010
+  Patriots    3  7 14 21  0   45
+  Lions       7 10  7  0  0   24
+Thursday   November   25 2010
+  Saints     17  3  3  7  0   30
+  Cowboys     0  6 14  7  0   27
+Thursday   November   25 2010
+  Bengals     0  7  0  3  0   10
+  Jets        0  3 14  9  0   26
+Sunday     November   28 2010
+  Packers     3  0  7  7  0   17
+  Falcons     3  7  0 10  0   20
+Sunday     November   28 2010
+  Steelers    7  6  0  3  3   19 
+  Bills       0  0  7  9  0   16 
+Sunday     November   28 2010
+  Panthers    7  6  7  3  0   23
+  Browns     14  7  0  3  0   24
+Sunday     November   28 2010
+  Jaguars     7 10  0  3  0   20
+  Giants      3  3  3 15  0   24
+Sunday     November   28 2010
+  Vikings     7  0 10  0  0   17
+  Redskins    7  0  0  6  0   13
+Sunday     November   28 2010
+  Titans      0  0  0  0  0    0
+  Texans      0 14  3  3  0   20
+Sunday     November   28 2010
+  Dolphins   10  3 10 10  0   33
+  Raiders     7  7  0  3  0   17
+Sunday     November   28 2010
+  Chiefs      7 14  0 21  0   42
+  Seahawks    7  3  7  7  0   24
+Sunday     November   28 2010
+  Eagles      3 10  0 13  0   26
+  Bears      14  7 10  0  0   31
+Sunday     November   28 2010
+  Rams        7 19  7  3  0   36
+  Broncos    10  3  0 20  0   33
+Sunday     November   28 2010
+  Buccaneers  0  3  0  7  0   10
+  Ravens      0 17  0  0  0   17
+Sunday     November   28 2010
+  Chargers   10  6 10 10  0   36
+  Colts       7  7  0  0  0   14
+Monday     November   29 2010
+  49ers      14  7  3  3  0   27
+  Cardinals   3  3  0  0  0    6
+Thursday   December    2 2010
+  Texans      3  7 14  0  0   24
+  Eagles      7 13  0 14  0   34
+Sunday     December    5 2010
+  Saints      3 10  7 14  0   34
+  Bengals     0  6  6 18  0   30
+Sunday     December    5 2010
+  Bears       7  7  3  7  0   24
+  Lions       7 10  3  0  0   20
+Sunday     December    5 2010
+  49ers       3 10  3  0  0   16
+  Packers     0 14 14  6  0   34
+Sunday     December    5 2010
+  Jaguars     7 10  0  0  0   17
+  Titans      0  0  3  3  0    6
+Sunday     December    5 2010
+  Broncos     0  3  0  3  0    6
+  Chiefs      7  3  0  0  0   10
+Sunday     December    5 2010
+  Browns      0  3  7  3  0   13
+  Dolphins    0  3  0  7  0   10
+Sunday     December    5 2010
+  Bills       7  0  0  7  0   14
+  Vikings     7 24  0  7  0   38
+Sunday     December    5 2010
+  Redskins    0  0  7  0  0    7
+  Giants     14  7  7  3  0   31
+Sunday     December    5 2010
+  Raiders    14  7  0  7  0   28
+  Chargers    0  3  3  7  0   13
+Sunday     December    5 2010
+  Cowboys    10  7 10  8  3   38 
+  Colts       0  7  7 21  0   35 
+Sunday     December    5 2010
+  Rams        3  6  7  3  0   19
+  Cardinals   6  0  0  0  0    6
+Sunday     December    5 2010
+  Panthers    7  7  0  0  0   14
+  Seahawks    0  3 21  7  0   31
+Sunday     December    5 2010
+  Falcons     7  7  0 14  0   28
+  Buccaneers  7  7  3  7  0   24
+Sunday     December    5 2010
+  Steelers    0  0  3 10  0   13
+  Ravens      7  0  3  0  0   10
+Monday     December    6 2010
+  Jets        0  3  0  0  0    3
+  Patriots   17  7  7 14  0   45
+Thursday   December    9 2010
+  Colts       7 14  3  6  0   30
+  Titans      0  7  7 14  0   28
+Sunday     December   12 2010
+  Browns      3  3  0  0  0    6
+  Bills       0 10  0  3  0   13
+Sunday     December   12 2010
+  Packers     0  0  3  0  0    3
+  Lions       0  0  0  7  0    7
+Sunday     December   12 2010
+  Bengals     7  0  0  0  0    7
+  Steelers    0 10  3 10  0   23
+Sunday     December   12 2010
+  Buccaneers  0  3  6  8  0   17
+  Redskins    0 10  0  6  0   16
+Sunday     December   12 2010
+  Falcons    14  3  7  7  0   31
+  Panthers    0  0  7  3  0   10
+Sunday     December   12 2010
+  Raiders     7 10  7  7  0   31
+  Jaguars     0  7 21 10  0   38
+Sunday     December   12 2010
+  Rams        0  6  0  7  0   13
+  Saints     14  7  7  3  0   31
+Sunday     December   12 2010
+  Seahawks    7  0  7  7  0   21
+  49ers      10 20 10  0  0   40
+Sunday     December   12 2010
+  Patriots    7 26  3  0  0   36
+  Bears       0  0  7  0  0    7
+Sunday     December   12 2010
+  Dolphins   10  0  0  0  0   10
+  Jets        0  3  0  3  0    6
+Sunday     December   12 2010
+  Broncos     3  0  0 10  0   13
+  Cardinals   3 13  3 24  0   43
+Sunday     December   12 2010
+  Chiefs      0  0  0  0  0    0
+  Chargers    7 14  0 10  0   31
+Sunday     December   12 2010
+  Eagles      7  7  3 13  0   30
+  Cowboys     7  3 10  7  0   27
+Monday     December   13 2010
+  Giants      0 14  7  0  0   21
+  Vikings     3  0  0  0  0    3
+Monday     December   13 2010
+  Ravens      7 14  7  0  6   34 
+  Texans      0  7  6 15  0   28 
+Thursday   December   16 2010
+  49ers       0  0  0  7  0    7
+  Chargers    7 10  7 10  0   34
+Sunday     December   19 2010
+  Browns      7  0  0 10  0   17
+  Bengals     0 10  6  3  0   19
+Sunday     December   19 2010
+  Redskins    0  7  7 16  0   30
+  Cowboys    10 10 10  3  0   33
+Sunday     December   19 2010
+  Texans      0  3  7  7  0   17
+  Titans     21  3  7  0  0   31
+Sunday     December   19 2010
+  Jaguars     0 10  7  7  0   24
+  Colts       7  7 10 10  0   34
+Sunday     December   19 2010
+  Chiefs      0 14  3 10  0   27
+  Rams        6  0  0  7  0   13
+Sunday     December   19 2010
+  Bills       0 10  7  0  0   17
+  Dolphins    0  7  0  7  0   14
+Sunday     December   19 2010
+  Eagles      0  3  7 28  0   38
+  Giants      7 17  0  7  0   31
+Sunday     December   19 2010
+  Lions       7  3  7  3  3   23 
+  Buccaneers  0 14  0  6  0   20 
+Sunday     December   19 2010
+  Cardinals   0  3  0  9  0   12
+  Panthers    6  7  6  0  0   19
+Sunday     December   19 2010
+  Saints      7  7  3  7  0   24
+  Ravens      7 14  3  6  0   30
+Sunday     December   19 2010
+  Falcons     0 17 17  0  0   34
+  Seahawks    7  3  0  8  0   18
+Sunday     December   19 2010
+  Broncos    14  3  3  3  0   23
+  Raiders    14  3  6 16  0   39
+Sunday     December   19 2010
+  Jets        7  3  7  5  0   22
+  Steelers    0 10  7  0  0   17
+Sunday     December   19 2010
+  Packers     3 14  7  3  0   27
+  Patriots    7  7  7 10  0   31
+Monday     December   20 2010
+  Bears      10  7 20  3  0   40
+  Vikings     7  0  7  0  0   14
+Thursday   December   23 2010
+  Panthers    0  0  0  3  0    3
+  Steelers    3 17  7  0  0   27
+Saturday   December   25 2010
+  Cowboys     0 10 10  6  0   26
+  Cardinals  14  7  0  6  0   27
+Sunday     December   26 2010
+  Patriots    7 17  7  3  0   34
+  Bills       3  0  0  0  0    3
+Sunday     December   26 2010
+  Jets        0 24  7  3  0   34
+  Bears      10  7 21  0  0   38
+Sunday     December   26 2010
+  Ravens      0 13  7  0  0   20
+  Browns      7  3  0  0  0   10
+Sunday     December   26 2010
+  Titans      0  7  7  0  0   14
+  Chiefs     14 17  3  0  0   34
+Sunday     December   26 2010
+  49ers       0 14  0  3  0   17
+  Rams        9  3  3 10  0   25
+Sunday     December   26 2010
+  Lions       3  7  7 17  0   34
+  Dolphins    3 14  7  3  0   27
+Sunday     December   26 2010
+  Redskins   10  0  0  7  3   20 
+  Jaguars     0  7  3  7  0   17 
+Sunday     December   26 2010
+  Chargers    0  3  7 10  0   20
+  Bengals     7  6  0 21  0   34
+Sunday     December   26 2010
+  Texans      7 10  6  0  0   23
+  Broncos     0  0 10 14  0   24
+Sunday     December   26 2010
+  Colts       7 10  7  7  0   31
+  Raiders     7  6  3 10  0   26
+Sunday     December   26 2010
+  Giants      0 14  3  0  0   17
+  Packers    14  7 10 14  0   45
+Sunday     December   26 2010
+  Seahawks    7  0  0  8  0   15
+  Buccaneers  3 14 14  7  0   38
+Monday     December   27 2010
+  Saints      3  7  0  7  0   17
+  Falcons     0  7  0  7  0   14
+Tuesday    December   28 2010
+  Vikings     0  7 10  7  0   24
+  Eagles      7  0  0  7  0   14
+Sunday     January     2 2011
+  Panthers    0  0  3  7  0   10
+  Falcons    14  7 10  0  0   31
+Sunday     January     2 2011
+  Steelers   14 17  7  3  0   41
+  Browns      0  3  0  6  0    9
+Sunday     January     2 2011
+  Vikings     0  0  7  6  0   13
+  Lions       0 10  3  7  0   20
+Sunday     January     2 2011
+  Raiders     0 10  7 14  0   31
+  Chiefs      3  0  7  0  0   10
+Sunday     January     2 2011
+  Dolphins    0  0  0  7  0    7
+  Patriots   14 10 14  0  0   38
+Sunday     January     2 2011
+  Buccaneers  3  7 10  3  0   23
+  Saints      7  0  3  3  0   13
+Sunday     January     2 2011
+  Bills       0  0  7  0  0    7
+  Jets        3 14  7 14  0   38
+Sunday     January     2 2011
+  Bengals     0  0  0  7  0    7
+  Ravens      3  3  7  0  0   13
+Sunday     January     2 2011
+  Chargers    0 16 10  7  0   33
+  Broncos     7  0  7 14  0   28
+Sunday     January     2 2011
+  Bears       0  3  0  0  0    3
+  Packers     0  0  3  7  0   10
+Sunday     January     2 2011
+  Titans      3  3 14  0  0   20
+  Colts       3 10  7  3  0   23
+Sunday     January     2 2011
+  Cowboys     0  7  0  7  0   14
+  Eagles      0  7  0  6  0   13
+Sunday     January     2 2011
+  Cardinals   0  7  0  0  0    7
+  49ers       7  3 21  7  0   38
+Sunday     January     2 2011
+  Giants      3  7  7  0  0   17
+  Redskins    0  7  0  7  0   14
+Sunday     January     2 2011
+  Jaguars     0 17  0  0  0   17
+  Texans     10 10  7  7  0   34
+Sunday     January     2 2011
+  Rams        0  3  3  0  0    6
+  Seahawks    7  0  3  6  0   16

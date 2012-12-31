@@ -1,0 +1,36 @@
+Sunday September 12 2010
+  Dolphins 3 7 0 5 0 15
+  Bills 0 3 0 7 0 10
+Sunday September 19 2010
+  Patriots 0 14 0 0 0 14
+  Jets 0 10 11 7 0 28
+Sunday September 26 2010
+  Bills 3 13 7 7 0 30
+  Patriots 7 10 14 7 0 38
+Sunday September 26 2010
+  Jets 7 7 7 10 0 31
+  Dolphins 0 10 10 3 0 23
+Sunday October 3 2010
+  Jets 7 10 21 0 0 38
+  Bills 0 7 0 7 0 14
+Monday October 4 2010
+  Patriots 0 6 21 14 0 41
+  Dolphins 7 0 7 0 0 14
+Monday December 6 2010
+  Jets 0 3 0 0 0 3
+  Patriots 17 7 7 14 0 45
+Sunday December 12 2010
+  Dolphins 10 0 0 0 0 10
+  Jets 0 3 0 3 0 6
+Sunday December 19 2010
+  Bills 0 10 7 0 0 17
+  Dolphins 0 7 0 7 0 14
+Sunday December 26 2010
+  Patriots 7 17 7 3 0 34
+  Bills 3 0 0 0 0 3
+Sunday January 2 2011
+  Dolphins 0 0 0 7 0 7
+  Patriots 14 10 14 0 0 38
+Sunday January 2 2011
+  Bills 0 0 7 0 0 7
+  Jets 3 14 7 14 0 38
