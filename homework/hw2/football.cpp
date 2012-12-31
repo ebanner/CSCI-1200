@@ -121,18 +121,32 @@ vector<Team> populate_teams(vector<Game> &games)
         visitor_team = Team(visitor_name);
         home_team = Team(home_name);
 
-        // check to see if the visitor is already in there
+        // check to see if the visitor team is already in there
         if ((it = find(teams.begin(), teams.end(), visitor_team)) != teams.end()) {
-            // Visitor is already in the vector -- just increment win or loss
+            // visitor team is already in the vector -- just increment win or loss
             if (visitor_summary.isVictor()) {
                 it->addWin();
             } else {
                 it->addLoss();
             }
         } else {
-            /* Visitor is not in the vector -- add it to the vector with a win 
-             * or loss. */
+            /* Visitor team is not in the vector -- add it to the vector with a
+             * win or loss. */
             teams.push_back(Team(visitor_name, visitor_summary.isVictor() ? 1 : 0, visitor_summary.isVictor() ? 0 : 1));
+        }
+
+        // check to see if the home team is already in there
+        if ((it = find(teams.begin(), teams.end(), home_team)) != teams.end()) {
+            // home team is already in the vector -- just increment win or loss
+            if (home_summary.isVictor()) {
+                it->addWin();
+            } else {
+                it->addLoss();
+            }
+        } else {
+            /* Home team is not in the vector -- add it to the vector with a
+             * win or loss. */
+            teams.push_back(Team(home_name, home_summary.isVictor() ? 1 : 0, home_summary.isVictor() ? 0 : 1));
         }
     }
 
