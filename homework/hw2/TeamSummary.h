@@ -24,6 +24,7 @@ class TeamSummary {
         int getOT() const { return quarters[4]; }
         const int *getQuarters() const { return quarters; }
         int getScore() const { return score; }
+        bool isVictor() const { return won; }
 
         // modifiers
         void setName(const string name) {this->name = name; }
@@ -34,11 +35,13 @@ class TeamSummary {
         void setOT(const int OT) {this->quarters[4] = OT; }
         void setQuarters(const int quarters[]) { memcpy(this->quarters, quarters, sizeof(this->quarters)); }
         void setScore(const int score) {this->score = score; }
+        void setVictor(const bool won) {this->won = won; }
 
     private:
         string name;
         int quarters[5]; // haha, not really `quarters'
         int score;
+        bool won;
 };
 
 #endif

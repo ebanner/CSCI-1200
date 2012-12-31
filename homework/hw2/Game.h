@@ -1,7 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <string>
 #include "Date.cpp"
+#include "TeamSummary.cpp"
+
+using namespace std;
 
 class Game {
     public:

@@ -8,12 +8,14 @@ TeamSummary::TeamSummary() {
     for (int i = 0; i < sizeof(quarters)/sizeof(quarters[0]); i++)
         quarters[i] = 0;
     score = 0;
+    won = false;
 }
 
 TeamSummary::TeamSummary(const string name, const int quarters[], const int score) {
     this->name = name;
     memcpy(this->quarters, quarters, sizeof(this->quarters));
     this->score = score;
+    this->won = false;
 }
 TeamSummary::TeamSummary(const string name, 
                 const int Q1, const int Q2, const int Q3, const int Q4, 
@@ -25,6 +27,7 @@ TeamSummary::TeamSummary(const string name,
     this->quarters[3] = Q4;
     this->quarters[4] = OT;
     this->score = score;
+    this->won = false;
 }
 
 #endif
