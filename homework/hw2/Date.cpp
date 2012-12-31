@@ -1,4 +1,8 @@
+#ifndef DATE_CPP
+#define DATE_CPP
+
 #include <iostream>
+#include <string>
 #include "Date.h"
 
 using namespace std;
@@ -9,10 +13,11 @@ Date::Date() {
     year = 1900;
 }
 
-Date::Date(int day, int month, int year) {
+Date::Date(int day, int month, int year, string weekday) {
     this->day = day;
     this->month = month;
     this->year = year;
+    this->weekday = weekday;
 }
 
 int Date::getDay() const {
@@ -41,8 +46,9 @@ void Date::setYear(const int year) {
 
 bool Date::isEqual(const Date &date) const {
     return date.day == day &&
-        date.month == month &&
-     date.year == year;
+         date.month == month &&
+       date.year == year &&
+      date.weekday == weekday;
 }
 
 void Date::print() const {
@@ -61,17 +67,19 @@ bool operator< (const Date &date1, const Date &date2) {
     else if (date1.getYear() > date2.getYear())
         return false;
 
-    // date1.year == date2.year
+    // same year
     
     if (date1.getMonth() < date2.getMonth())
         return true;
     else if (date1.getYear() > date2.getYear())
         return false;
 
-    // date1.month == date2.month
+    // same month
 
     if (date1.getDay() < date2.getDay())
         return true;
     else // date1 >= date2
         return false;
 }
+
+#endif
