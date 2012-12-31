@@ -44,16 +44,20 @@ int main(int argc, char **argv)
     }
 
     int longest_name[2];
+    // read the scores from `input_file_str' and create a bunch of `Games'
     vector<Game> games = populate_games(input_file_str, longest_name);
     // games have all been added -- time to sort them
     sort(games.begin(), games.end(), sortByPointDifferential);
+    // print `Games' by point differential
     print_point_differential_table(output_file_str, games, longest_name);
 
     cout << endl;
 
-    // translate the summaries for each game into a vector of teams
+    // translate the summaries for each game into a vector of `Teams'
     vector<Team> teams = populate_teams(games);
+    // sort the teams by winning percentage
     sort(teams.begin(), teams.end(), sortByWinningPercentage);
+    // print `Teams' by winning percentage
     print_winning_percentage_table(output_file_str, teams, longest_name);
 
     return 0;
@@ -99,11 +103,12 @@ vector<Game> populate_games(ifstream &input_file_str, int longest_name[])
     return games;
 }
 
+// Here lies repeated code.
 vector<Team> populate_teams(vector<Game> &games)
 {
     Team visitor_team, home_team;
     TeamSummary visitor_summary, home_summary;
-    // create a container to hold the teams
+    // create a vecotr to hold the teams
     vector<Team> teams;
     vector<Team>::iterator it;
     // create the `Team' object from the `Game' objects
@@ -156,17 +161,17 @@ vector<Team> populate_teams(vector<Game> &games)
 void print_point_differential_table(ofstream &output_file_str, vector<Game> &games, int longest_name[])
 {
     // print out the differentials
-    cout << "ALL GAMES, SORTED BY POINT DIFFERENTIAL:" << endl;
+    output_file_str << "ALL GAMES, SORTED BY POINT DIFFERENTIAL:" << endl;
     for (int i = 0; i < games.size(); i++)
-        games[i].print(longest_name); 
+        games[i].print(output_file_str, longest_name); 
 }
 
 void print_winning_percentage_table(ofstream &output_file_str, vector<Team> &teams, int longest_name[])
 {
+    output_file_str << "ALL GAMES, SORTED BY WIN PERCENTAGE:" << endl;
     for (int i = 0; i < teams.size(); i++)
         teams[i].print(output_file_str, max(longest_name[0], longest_name[1]));
 }
-
 
 int get_month(const string &month)
 {
@@ -197,7 +202,6 @@ int get_month(const string &month)
     else
         return -1;
 }
-
 
 void usage()
 {

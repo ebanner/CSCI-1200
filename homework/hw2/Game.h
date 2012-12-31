@@ -28,7 +28,7 @@ class Game {
         int getTotalPoints() const;
         string getVisitorName() const { return visitorSummary.getName(); }
         string getHomeName() const { return homeSummary.getName(); }
-        void print(const int longestName[]) const;
+        void print(ofstream &output_file_str, const int longestName[]) const;
 
     private:
         Date date;

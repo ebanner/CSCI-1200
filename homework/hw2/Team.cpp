@@ -32,7 +32,7 @@ float Team::getWinningPercentage() const {
 }
 
 void Team::print(ofstream &output_file_str, int longest_name) const {
-    cout << setw(longest_name+3) << left << setw(2) << right << wins << " win(s) - " <<
+    output_file_str << setw(longest_name+3) << left << name << setw(2) << right << wins << " win(s) - " <<
         setw(2) << right << losses << " loss(es)  " << setprecision(2) << getWinningPercentage() << endl;
 }
 
