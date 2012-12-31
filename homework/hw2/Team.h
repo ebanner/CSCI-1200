@@ -34,7 +34,7 @@ class Team {
 
         // table stuff
         float getWinningPercentage() const;
-        void print() const;
+        void print(ofstream &output_file_str, int longest_name) const;
 };
 
 bool sortByWinningPercentage(const Team &team1, const Team &team2);

@@ -31,11 +31,15 @@ float Team::getWinningPercentage() const {
     return float(wins) / float(losses);
 }
 
-void Team::print() const {
+void Team::print(ofstream &output_file_str, int longest_name) const {
+    /*
     cout << "Team: " << name << endl;
     cout << "Wins: " << wins << endl;
     cout << "Losses: " << losses << endl;
     cout << "Games played: " << gamesPlayed << endl;
+    */
+    cout << setw(longest_name+3) << left << setw(2) << right << wins << " win(s) - " <<
+        setw(2) << right << losses << " loss(es)  " << getWinningPercentage() << endl;
 }
 
 bool sortByWinningPercentage(const Team &team1, const Team &team2) {
