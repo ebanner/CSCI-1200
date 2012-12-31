@@ -2,6 +2,7 @@
 #define GAME_CPP
 
 #include <cmath>
+#include <string>
 #include "Game.h"
 
 Game::Game() : date(), visitorSummary(), homeSummary() {
@@ -23,6 +24,20 @@ int Game::getTotalPoints() const {
     return visitorSummary.getScore() + homeSummary.getScore();
 }
 
+void Game::print(const int longestName[]) const {
+    string outcome;
+    if (visitorSummary.getScore() > homeSummary.getScore())
+        outcome = " defeated ";
+    else if (visitorSummary.getScore() < homeSummary.getScore())
+        outcome = " lost to ";
+    else
+        outcome = " tied ";
+    cout << setw(longestName[0]+3) << left << visitorSummary.getName() <<
+        setw(11) << left << outcome << setw(longestName[1]+3) << left <<
+        homeSummary.getName() << setw(2) << right << visitorSummary.getScore()
+        << " - " << setw(2) << right << homeSummary.getScore() << endl;
+}
+
 bool sortByPointDifferential(const Game &game1, const Game &game2) {
     if (game1.getPointDifferential() < game2.getPointDifferential())
         return true;
@@ -31,9 +46,9 @@ bool sortByPointDifferential(const Game &game1, const Game &game2) {
 
     // point differentials are the same
     
-    if (game1.getTotalPoints() < game2.getTotalPoints())
+    if (game1.getTotalPoints() > game2.getTotalPoints())
         return true;
-    else if (game1.getTotalPoints() > game2.getTotalPoints())
+    else if (game1.getTotalPoints() < game2.getTotalPoints())
         return false;
 
     // point differentials are the same

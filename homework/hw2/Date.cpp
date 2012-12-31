@@ -20,30 +20,6 @@ Date::Date(int day, int month, int year, string weekday) {
     this->weekday = weekday;
 }
 
-int Date::getDay() const {
-    return day;
-}
-
-int Date::getMonth() const {
-    return month;
-}
-
-int Date::getYear() const {
-    return year;
-}
-
-void Date::setDay(const int day) {
-    this->day = day;
-}
-
-void Date::setMonth(const int month) {
-    this->month = month;
-}
-
-void Date::setYear(const int year) {
-    this->year = year;
-}
-
 bool Date::isEqual(const Date &date) const {
     return date.day == day &&
          date.month == month &&
