@@ -1,6 +1,3 @@
-#ifndef DATE_CPP
-#define DATE_CPP
-
 #include <iostream>
 #include <string>
 #include "Date.h"
@@ -57,5 +54,3 @@ bool operator< (const Date &date1, const Date &date2) {
     else // date1 >= date2
         return false;
 }
-
-#endif

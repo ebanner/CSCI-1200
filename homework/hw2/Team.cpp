@@ -1,7 +1,5 @@
-#ifndef TEAM_CPP
-#define TEAM_CPP
-
 #include <string>
+#include <iomanip>
 #include "Team.h"
 
 using namespace std;
@@ -63,5 +61,3 @@ bool sortByWinningPercentage(const Team &team1, const Team &team2) {
 bool operator== (const Team &team1, const Team &team2) {
     return team1.getName() == team2.getName();
 }
-
-#endif

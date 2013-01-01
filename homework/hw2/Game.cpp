@@ -1,9 +1,10 @@
-#ifndef GAME_CPP
-#define GAME_CPP
-
+#include <iostream>
+#include <iomanip>
 #include <cmath>
 #include <string>
 #include "Game.h"
+
+using namespace std;
 
 Game::Game() : date(), visitorSummary(), homeSummary() {
     // initialzie instance variables with default constructors
@@ -32,10 +33,11 @@ void Game::print(ofstream &output_file_str, const int longestName[]) const {
         outcome = " lost to ";
     else
         outcome = " tied ";
+
     output_file_str << setw(longestName[0]+5) << left << visitorSummary.getName() <<
         setw(11) << left << outcome << setw(longestName[1]+5) << left <<
-        homeSummary.getName() << setw(2) << right << visitorSummary.getScore()
-        << " - " << setw(2) << right << homeSummary.getScore() << endl;
+        homeSummary.getName() << setw(2) << right << visitorSummary.getScore() << 
+        " - " << setw(2) << right << homeSummary.getScore() << endl;
 }
 
 bool sortByPointDifferential(const Game &game1, const Game &game2) {
@@ -71,5 +73,3 @@ bool sortByPointDifferential(const Game &game1, const Game &game2) {
      * see what happens. */
     return true;
 }
-
-#endif

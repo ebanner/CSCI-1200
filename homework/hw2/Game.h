@@ -2,8 +2,8 @@
 #define GAME_H
 
 #include <string>
-#include "Date.cpp"
-#include "TeamSummary.cpp"
+#include "Date.h"
+#include "TeamSummary.h"
 
 using namespace std;
 

@@ -1,6 +1,3 @@
-#ifndef TEAMSUMMARY_CPP
-#define TEAMSUMMARY_CPP
-
 #include "TeamSummary.h"
 
 TeamSummary::TeamSummary() {
@@ -29,5 +26,3 @@ TeamSummary::TeamSummary(const string name,
     this->score = score;
     this->won = false;
 }
-
-#endif

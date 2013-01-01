@@ -5,9 +5,9 @@
 #include <iomanip>
 #include <algorithm>
 #include <cmath>
-#include "TeamSummary.cpp"
-#include "Game.cpp"
-#include "Team.cpp"
+#include "TeamSummary.h"
+#include "Game.h"
+#include "Team.h"
 
 using namespace std;
 
