@@ -118,7 +118,7 @@ template <class T> typename Vec<T>::iterator Vec<T>::erase(iterator p) {
 
     /* Copy each element one space back starting at one past the element to be 
      * removed. */
-    for (int *ptr = p+1; ptr < m_data+m_alloc; ptr++)
+    for (int *ptr = p+1; ptr < m_data+m_size; ptr++)
         *(ptr-1) = *ptr;
     m_size--; // decrease the number of elements (from the user's perspective)
 
@@ -163,7 +163,7 @@ template <class T> void Vec<T>::resize(size_type n, const T& fill_in_value) {
         // the temporary vector becomes the new vector
         m_data = new_data;
         // the size of the temporary vector becomes the size of the new vector
-        m_size = m_alloc = n;
+        m_alloc = n;
     }
 }
 
