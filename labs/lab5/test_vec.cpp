@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 
-#include "vec.h"
+#include "Vec.h"
 
 int main() {
 
