@@ -3,7 +3,7 @@
 #include <string>
 #include <stdlib.h>
 #include <assert.h>
-#include "jagged_array.h"
+#include "JaggedArray.h"
 
 using namespace std;
 
