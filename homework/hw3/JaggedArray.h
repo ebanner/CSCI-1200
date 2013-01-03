@@ -19,7 +19,6 @@ template <class T> class JaggedArray {
 
     public:
         // constructor
-        JaggedArray();
         JaggedArray(const unsigned int bins);
 
         // destructor
@@ -45,15 +44,6 @@ template <class T> class JaggedArray {
         void print() const;
 };
 
-template <class T> JaggedArray<T>::JaggedArray() {
-    num_bins = num_elements = 0;
-    packed = false;
-    counts = NULL;
-    offsets = NULL;
-    packed_values = NULL;
-    unpacked_values = NULL;
-}
-
 template <class T> JaggedArray<T>::JaggedArray(const unsigned int bins) {
     num_bins = bins;
     num_elements = 0;
@@ -62,21 +52,28 @@ template <class T> JaggedArray<T>::JaggedArray(const unsigned int bins) {
     offsets = new int[bins];
     packed_values = NULL;
     unpacked_values = new T*[bins];
+
+    // set each of the bins to NULL initially
+    for (int i = 0; i < num_bins; i++)
+        unpacked_values[i] = NULL;
 }
 
 template <class T> JaggedArray<T>::~JaggedArray() {
     if (offsets != NULL)
         delete [] offsets;
 
-    if (packed_values != NULL)
-        delete [] packed_values;
-
     if (counts != NULL)
         delete [] counts;
+
+    if (packed_values != NULL)
+        delete [] packed_values;
 
     for (int i = 0; i < num_bins; i++)
         if (unpacked_values[i] != NULL)
             delete [] unpacked_values[i];
+
+    if (unpacked_values != NULL)
+        delete [] unpacked_values;
 }
 
 template <class T> T JaggedArray<T>::getElement(const int bin, const int offset) const {
@@ -115,7 +112,6 @@ template <class T> void JaggedArray<T>::addElement(const int bin, const T &eleme
 
     // insert new element into the new bin
     new_bin[old_bin_size] = element;
-
     
     // make the new bin the one recognized by the `unpacked_values' array
     unpacked_values[bin] = new_bin; // -- THERE MAY BE A MEMORY LEAK HERE -- \\
@@ -135,19 +131,29 @@ template <class T> void JaggedArray<T>::removeElement(const int bin, const int o
 
     // make sure the element to be removed is in range
     assert(offset < old_bin_size);
-    
+
     // get a pointer to the old bin to be more verbose
     T *old_bin = unpacked_values[bin];
-    // allocate memory for the new bin of size one less
-    T *new_bin = new T[old_bin_size-1];
+    // get a pointer to the new bin
+    T *new_bin;
 
-    for (int i = 0, j = 0; i < old_bin_size; i++) {
-        if (i == offset) // don't add the element we want to remove
-            continue;
+    if (old_bin_size == 1) {
+        // just delete the old bin and stick a NULL bin as the new bin
+        delete [] old_bin;
+        new_bin = NULL;
+    } else { 
+        /* There will still be an element left after removing one, so allocate
+         * memory for the new bin of size one less. */
+        new_bin = new T[old_bin_size-1];
 
-        // copy over the old elements to the new bin
-        new_bin[j] = old_bin[i];
-        j++;
+        for (int i = 0, j = 0; i < old_bin_size; i++) {
+            if (i == offset) // don't add the element we want to remove
+                continue;
+
+            // copy over the old elements to the new bin
+            new_bin[j] = old_bin[i];
+            j++;
+        }
     }
 
     // free the memory used by the old bin
@@ -155,7 +161,7 @@ template <class T> void JaggedArray<T>::removeElement(const int bin, const int o
 
     // give the new bin to the unpacked values array
     unpacked_values[bin] = new_bin;
-    
+
     // decrease the number of overall elements
     num_elements--;
 
@@ -172,10 +178,6 @@ template <class T> void JaggedArray<T>::clear() {
         unpacked_values[i] = NULL;
     }
 
-    // free the memory hogged by packed & unpacked values
-    delete [] packed_values;
-    delete [] unpacked_values;
-    
     // set the packed values to NULL
     packed_values = NULL;
 
@@ -190,7 +192,11 @@ template <class T> void JaggedArray<T>::pack() {
     // -- We must be unpacked -- \\
     
     // allocate a new array for packed_value
-    T *new_packed_values = new T[num_elements];
+    T *new_packed_values; 
+    if (num_elements > 0)
+        new_packed_values = new T[num_elements];
+    else // there are no elements
+        new_packed_values = NULL;
 
     int offset = 0; // start the offset of the packed offsets at zero
     for (int bin = 0; bin < num_bins; bin++) {
@@ -204,8 +210,10 @@ template <class T> void JaggedArray<T>::pack() {
     if (packed_values != NULL)
         delete [] packed_values;
 
+    // let the packed values become this new array of values we just created
     packed_values = new_packed_values;
 
+    // let it be known that we are now packing
     packed = true;
 }
 
@@ -240,7 +248,7 @@ template <class T> void JaggedArray<T>::unpack() {
 
         if (unpacked_values[i] != NULL) {
             // free the memory that the old `unpacked_values[i]' was taking up
-            delete unpacked_values[i];
+            delete [] unpacked_values[i];
         }
 
         /* This bin should be all filled up, so let's add it to the unpacked
@@ -267,7 +275,8 @@ template <class T> void JaggedArray<T>::print() const {
 
         std::cout << "Packed values: " << std::endl;
         for (int i = 0; i < num_elements; i++)
-            std::cout << packed_values[i] << std::endl;
+            std::cout << packed_values[i] << ' ';
+        std::cout << std::endl;
     } else { // unpacked
 
         std::cout << "Unpacked:" << std::endl << std::endl;
@@ -281,7 +290,6 @@ template <class T> void JaggedArray<T>::print() const {
         std::cout << std::endl;
 
         std::cout << "Unpacked values: " << std::endl;
-
         for (int i = 0; i < num_bins; i++)
             for (int j = 0; j < counts[i]; j++)
                 std::cout << "Element in bin " << i << " offset " << j << 
