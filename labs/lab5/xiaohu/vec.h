@@ -1,7 +1,8 @@
 #ifndef Vec_h_
 #define Vec_h_
 
-#include <cstddef>
+#include <cstdlib>
+#include <cassert>
 
 // Simple implementation of the vector class, revised from Koenig and Moo.  This 
 // class is implemented using a dynamically allocated array (of templated type T).  
@@ -32,7 +33,6 @@ public:
   void clear() { delete [] m_data;  create(); }
   bool empty() const { return m_size == 0; }
   size_type size() const { return m_size; }
-  void reverse();
 
   // ITERATOR OPERATIONS
   iterator begin() { return m_data; }
@@ -91,7 +91,8 @@ template <class T> void Vec<T>::push_back(const T& val) {
   if (m_size == m_alloc) { 
     // Allocate a larger array, and copy the old values
 
-    // Calculate the new allocation.  Make sure it is at least one.  m_alloc *= 2;
+    // Calculate the new allocation.  Make sure it is at least one.
+    m_alloc *= 2;
     if (m_alloc < 1) m_alloc = 1;
     
     // Allocate and copy the old array
@@ -106,15 +107,16 @@ template <class T> void Vec<T>::push_back(const T& val) {
 
   // Add the value at the last location and increment the bound
   m_data[m_size] = val;
-  ++m_size;
+  ++ m_size;
 }
 
 // Shift each entry of the array after the iterator. Return the iterator, 
 // which will have the same value, but point to a different element.
 template <class T> typename Vec<T>::iterator Vec<T>::erase(iterator p) {
-    if (p >= m_data+m_size) {
-        return p; // do nothing if pointing past the last element of the vector
-    }
+    // ensure p points to an element in the vector
+    assert(m_data <= p && p < m_data+m_size);
+    // ensure vector has something in it
+    assert(m_size >= 1);
 
     T *ptr = p+1;
     while (ptr < m_data+m_size) {
@@ -125,11 +127,18 @@ template <class T> typename Vec<T>::iterator Vec<T>::erase(iterator p) {
 
     return p;
 
-    /* Copy each element one space back starting at one past the element to be 
-     * removed.
-    for (T *ptr = p+1; ptr < m_data+m_size; ptr++)
-        *(ptr-1) = *ptr;
-    m_size--; // decrease the number of elements (from the user's perspective)
+    /*
+    if (m_size == 1) {
+        m_size = 0;
+        return p;
+    } 
+
+    T *ptr = p;
+    while (ptr < m_data+m_size-1) {
+            *ptr = *(ptr+1);
+            ptr++;
+    }
+    m_size--;
 
     return p;
     */
@@ -139,44 +148,7 @@ template <class T> typename Vec<T>::iterator Vec<T>::erase(iterator p) {
 // greater than the current size, the new slots must be filled in with the given value. 
 // Re-allocation should occur only if necessary.  push_back should not be used.
 template <class T> void Vec<T>::resize(size_type n, const T& fill_in_value) {
-    /*
-    if (n <= m_size) {
-        m_size = n;
-        return;
-
-    } else if (n <= m_alloc) {
-        for (int i = m_size; i < n; i++) {
-            // fill in the remaining values with `fill_in_value'
-            m_data[i] = fill_in_value;
-        }
-        m_size = n;
-
-        return;
-
-    } else { 
-        // n > m_alloc, so reallocation is necessary
-
-        // allocate the new memory necessary
-        T *new_data = new T[n];
-
-        for (int i = 0; i < m_size; i++) {
-            // copy old data to new vector
-            new_data[i] = m_data[i];
-        }
-
-        for (int i = m_size; i < n; i++) {
-            // copy `fill_in_value' into the new slots
-            new_data[i] = fill_in_value;
-        }
-
-        // free memory occupied by old vector
-        delete [] m_data;
-        // the temporary vector becomes the new vector
-        m_data = new_data;
-        // the size of the temporary vector becomes the size of the new vector
-        m_alloc = n;
-    }
-    */
+    assert(n > 0); // n is positive
 
     if (n <= m_size) {
         m_size = n;
@@ -202,15 +174,4 @@ template <class T> void Vec<T>::resize(size_type n, const T& fill_in_value) {
         m_size = n;
     }
 }
-
-template <class T> void Vec<T>::reverse() {
-    T temp;
-
-    for (int i = 0; i < m_size/2; i++) {
-        temp = m_data[i];
-        m_data[i] = m_data[m_size-i-1];
-        m_data[m_size-i-1] = temp;
-    }
-}
-
 #endif
