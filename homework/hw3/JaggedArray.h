@@ -158,7 +158,6 @@ template <class T> void JaggedArray<T>::removeElement(const int bin, const int o
 
     if (old_bin_size == 1) {
         // just delete the old bin and stick a NULL bin as the new bin
-        delete [] old_bin;
         new_bin = NULL;
     } else { 
         /* There will still be an element left after removing one, so allocate
@@ -193,9 +192,15 @@ template <class T> void JaggedArray<T>::clear() {
         // clear out the bins
         counts[i] = offsets[i] = 0;
 
+        // free memory owned by the bin
+        delete [] unpacked_values[i];
+
         // set the packed & unpacked values arrays to NULL;
         unpacked_values[i] = NULL;
     }
+
+    // free memory owned by packed_values
+    delete [] packed_values;
 
     // set the packed values to NULL
     packed_values = NULL;
