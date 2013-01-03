@@ -77,10 +77,29 @@ template <class T> JaggedArray<T>::~JaggedArray() {
 }
 
 template <class T> T JaggedArray<T>::getElement(const int bin, const int offset) const {
-    if (packed)
+    
+    // ensure the bin is valid
+    assert(bin < num_bins);
+
+    if (packed) {
+
+        int max_offset;
+        if (bin == num_bins-1)
+            max_offset = num_elements - offsets[bin];
+        else
+            max_offset = offsets[bin+1] - offsets[bin];
+
+        // ensure the offset is valid
+        assert(offset < max_offset);
+
         return packed_values[offsets[bin]+offset];
-    else // unpacked
+
+    } else { // unpacked
+        // ensure the offset is valid
+        assert(offset < counts[bin]);
+
         return unpacked_values[bin][offset];
+    }
 }
 
 template <class T> void JaggedArray<T>::addElement(const int bin, const T &element) {
