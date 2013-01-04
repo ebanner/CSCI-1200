@@ -38,7 +38,36 @@ void print(Node* &head) {
   cout << endl;
 }
 
+void remove(Node *&head, const int val)
+{
+    if (head == NULL) { // easy case #1
+        return;
+    } else if (head->ptr == NULL) { // easy case #2
+        delete head->ptr; // no fix-up necessary
+        return;
+    } else if (head->value == val) { // easy case #3
+        Node *to_be_removed = head;
+        head = head->ptr;
+        delete to_be_removed;
+        return;
+    }
 
+    // -- hard case -- \\
+    
+    Node *present;
+    for (present = head; present->ptr->value != val; present = present->ptr)
+        ; // ride along the linked list until the next Node is the one we want to remove
+
+    /* Save a pointer to the next Node so we can delete it after fixing up the
+     * link. */
+    Node *to_be_deleted = present->ptr;
+
+    // fix up the link
+    present->ptr = present->ptr->ptr;
+
+    // delete the Node
+    delete to_be_deleted;
+}
 
 int main() {
 
@@ -53,6 +82,12 @@ int main() {
   push_back(lst,16);
   push_back(lst,17);
   push_back(lst,18);
+  print(lst);
+
+  remove(lst, 10);
+  remove(lst, 13);
+  remove(lst, 15);
+  remove(lst, 17);
   print(lst);
 
 }
