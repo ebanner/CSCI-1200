@@ -12,3 +12,8 @@ void Student::RemoveFromSchoolPreferenceList(const string &school_name) {
    // remove the school from the Student's list of preferred schools
    preferred_schools.erase(itr);
 }
+
+bool operator==(const Student &student1, const Student &student2)
+{
+    return student1.GetName() == student2.getName();
+}
