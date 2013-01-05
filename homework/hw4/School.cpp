@@ -64,7 +64,3 @@ void School::PrintSchoolPreference(ostream &ostr) const {
   }
   ostr << std::endl;
 }
-
-bool operator==(const School &school1, const School &school2) {
-  return school1.GetName() == school2.GetName();
-}
