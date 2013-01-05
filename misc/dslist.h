@@ -7,6 +7,7 @@
 // there is no dummy head node and the list is not circular.
 
 #include <cassert>
+#include <cstdlib>
 
 // -----------------------------------------------------------------
 // NODE CLASS
@@ -149,51 +150,102 @@ template <class T>
 void dslist<T>::push_front(const T& v) {
   // create the new node
   Node<T> *new_node = new Node<T>;
-  Node<T> *old_tail = tail_;
-  Node<T> *old_head = head_;
 
   // take care of setting the value for the new node
   new_node->value_ = v;
 
-  if (size == 0) { // empty list
+  if (size_ == 0) { // special case: empty list
     // the head and tail now point to the only node in the list
     head_ = tail_ = new_node;
 
     // new node is the only node in the list
     new_node->next_ = NULL;
-    new_node->prev = NULL;
-  } else if (size == 1) {
-    // fix the old head to point to the new node
-    old_head->next = new_node;
-    // 
+    new_node->prev_ = NULL;
 
+    // size of the linked list is now one
+    size_++;
 
+    return;
 
+  } 
+  
+  // have the old last node point to the new last node
+  tail_->next_ = new_node;
 
-    
+  // have the new last node point back to the previous last node
+  new_node->prev_ = tail_;
 
+  // have the new last node point to NULL
+  new_node->next_ = NULL;
 
+  // point the tail to the new last node
+  tail_ = new_node;
 
+  // increment the size of the linked list by one
+  size_++;
 }
 
 
 template <class T> 
 void dslist<T>::pop_back() {
 
+  // there must be something in the list
+  assert(size_ > 0);
 
+  if (size_ == 1) { // just delete the node
 
+    delete head_; // we could have said `delete tail_' also
 
+    // point the head and tail to nothing (empty list)
+    head_ = tail_ = NULL;
 
+  } else { // general case
+
+    // point the tail back to the previous node
+    tail_ = tail_->prev_;
+
+    // delete the last node
+    delete tail_->next_;
+
+    // point the new last node's next field to NULL
+    tail_->next_ = NULL;
+
+  }
+
+  // size goes down by one
+  size_--;
 }
 
 
 template <class T> 
 void dslist<T>::pop_front() {
 
+  // there must be something in the list
+  assert(size_ > 0);
 
+  if (size_ == 1) { // just a single node
 
+    // remove the first (and only node in the list)
+    delete head_; // could have been `delete tail_'
 
+    // we now have an empty list
+    head_ = tail_ = NULL;
 
+  } else { 
+    
+    // move the head one node up
+    head_ = head_->next_;
+
+    // delete the old head node
+    delete head_->prev_;
+
+    // set the new head node's previous to NULL
+    head_->prev_ = NULL;
+
+  }
+
+  // decrease size by one
+  size_--;
 }
 
 
@@ -270,14 +322,24 @@ void dslist<T>::copy_list(dslist<T> const & old) {
 template <class T> 
 void dslist<T>::destroy_list() {
 
+  if (size_ == 0) { // special case: empty list
+    return; // do nothing
+  }
 
+  // there's at least one node in the list
+  Node<T> *present, *next_node;
+  for (present = head_, next_node = head_->next_; next_node != NULL; present = next_node, next_node = next_node->next_)
+    delete present;
 
+  /* We will still be pointing at the last node when `next_node' is NULL, so we 
+   * still have to delete the present node. */
+  delete present;
 
+  // point the head and tail to NULL
+  head_ = tail_ = NULL;
 
-
-
-
-
+  // empty list
+  size_ = 0;
 }
 
 
