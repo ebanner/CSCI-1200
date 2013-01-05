@@ -3,6 +3,7 @@
 #include <list>
 #include <cassert>
 #include <cstdlib>
+#include <string>
 
 #include "School.h"
 #include "Student.h"
