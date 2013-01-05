@@ -109,10 +109,11 @@ void PerformMatching(std::list<School> &schools, std::list<Student> &students, s
   int which_iteration = 1;
   while(1) {
     ostr << "---- ROUND " << which_iteration << " ----" << std::endl;
+    //cout << "---- ROUND " << which_iteration << " ----" << std::endl;
     which_iteration++;
     // keep track of the offers made during this round
     int offers_made = 0;
-    
+
     for (std::list<School>::iterator school_itr = schools.begin(); school_itr != schools.end(); school_itr++) {
       if (school_itr->NumAcceptedStudents() == school_itr->MaxAcceptedStudents()) continue;
 
@@ -121,41 +122,46 @@ void PerformMatching(std::list<School> &schools, std::list<Student> &students, s
       // an empty string indicates that this school has reached the end of its preference list
       if (student == "") continue;
       ostr << school_itr->GetName() << " makes an offer to " << student << std::endl;
+      //cout << school_itr->GetName() << " makes an offer to " << student << std::endl;
       offers_made++;
 
       for (std::list<Student>::iterator student_itr = students.begin(); student_itr != students.end(); student_itr++) {
-	// loop through the students to find the student object with that name
-	if (student_itr->GetName() == student) {
-	  
-	  // check to see if that student has tentatively accepted an offer from another school
-	  std::string current_choice = "";
-	  if (student_itr->HasOffer()) { 
-	    current_choice = student_itr->GetBestOffer(); 
-	  }
-	  // make the offer to the student, returns true if the school is on the student's 
-	  // preference list and is better than the students current offer (if any)
-	  bool tentative_acceptance = student_itr->IsOfferTentativelyAccepted(school_itr->GetName());
-	  if (!tentative_acceptance) {
-	    ostr << "  " << student << " declines offer from " << school_itr->GetName() << std::endl;
-	  } else {
-	    if (current_choice != "") {
-	      // if the student had a prior acceptance, decline the earlier offer
-	      for (std::list<School>::iterator school2_itr = schools.begin(); school2_itr != schools.end(); school2_itr++) {
-		if (school2_itr->GetName() == current_choice) {
-		  ostr << "  " << student << " withdraws tentative acceptance of offer from " << current_choice << std::endl;		
-		  school2_itr->StudentDeclinesTentativeAcceptance(student);
-		}
-	      }	    
-	    }
-	    // student tentatively accepts the offer from the (new) school
-	    school_itr->StudentTentativelyAcceptsOffer(student);
-	    ostr << "  " << student << " tentatively accepts offer from " << school_itr->GetName() << std::endl;
-	  }
-	}
+        // loop through the students to find the student object with that name
+        if (student_itr->GetName() == student) {
+
+          // check to see if that student has tentatively accepted an offer from another school
+          std::string current_choice = "";
+          if (student_itr->HasOffer()) { 
+            current_choice = student_itr->GetBestOffer(); 
+          }
+          // make the offer to the student, returns true if the school is on the student's 
+          // preference list and is better than the students current offer (if any)
+          bool tentative_acceptance = student_itr->IsOfferTentativelyAccepted(school_itr->GetName());
+          if (!tentative_acceptance) {
+            ostr << "  " << student << " declines offer from " << school_itr->GetName() << std::endl;
+            //cout << "  " << student << " declines offer from " << school_itr->GetName() << std::endl;
+          } else {
+            if (current_choice != "") {
+              // if the student had a prior acceptance, decline the earlier offer
+              for (std::list<School>::iterator school2_itr = schools.begin(); school2_itr != schools.end(); school2_itr++) {
+                if (school2_itr->GetName() == current_choice) {
+                  ostr << "  " << student << " withdraws tentative acceptance of offer from " << current_choice << std::endl;		
+                  //cout << "  " << student << " withdraws tentative acceptance of offer from " << current_choice << std::endl;		
+                  school2_itr->StudentDeclinesTentativeAcceptance(student);
+                }
+              }	    
+            }
+            // student tentatively accepts the offer from the (new) school
+            school_itr->StudentTentativelyAcceptsOffer(student);
+            ostr << "  " << student << " tentatively accepts offer from " << school_itr->GetName() << std::endl;
+            //cout << "  " << student << " tentatively accepts offer from " << school_itr->GetName() << std::endl;
+          }
+        }
       }
     }
     if (offers_made == 0) {
       ostr << "no offers_made this round" << std::endl << std::endl;
+      //cout << "no offers_made this round" << std::endl << std::endl;
       break;
     }
   }

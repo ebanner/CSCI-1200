@@ -23,8 +23,7 @@ void School::PrepareToMakeOffers() {
   offer_itr = preferred_students.begin();
 }
 
-
-const string& School::MakeNextOffer() {
+const string School::MakeNextOffer() {
   // return the empty string if we are at the end of the list
   if (offer_itr == preferred_students.end())
     return "";
@@ -52,17 +51,18 @@ void School::StudentDeclinesTentativeAcceptance(const string &student) {
 
 void School::PrintSchoolEnrollment(ostream &ostr) const {
   ostr << "student(s) who will be attending " << name << ":" << endl;
-  list<string>::iterator it;
+  list<string>::const_iterator it;
   for ( it = accepted_students.begin(); it != accepted_students.end(); it++ )
     ostr << "  " << *it << endl;
 }
 void School::PrintSchoolPreference(ostream &ostr) const {
   ostr << name << " preference list:" << endl;
   int i = 1;
-  list<string>::iterator it;
+  list<string>::const_iterator it;
   for ( it = preferred_students.begin(); it != preferred_students.end(); it++, i++ ) {
     ostr << setw(2) << right << i << ". "<< *it << endl;
   }
+  ostr << std::endl;
 }
 
 bool operator==(const School &school1, const School &school2) {
