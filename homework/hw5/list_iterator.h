@@ -14,15 +14,15 @@ template <class T> class MultiLL;
 template <class T>
 class list_iterator {
   public:
-    list_iterator() : ptr_(NULL) {}
-    list_iterator(Node<T>* p) : ptr_(p) {}
-    list_iterator(list_iterator<T> const& old) : ptr_(old.ptr_) {}
-    ~list_iterator() {}
+    list_iterator(type_t t) : ptr_(NULL), type_(t) { }
+    list_iterator(Node<T>* p, type_t t) : ptr_(p), type_(t) { }
+    list_iterator(list_iterator<T> const& old) : ptr_(old.ptr_), type_(old.type_) { }
+    ~list_iterator() { }
 
-    // functions to use to invoke constructors with the correct enum type
-    type_t random() { return random_; }
-    type_t chrono() { return chrono_; }
-    type_t sorted() { return sorted_; }
+    // functions used in constructors to pass the correct enum type
+    static type_t random() { return random_; }
+    static type_t chrono() { return chrono_; }
+    static type_t sorted() { return sorted_; }
 
     list_iterator<T> & operator=(const list_iterator<T> & old) { 
       ptr_ = old.ptr_;  return *this; }
@@ -31,32 +31,63 @@ class list_iterator {
     T& operator*()  { return ptr_->value_;  }
 
     // increment & decrement operators
-    list_iterator<T> & operator++() { 
-      ptr_ = ptr_->next_; 
+    list_iterator<T> & operator++() { // ++iterator
+      if (type_ == chrono_)
+        ptr_ = ptr_->chrono_next_; 
+      else if (type_ == random_)
+        ptr_ = ptr_->sorted_next_;
+      else // type == random
+        ptr_ = ptr_->sorted_next_;
+
       return *this;
     }
-    list_iterator<T> operator++(int) {
+
+    list_iterator<T> operator++(int) { // iterator++
+      // save the current iterator so we can return it later
       list_iterator<T> temp(*this);
-      ptr_ = ptr_->next_;
+
+      if (type_ == chrono_)
+        ptr_ = ptr_->chrono_next_; 
+      else if (type_ == random_)
+        ptr_ = ptr_->sorted_next_;
+      else // type == random
+        ptr_ = ptr_->sorted_next_;
+
       return temp;
     }
-    list_iterator<T> & operator--() {
-      ptr_ = ptr_->prev_;
+
+    list_iterator<T> & operator--() { // --iterator
+      if (type_ == chrono_)
+        ptr_ = ptr_->chrono_prev_; 
+      else if (type_ == random_)
+        ptr_ = ptr_->sorted_prev_;
+      else // type == random
+        ptr_ = ptr_->sorted_prev_;
+
       return *this;
     }
-    list_iterator<T> operator--(int) {
+
+    list_iterator<T> operator--(int) { // iterator--
+      // save the current iterator so we can return it later
       list_iterator<T> temp(*this);
-      ptr_ = ptr_->prev_;
+
+      if (type_ == chrono_)
+        ptr_ = ptr_->chrono_prev_; 
+      else if (type_ == random_)
+        ptr_ = ptr_->sorted_prev_;
+      else // type == random
+        ptr_ = ptr_->sorted_prev_;
+
       return temp;
     }
 
     friend class MultiLL<T>;
 
-    // Comparions operators are straightforward
-    friend bool operator==(const list_iterator<T>& l, const list_iterator<T>& r) {
-      return l.ptr_ == r.ptr_; }
-    friend bool operator!=(const list_iterator<T>& l, const list_iterator<T>& r) {
-      return l.ptr_ != r.ptr_; }
+    // Compare the pointer and the type
+    friend bool operator==(const list_iterator<T>& l, const list_iterator<T>& r)
+      { return l.ptr_ == r.ptr_ && l.type_ == r.type_; }
+    friend bool operator!=(const list_iterator<T>& l, const list_iterator<T>& r)
+      { return l.ptr_ != r.ptr_ || l.type_ != r.type; }
 
   private:
     // -- REPRESENTATION -- \\
@@ -64,7 +95,7 @@ class list_iterator {
     Node<T>* ptr_;    // ptr to node in the list
 
     // defines the iterator type (chrono, random, or sorted)
-    type_t type;
+    type_t type_;
 
 };
 
