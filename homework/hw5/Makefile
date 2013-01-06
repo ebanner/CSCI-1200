@@ -1,6 +1,4 @@
-# Makefile -- creates a kernel image
-#          --  + bootable by QEMU
-#          --  + used to make a bootable floppy for bochs    
+# Makefile -- compiles and links *.cpp files
 
 CC   := g++
 RM   := rm
