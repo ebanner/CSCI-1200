@@ -1,126 +1,54 @@
-#ifndef dslist_h_
-#define dslist_h_
-// A simplified implementation of a generic list container class,
-// including the iterator, but not the const_iterators.  Three
-// separate classes are defined: a Node class, an iterator class, and
-// the actual list class.  The underlying list is doubly-linked, but
-// there is no dummy head node and the list is not circular.
+#ifndef MULTILL_H_
+#define MULTILL_H_
 
 #include <cassert>
 #include <cstdlib>
 
-// -----------------------------------------------------------------
-// NODE CLASS
+#include "Node.h"
+#include "list_iterator.h"
+
 template <class T>
-class Node {
-public:
-  Node() : next_(NULL), prev_(NULL) {}
-  Node(const T& v) : value_(v), next_(NULL), prev_(NULL) {}
+class MultiLL {
+  public:
+    MultiLL() : head_(NULL), tail_(NULL), size_(0) {}
+    MultiLL(const MultiLL<T>& old) { this->copy_list(old); }
+    ~MultiLL() { this->destroy_list(); }
+    MultiLL& operator= (const MultiLL<T>& old);
 
-  // REPRESENTATION
-  T value_;
-  Node<T>* next_;
-  Node<T>* prev_;
-};
+    unsigned int size() const { return size_; }
+    bool empty() const { return head_ == NULL; }
+    void clear() { this->destroy_list(); }
 
-// A "forward declaration" of this class is needed
-template <class T> class dslist;
+    void push_front(const T& v);
+    void pop_front();
+    void push_back(const T& v);
+    void pop_back();
 
-// -----------------------------------------------------------------
-// LIST ITERATOR
-template <class T>
-class list_iterator {
-public:
-  list_iterator() : ptr_(NULL) {}
-  list_iterator(Node<T>* p) : ptr_(p) {}
-  list_iterator(list_iterator<T> const& old) : ptr_(old.ptr_) {}
-  ~list_iterator() {}
+    const T& front() const { return head_->value_;  }
+    T& front() { return head_->value_; }
+    const T& back() const { return tail_->value_; }
+    T& back() { return tail_->value_; }
 
-  list_iterator<T> & operator=(const list_iterator<T> & old) { 
-    ptr_ = old.ptr_;  return *this; }
+    typedef list_iterator<T> iterator;
+    iterator erase(iterator itr);
+    iterator insert(iterator itr, T const& v);
+    iterator begin() { return iterator(head_); }
+    iterator end() { return iterator(NULL); }
 
-  // dereferencing operator gives access to the value at the pointer
-  T& operator*()  { return ptr_->value_;  }
+  private:
+    void copy_list(MultiLL<T> const & old);
+    void destroy_list();
 
-  // increment & decrement operators
-  list_iterator<T> & operator++() { 
-    ptr_ = ptr_->next_; 
-    return *this;
-  }
-  list_iterator<T> operator++(int) {
-    list_iterator<T> temp(*this);
-    ptr_ = ptr_->next_;
-    return temp;
-  }
-  list_iterator<T> & operator--() {
-    ptr_ = ptr_->prev_;
-    return *this;
-  }
-  list_iterator<T> operator--(int) {
-    list_iterator<T> temp(*this);
-    ptr_ = ptr_->prev_;
-    return temp;
-  }
-
-  friend class dslist<T>;
-
-  // Comparions operators are straightforward
-  friend bool operator==(const list_iterator<T>& l, const list_iterator<T>& r) {
-    return l.ptr_ == r.ptr_; }
-  friend bool operator!=(const list_iterator<T>& l, const list_iterator<T>& r) {
-    return l.ptr_ != r.ptr_; }
-
-private:
-  // REPRESENTATION
-  Node<T>* ptr_;    // ptr to node in the list
-
-};
-
-// -----------------------------------------------------------------
-// LIST CLASS DECLARATION
-// Note that it explicitly maintains the size of the list.
-template <class T>
-class dslist {
-public:
-  dslist() : head_(NULL), tail_(NULL), size_(0) {}
-  dslist(const dslist<T>& old) { this->copy_list(old); }
-  ~dslist() { this->destroy_list(); }
-  dslist& operator= (const dslist<T>& old);
-
-  unsigned int size() const { return size_; }
-  bool empty() const { return head_ == NULL; }
-  void clear() { this->destroy_list(); }
-   
-  void push_front(const T& v);
-  void pop_front();
-  void push_back(const T& v);
-  void pop_back();
-
-  const T& front() const { return head_->value_;  }
-  T& front() { return head_->value_; }
-  const T& back() const { return tail_->value_; }
-  T& back() { return tail_->value_; }
-
-  typedef list_iterator<T> iterator;
-  iterator erase(iterator itr);
-  iterator insert(iterator itr, T const& v);
-  iterator begin() { return iterator(head_); }
-  iterator end() { return iterator(NULL); }
-
-private:
-  void copy_list(dslist<T> const & old);
-  void destroy_list();
-
-  //REPRESENTATION
-  Node<T>* head_;
-  Node<T>* tail_;
-  unsigned int size_;
+    //REPRESENTATION
+    Node<T>* head_;
+    Node<T>* tail_;
+    unsigned int size_;
 };
 
 // -----------------------------------------------------------------
 // LIST CLASS IMPLEMENTATION
 template <class T>
-dslist<T>& dslist<T>::operator= (const dslist<T>& old) {
+MultiLL<T>& MultiLL<T>::operator= (const MultiLL<T>& old) {
   if (&old != this) {
     this->destroy_list();
     this->copy_list(old);
@@ -130,7 +58,7 @@ dslist<T>& dslist<T>::operator= (const dslist<T>& old) {
 
 
 template <class T> 
-void dslist<T>::push_back(const T& v) {
+void MultiLL<T>::push_back(const T& v) {
   Node<T>* newp = new Node<T>( v );
   // special case:  initially empty list
   if (!tail_) {
@@ -147,7 +75,7 @@ void dslist<T>::push_back(const T& v) {
 
 
 template <class T> 
-void dslist<T>::push_front(const T& v) {
+void MultiLL<T>::push_front(const T& v) {
   // create the new node
   Node<T> *new_node = new Node<T>(v);
 
@@ -165,7 +93,7 @@ void dslist<T>::push_front(const T& v) {
     return;
 
   } 
-  
+
   // have the old last node point to the new last node
   tail_->next_ = new_node;
 
@@ -184,7 +112,7 @@ void dslist<T>::push_front(const T& v) {
 
 
 template <class T> 
-void dslist<T>::pop_back() {
+void MultiLL<T>::pop_back() {
 
   // there must be something in the list
   assert(size_ > 0);
@@ -215,7 +143,7 @@ void dslist<T>::pop_back() {
 
 
 template <class T> 
-void dslist<T>::pop_front() {
+void MultiLL<T>::pop_front() {
 
   // there must be something in the list
   assert(size_ > 0);
@@ -229,7 +157,7 @@ void dslist<T>::pop_front() {
     head_ = tail_ = NULL;
 
   } else { 
-    
+
     // move the head one node up
     head_ = head_->next_;
 
@@ -247,7 +175,7 @@ void dslist<T>::pop_front() {
 
 
 template <class T> 
-typename dslist<T>::iterator dslist<T>::erase(iterator itr) {
+typename MultiLL<T>::iterator MultiLL<T>::erase(iterator itr) {
   assert (size_ > 0);
   --size_;
   iterator result(itr.ptr_ -> next_);
@@ -277,7 +205,7 @@ typename dslist<T>::iterator dslist<T>::erase(iterator itr) {
 
 // insert BEFORE the node indicated by the iterator and return an iterator to the new node
 template <class T> 
-typename dslist<T>::iterator dslist<T>::insert(iterator itr, T const& v) {
+typename MultiLL<T>::iterator MultiLL<T>::insert(iterator itr, T const& v) {
   ++size_ ;
   Node<T>* p = new Node<T>(v);
   p -> prev_ = itr.ptr_ -> prev_;
@@ -292,7 +220,7 @@ typename dslist<T>::iterator dslist<T>::insert(iterator itr, T const& v) {
 
 
 template <class T> 
-void dslist<T>::copy_list(dslist<T> const & old) {
+void MultiLL<T>::copy_list(MultiLL<T> const & old) {
   size_ = old.size_;
   // Handle the special case of an empty list.
   if (size_ == 0) {
@@ -317,7 +245,7 @@ void dslist<T>::copy_list(dslist<T> const & old) {
 
 
 template <class T> 
-void dslist<T>::destroy_list() {
+void MultiLL<T>::destroy_list() {
 
   if (size_ == 0) { // special case: empty list
     return; // do nothing
@@ -338,6 +266,5 @@ void dslist<T>::destroy_list() {
   // empty list
   size_ = 0;
 }
-
 
 #endif
