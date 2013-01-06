@@ -10,38 +10,44 @@
 template <class T>
 class MultiLL {
   public:
-    MultiLL() : head_(NULL), tail_(NULL), size_(0) {}
+    MultiLL() : chrono_head_(NULL), chrono_tail_(NULL), sorted_head_(NULL), sorted_tail_(NULL), random_head_(NULL), size_(0) { }
     MultiLL(const MultiLL<T>& old) { this->copy_list(old); }
     ~MultiLL() { this->destroy_list(); }
     MultiLL& operator= (const MultiLL<T>& old);
 
     unsigned int size() const { return size_; }
-    bool empty() const { return head_ == NULL; }
+    bool empty() const { return chrono_head_ == NULL; }
     void clear() { this->destroy_list(); }
 
-    void push_front(const T& v);
-    void pop_front();
-    void push_back(const T& v);
-    void pop_back();
-
-    const T& front() const { return head_->value_;  }
-    T& front() { return head_->value_; }
-    const T& back() const { return tail_->value_; }
-    T& back() { return tail_->value_; }
-
     typedef list_iterator<T> iterator;
+    iterator add(const T &value);
     iterator erase(iterator itr);
     iterator insert(iterator itr, T const& v);
-    iterator begin() { return iterator(head_); }
-    iterator end() { return iterator(NULL); }
+    iterator begin_chronological() { return iterator(chrono_head_); }
+    iterator begin_sorted() { return iterator(sorted_head_); }
+    iterator begin_random() { return iterator(random_head_); }
+    iterator end_chronological() { return iterator(NULL); }
+    iterator end_sorted() { return iterator(NULL); }
 
   private:
-    void copy_list(MultiLL<T> const & old);
+    void copy_list(MultiLL<T> const &old);
     void destroy_list();
 
-    //REPRESENTATION
-    Node<T>* head_;
-    Node<T>* tail_;
+    // -- REPRESENTATION -- \\
+    
+    // chronological (insertion) ordering
+    Node<T>* chrono_head_;
+    Node<T>* chrono_tail_;
+
+    // sorted (alphabetic) ordering
+    Node<T>* sorted_head_;
+    Node<T>* sorted_tail_;
+
+    // random ordering
+    Node<T>* random_head_;
+    Node<T>* random_tail_;
+
+    // number of nodes in the list
     unsigned int size_;
 };
 
@@ -54,123 +60,6 @@ MultiLL<T>& MultiLL<T>::operator= (const MultiLL<T>& old) {
     this->copy_list(old);
   }
   return *this;
-}
-
-
-template <class T> 
-void MultiLL<T>::push_back(const T& v) {
-  Node<T>* newp = new Node<T>( v );
-  // special case:  initially empty list
-  if (!tail_) {
-    head_ = tail_ = newp;
-  }
-  // normal case:  at least one node already
-  else {
-    newp -> prev_ = tail_;
-    tail_ -> next_ = newp;
-    tail_ = newp;
-  }
-  ++size_;
-}
-
-
-template <class T> 
-void MultiLL<T>::push_front(const T& v) {
-  // create the new node
-  Node<T> *new_node = new Node<T>(v);
-
-  if (size_ == 0) { // special case: empty list
-    // the head and tail now point to the only node in the list
-    head_ = tail_ = new_node;
-
-    // new node is the only node in the list
-    new_node->next_ = NULL;
-    new_node->prev_ = NULL;
-
-    // size of the linked list is now one
-    size_++;
-
-    return;
-
-  } 
-
-  // have the old last node point to the new last node
-  tail_->next_ = new_node;
-
-  // have the new last node point back to the previous last node
-  new_node->prev_ = tail_;
-
-  // have the new last node point to NULL
-  new_node->next_ = NULL;
-
-  // point the tail to the new last node
-  tail_ = new_node;
-
-  // increment the size of the linked list by one
-  size_++;
-}
-
-
-template <class T> 
-void MultiLL<T>::pop_back() {
-
-  // there must be something in the list
-  assert(size_ > 0);
-
-  if (size_ == 1) { // just delete the node
-
-    delete head_; // we could have said `delete tail_' also
-
-    // point the head and tail to nothing (empty list)
-    head_ = tail_ = NULL;
-
-  } else { // general case
-
-    // point the tail back to the previous node
-    tail_ = tail_->prev_;
-
-    // delete the last node
-    delete tail_->next_;
-
-    // point the new last node's next field to NULL
-    tail_->next_ = NULL;
-
-  }
-
-  // size goes down by one
-  size_--;
-}
-
-
-template <class T> 
-void MultiLL<T>::pop_front() {
-
-  // there must be something in the list
-  assert(size_ > 0);
-
-  if (size_ == 1) { // just a single node
-
-    // remove the first (and only node in the list)
-    delete head_; // could have been `delete tail_'
-
-    // we now have an empty list
-    head_ = tail_ = NULL;
-
-  } else { 
-
-    // move the head one node up
-    head_ = head_->next_;
-
-    // delete the old head node
-    delete head_->prev_;
-
-    // set the new head node's previous to NULL
-    head_->prev_ = NULL;
-
-  }
-
-  // decrease size by one
-  size_--;
 }
 
 
@@ -223,8 +112,8 @@ template <class T>
 void MultiLL<T>::copy_list(MultiLL<T> const & old) {
   size_ = old.size_;
   // Handle the special case of an empty list.
-  if (size_ == 0) {
-    head_ = tail_ = 0;
+  if (size_ == NULL) {
+    chrono_head_ = chrono_tail_ = sorted_head_ = sorted_tail_ = random_head_ = NULL;
     return;
   }
   // Create a new head node. 
@@ -253,15 +142,15 @@ void MultiLL<T>::destroy_list() {
 
   // there's at least one node in the list
   Node<T> *present, *next_node;
-  for (present = head_, next_node = head_->next_; next_node != NULL; present = next_node, next_node = next_node->next_)
+  for (present = chrono_head_, next_node = chrono_head_->next_; next_node != NULL; present = next_node, next_node = next_node->chrono_next_)
     delete present;
 
   /* We will still be pointing at the last node when `next_node' is NULL, so we 
    * still have to delete the present node. */
   delete present;
 
-  // point the head and tail to NULL
-  head_ = tail_ = NULL;
+  // point all heads and tails to NULL
+  chrono_head_ = chrono_tail_ = sorted_head_ = sorted_tail_ = random_head_ = NULL;
 
   // empty list
   size_ = 0;
