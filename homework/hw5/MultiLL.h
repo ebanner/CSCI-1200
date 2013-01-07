@@ -229,46 +229,38 @@ void MultiLL<T>::add(const T &value) {
   }
 }
 
-/*
-// insert BEFORE the node indicated by the iterator and return an iterator to the new node
-template <class T> 
-typename MultiLL<T>::iterator MultiLL<T>::insert(iterator itr, T const& v) {
-  ++size_ ;
-  Node<T>* p = new Node<T>(v);
-  p -> prev_ = itr.ptr_ -> prev_;
-  p -> next_ = itr.ptr_;
-  itr.ptr_ -> prev_ = p;
-  if (itr.ptr_ == head_)
-    head_ = p;
-  else
-    p -> prev_ -> next_ = p;
-  return iterator(p);
-}
-*/
 
+/* NEEDS FIXING
 template <class T> 
 void MultiLL<T>::copy_list(MultiLL<T> const & old) {
   size_ = old.size_;
   // Handle the special case of an empty list.
   if (size_ == NULL) {
-    chrono_head_ = chrono_tail_ = sorted_head_ = sorted_tail_ = random_head_ = NULL;
+    chrono_head_ = chrono_tail_ = NULL; 
+    sorted_head_ = sorted_tail_ = NULL; 
+    random_head_ = NULL;
+
     return;
   }
   // Create a new head node. 
-  head_ = new Node<T>(old.head_ -> value_);
-  // tail_ will point to the last node created and therefore will move
+  chrono_head_ = new Node<T>(old.chrono_head_ -> value_);
+  // chrono_tail_ will point to the last node created and therefore will move
   // down the new list as it is built
-  tail_ = head_;
+  chrono_tail_ = chrono_head_;
   // old_p will point to the next node to be copied in the old list
-  Node<T>* old_p = old.head_ -> next_;
+  Node<T>* old_p = old.chrono_head_ -> next_;
   // copy the remainder of the old list, one node at a time
   while (old_p) {
-    tail_ -> next_ = new Node<T>(old_p -> value_);
-    tail_ -> next_ -> prev_ = tail_;
-    tail_ = tail_ -> next_;
-    old_p = old_p -> next_;
+    chrono_tail_ -> chrono_next_ = new Node<T>(old_p -> value_);
+    chrono_tail_ -> chrono_next_ -> prev_ = chrono_tail_;
+    chrono_tail_ = chrono_tail_ -> chrono_next_;
+    old_p = old_p -> chrono_next_;
   }
+
+  // now go through each of the nodes and fix the sorted and random links
+  for (old_p = chrono_head_; old_p != chrono_tail_; old_...
 }
+*/
 
 
 template <class T> 
