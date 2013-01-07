@@ -37,7 +37,7 @@ class list_iterator {
     list_iterator<T> & operator++() { // ++iterator
       if (type_ == chrono_)
         ptr_ = ptr_->chrono_next_; 
-      else if (type_ == random_)
+      else if (type_ == sorted_)
         ptr_ = ptr_->sorted_next_;
       else // type == random
         ptr_ = ptr_->random_next_;
@@ -52,7 +52,7 @@ class list_iterator {
       // advance to the next node depending on what type the iterator is
       if (type_ == chrono_)
         ptr_ = ptr_->chrono_next_; 
-      else if (type_ == random_)
+      else if (type_ == sorted_)
         ptr_ = ptr_->sorted_next_;
       else // type == random
         ptr_ = ptr_->random_next_;
@@ -76,7 +76,7 @@ class list_iterator {
     list_iterator<T> operator--(int) { // iterator--
       
       // we can only decrement chronological and sorted iterators
-      assert(type_ == chrono_ || type_ == sorted_)
+      assert(type_ == chrono_ || type_ == sorted_);
 
       // save the current iterator so we can return it later
       list_iterator<T> temp(*this);
@@ -95,7 +95,7 @@ class list_iterator {
     friend bool operator==(const list_iterator<T>& l, const list_iterator<T>& r)
       { return l.ptr_ == r.ptr_ && l.type_ == r.type_; }
     friend bool operator!=(const list_iterator<T>& l, const list_iterator<T>& r)
-      { return l.ptr_ != r.ptr_ || l.type_ != r.type; }
+      { return l.ptr_ != r.ptr_ || l.type_ != r.type_; }
 
   private:
     // -- REPRESENTATION -- \\

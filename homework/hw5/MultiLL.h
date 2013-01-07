@@ -3,9 +3,12 @@
 
 #include <cassert>
 #include <cstdlib>
+#include <vector>
+#include <algorithm>
 
 #include "Node.h"
 #include "list_iterator.h"
+#include "MersenneTwister.h"
 
 template <class T>
 class MultiLL {
@@ -25,13 +28,13 @@ class MultiLL {
     iterator erase(iterator itr);
 
     // return iterator to the beginning of the list
-    iterator begin_chronological() { return iterator( chrono_head_, chrono_ ); }
-    iterator begin_sorted() { return iterator( sorted_head_, sorted_ ); }
-    iterator begin_random() { return iterator( random_head_, random_ ); }
+    iterator begin_chronological() const { return iterator( chrono_head_, chrono_ ); }
+    iterator begin_sorted() const { return iterator( sorted_head_, sorted_ ); }
+    iterator begin_random() const { }
 
     // return an iterator pointing to NULL, but the correct type
-    iterator end_chronological() { return iterator(chrono_); }
-    iterator end_sorted() { return iterator(sorted_); }
+    iterator end_chronological() const { return iterator(chrono_); }
+    iterator end_sorted() const { return iterator(sorted_); }
 
   private:
     void copy_list(MultiLL<T> const &old);
@@ -65,6 +68,47 @@ MultiLL<T>& MultiLL<T>::operator= (const MultiLL<T>& old) {
   return *this;
 }
 
+template <class T> 
+typename MultiLL<T>::iterator MultiLL<T>::begin_random(const unsigned int i)
+{
+  int n = 10;
+  // create a vector of n numbers
+  vector<int> ordered_nums;
+  for (int i = 0; i < n; i++) {
+    // populate the list with digits 0 to n-1
+    ordered_nums.push_back(i);
+  }
+
+  int rand_num;
+  // create the random number generator
+  MTRand mt_rand;
+  // create another vector to hold the numbers in random order
+  vector<int> random_nums;
+  for (int i = 0; i < n; i++) {
+    /* Pick a random number from the remaining ordered number list and push it
+     * back onto the random number list. */
+    rand_num = mt_rand.randInt((int) ordered_nums.size()-1);
+    random_nums.push_back(ordered_nums[rand_num]);
+    ordered_nums.erase(find(ordered_nums.begin(), ordered_nums.end(), ordered_nums[rand_num]));
+  }
+
+
+  /* We must now link the nodes in the order of the random distribution that
+   * was created. For example, if our random distribution is [ 2, 0, 1 ] then
+   * the random head will point to the second chronological node, the random
+   * head node will point to the zero'th chronological node, and that node will
+   * will point to the first chronological node. */
+  Node<T> *rand_ptr = chrono_head_; 
+  for (int i = 0; i < random_nums.size(); i++)
+    for (int j = 0; j < random_nums[i]; j++) {
+      rand_ptr = rand_ptr->chrono_next_;
+    }
+    if (i == 0) // point the head to this node
+      rand_head_ = rand_ptr;
+
+
+
+}
 
 template <class T> 
 typename MultiLL<T>::iterator MultiLL<T>::erase(iterator itr) {
@@ -114,7 +158,7 @@ typename MultiLL<T>::iterator MultiLL<T>::erase(iterator itr) {
   }
 
   // -- Fixed random links --
-  if (itr.ptr_ == random_head_) // one element in the list -- just move the random head up
+  if (itr.ptr_ == random_head_) { // one element in the list -- just move the random head up
     random_head_ = random_head_ -> random_next_;
   } else { // two or more nodes
 
@@ -140,7 +184,7 @@ typename MultiLL<T>::iterator MultiLL<T>::erase(iterator itr) {
 template <class T>
 void MultiLL<T>::add(const T &value) {
   // create the node we wish to add
-  Node<T>* new_node = new Node<T>(v);
+  Node<T>* new_node = new Node<T>(value);
 
   if (size_ == 0) { // empty list
     // point everything to the new new_node
@@ -153,7 +197,7 @@ void MultiLL<T>::add(const T &value) {
 
   } else { // at least one new_node in the list -- hard...
     // The new node becomes the new chronological tail node
-    new_node->chrono_prev_ = chrono_tail;
+    new_node->chrono_prev_ = chrono_tail_;
     chrono_tail_->chrono_next_ = new_node;
     chrono_tail_ = new_node;
     
@@ -169,9 +213,9 @@ void MultiLL<T>::add(const T &value) {
      * node will never be <= the value of any node. This is the reason for the
      * obfuscated if-else purgatory below. */
     Node<T>* temp_node = sorted_head_;
-    for (temp_node = sorted_head_; temp_node != sorted_tail_; temp_node = temp_node->next_sorted_) {
+    for (temp_node = sorted_head_; temp_node != sorted_tail_; temp_node = temp_node->sorted_next_) {
       // ride along until we get to a node we're <= to
-      if (temp_node->value_ <= temp_node)
+      if (value <= temp_node->value_)
         break;
     }
 
@@ -179,17 +223,17 @@ void MultiLL<T>::add(const T &value) {
      * way to sorted end. */
     if (temp_node == sorted_head_ && temp_node == sorted_tail_) { // special case: size 1
       // compare against lone node, insert node, and fix head and tail
-      if (value <= sorted_head_->value) {
+      if (value <= sorted_head_->value_) {
         // insert node before the head and fix the sorted head pointer
         new_node->sorted_next_ = sorted_head_;
         sorted_head_->sorted_prev_ = new_node;
         sorted_head_ = new_node;
       } else { // value > head node -- insert after sorted head node and fix sorted tail node
         new_node->sorted_prev_ = sorted_tail_;
-        sorted_tail->sorted_next_ = new_node;
+        sorted_tail_->sorted_next_ = new_node;
         sorted_tail_ = new_node;
       }
-    } else if (temp_node == sorted_head) {
+    } else if (temp_node == sorted_head_) {
         /* New node must go before the head pointer becuase the new pointer's
          * value <= head node's value AND there is more than one node in the
          * list. Insert node before the sorted head and fix `sorted_head_'
@@ -197,10 +241,10 @@ void MultiLL<T>::add(const T &value) {
         new_node->sorted_next_ = sorted_head_;
         sorted_head_->sorted_prev_ = new_node;
         sorted_head_ = new_node;
-    } else if (temp_node == sorted_tail) {
+    } else if (temp_node == sorted_tail_) {
       /* We need to check whether the new node should go before the sorted tail
        * or after the sorted tail (and become the new sorted tail). */
-      if (value <= sorted_tail_->value) { 
+      if (value <= sorted_tail_->value_) { 
         /* Insert before the tail node -- no need to fix the sorted tail
          * pointer.
          * 
@@ -209,10 +253,10 @@ void MultiLL<T>::add(const T &value) {
         new_node->sorted_next_ = sorted_tail_;
         // Fix the neighbors of the new node.
         sorted_tail_->sorted_prev_->sorted_next_ = new_node;
-        sorted_tail_->sorted_prev = new_node;
+        sorted_tail_->sorted_prev_ = new_node;
       } else { // value > sorted tail -- new node becomes new sorted tail
         new_node->sorted_prev_ = sorted_tail_;
-        sorted_tail->sorted_next_ = new_node;
+        sorted_tail_->sorted_next_ = new_node;
         sorted_tail_ = new_node;
       }
     } else { // no heads nor tails involved -- just fix sorted links
@@ -227,6 +271,7 @@ void MultiLL<T>::add(const T &value) {
       temp_node->sorted_prev_ = new_node;
     }
   }
+  size_++;
 }
 
 
@@ -272,7 +317,7 @@ void MultiLL<T>::destroy_list() {
 
   // there's at least one node in the list
   Node<T> *present, *next_node;
-  for (present = chrono_head_, next_node = chrono_head_->next_; next_node != NULL; present = next_node, next_node = next_node->chrono_next_)
+  for (present = chrono_head_, next_node = chrono_head_->chrono_next_; next_node != NULL; present = next_node, next_node = next_node->chrono_next_)
     delete present;
 
   /* We will still be pointing at the last node when `next_node' is NULL, so we 
@@ -280,10 +325,13 @@ void MultiLL<T>::destroy_list() {
   delete present;
 
   // point all heads and tails to NULL
-  chrono_head_ = chrono_tail_ = sorted_head_ = sorted_tail_ = random_head_ = NULL;
+  chrono_head_ = chrono_tail_ = NULL;
+  sorted_head_ = sorted_tail_ = NULL;
+  random_head_ = NULL;
 
   // empty list
   size_ = 0;
 }
+
 
 #endif
