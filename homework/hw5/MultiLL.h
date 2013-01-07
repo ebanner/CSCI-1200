@@ -235,10 +235,14 @@ void MultiLL<T>::insert_sorted(Node<T> *new_node) {
    * This process is complicated by the fact that if we are adding a node
    * that is goes at the end of the sorted list, then the value of our new
    * node will never be <= the value of any node. This is the reason for the
-   * obfuscated if-else purgatory below. 
-   *
-   * Note: this function assumes that sorted_head_ and sorted_tail_ already
-   * point to a node! */
+   * obfuscated if-else purgatory below. */
+
+  if (sorted_head_ == NULL) { // empty list
+    sorted_head_ = sorted_tail_ = new_node;
+    return;
+  }
+
+  // at least one element in the list
   T value = new_node->value_;
   Node<T>* temp_node = sorted_head_;
   for (temp_node = sorted_head_; temp_node != sorted_tail_; temp_node = temp_node->sorted_next_) {
@@ -329,8 +333,10 @@ void MultiLL<T>::copy_list(MultiLL<T> const & old) {
     old_p = old_p -> chrono_next_;
   }
 
-  // now go through each of the nodes and fix the sorted and random links
-  for (old_p = chrono_head_; old_p != chrono_tail_; old_...
+  /* Fix the sorted links one chronological node at a time. */
+  old_p = sorted_head_; // SHOULD BE NULL
+  for (int i = 0; i < size_; old_p = old_p->chrono_next_, i++)
+    insert_sorted(old_p);
 }
 
 
