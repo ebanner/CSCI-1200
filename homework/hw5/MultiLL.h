@@ -169,9 +169,9 @@ void MultiLL<T>::add(const T &value) {
      * node will never be <= the value of any node. This is the reason for the
      * obfuscated if-else purgatory below. */
     Node<T>* temp_node = sorted_head_;
-    for (temp_node = sorted_head_; value > temp_node->value_; temp_node = temp_node->next_sorted_) {
+    for (temp_node = sorted_head_; temp_node != sorted_tail_; temp_node = temp_node->next_sorted_) {
       // ride along until we get to a node we're <= to
-      if (temp_node == sorted_tail_)
+      if (temp_node->value_ <= temp_node)
         break;
     }
 
