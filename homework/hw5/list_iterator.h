@@ -15,22 +15,20 @@ template <class T> class MultiLL;
 template <class T>
 class list_iterator {
   public:
+    // constructors
     list_iterator() : ptr_(NULL) { }
     list_iterator(type_t t) : ptr_(NULL), type_(t) { }
-    
     list_iterator(Node<T>* p, type_t t) : ptr_(p), type_(t) { }
+
+    // copy constructor
     list_iterator(list_iterator<T> const& old) : ptr_(old.ptr_), type_(old.type_) { }
+
+    // destructor
     ~list_iterator() { }
 
-    // functions used in constructors to pass the correct enum type
-    /*
-    static type_t random() { return random_; }
-    static type_t chrono() { return chrono_; }
-    static type_t sorted() { return sorted_; }
-    */
-
-    list_iterator<T> & operator=(const list_iterator<T> & old) { 
-      ptr_ = old.ptr_;  return *this; }
+    // equal operator
+    list_iterator<T> & operator=(const list_iterator<T> & old) 
+    { ptr_ = old.ptr_; type_ = old.type_; return *this; }
 
     // dereferencing operator gives access to the value at the pointer
     T& operator*()  { return ptr_->value_;  }
@@ -51,6 +49,7 @@ class list_iterator {
       // save the current iterator so we can return it later
       list_iterator<T> temp(*this);
 
+      // advance to the next node depending on what type the iterator is
       if (type_ == chrono_)
         ptr_ = ptr_->chrono_next_; 
       else if (type_ == random_)

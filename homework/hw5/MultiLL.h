@@ -10,6 +10,7 @@
 template <class T>
 class MultiLL {
   public:
+    // constructor
     MultiLL() : chrono_head_(NULL), chrono_tail_(NULL), sorted_head_(NULL), sorted_tail_(NULL), random_head_(NULL), size_(0) { }
     MultiLL(const MultiLL<T>& old) { this->copy_list(old); }
     ~MultiLL() { this->destroy_list(); }
@@ -22,10 +23,13 @@ class MultiLL {
     typedef list_iterator<T> iterator;
     void add(const T &value);
     iterator erase(iterator itr);
-    // iterator insert(iterator itr, T const& v);
+
+    // return iterator to the beginning of the list
     iterator begin_chronological() { return iterator( chrono_head_, chrono_ ); }
     iterator begin_sorted() { return iterator( sorted_head_, sorted_ ); }
     iterator begin_random() { return iterator( random_head_, random_ ); }
+
+    // return an iterator pointing to NULL, but the correct type
     iterator end_chronological() { return iterator(chrono_); }
     iterator end_sorted() { return iterator(sorted_); }
 
@@ -71,76 +75,83 @@ typename MultiLL<T>::iterator MultiLL<T>::erase(iterator itr) {
   iterator temp(itr);
   temp++;
 
-  // One node left in the list.  
   if (itr.ptr_ == chrono_head_ && chrono_head_ == chrono_tail_) {
+    // special case: only one node in the list
     chrono_head_ = chrono_tail_ = NULL;
-  } else { // more than one node in the list 
-    // Take care of chronical section
-    if (itr.ptr_ == chrono_head_) {
+  } else { // general case: more than one node in the list 
+
+    // -- Fix chronological links --
+    if (itr.ptr_ == chrono_head_) { // removing the chronological head
+      // point the chronological head to the next node
       chrono_head_ = chrono_head_ -> chrono_next_;
       chrono_head_ -> chrono_prev_ = NULL;
-    } else if (itr.ptr_ == chrono_tail_) {
+    } else if (itr.ptr_ == chrono_tail_) { // removing the chronological tail
+      // point the chronological tail to the next-to-last node
       chrono_tail_ = chrono_tail_ -> chrono_prev_;
       chrono_tail_ -> chrono_next_ = NULL;
-    } else { 
+    } else { // easy case: just fix the chronological links
       itr.ptr_ -> chrono_prev_ -> chrono_next_ = itr.ptr_ -> chrono_next_;
       itr.ptr_ -> chrono_next_ -> chrono_prev_ = itr.ptr_ -> chrono_prev_;
     }
   }
 
-  // Take care of the sorted section
-  if (itr.ptr_ == sorted_head_ && sorted_head_ == sorted_tail_) {
-    sorted_head_ = sorted_tail_ = NULL;
-  } else {
-    if (itr.ptr_ == sorted_head_) {
-      sorted_head_ = sorted_head_ -> sorted_next_;
-      sorted_head_ -> sorted_prev_ = NULL;
-    } else if (itr.ptr_ == sorted_tail_) {
-      sorted_tail_ = sorted_tail_ -> sorted_prev_;
-      sorted_tail_ -> sorted_next_ = NULL;
-    } else { // easy case -- just fix links
-      itr.ptr_ -> sorted_prev_ -> sorted_next_ = itr.ptr_ -> sorted_next_;
-      itr.ptr_ -> sorted_next_ -> sorted_prev_ = itr.ptr_ -> sorted_prev_;
-    }
+  // -- Fix sorted links --
+  if (itr.ptr_ == sorted_head_ && sorted_head_ == sorted_tail_) { 
+    sorted_head_ = sorted_tail_ = NULL; // special case: just one node
+  } else { // more than one node in the list
+      if (itr.ptr_ == sorted_head_) { // removing the sorted head
+        // move the sorted head up one node
+        sorted_head_ = sorted_head_ -> sorted_next_;
+        sorted_head_ -> sorted_prev_ = NULL;
+      } else if (itr.ptr_ == sorted_tail_) { // removing the sorted tail
+        // move the sorted tail back one node
+        sorted_tail_ = sorted_tail_ -> sorted_prev_;
+        sorted_tail_ -> sorted_next_ = NULL;
+      } else { // general case -- just fix the sorted links
+        itr.ptr_ -> sorted_prev_ -> sorted_next_ = itr.ptr_ -> sorted_next_;
+        itr.ptr_ -> sorted_next_ -> sorted_prev_ = itr.ptr_ -> sorted_prev_;
+      }
   }
 
-  // Take care of the random
-  if (itr.ptr_ == random_head_) {
+  // -- Fixed random links --
+  if (itr.ptr_ == random_head_) // one element in the list -- just move the random head up
     random_head_ = random_head_ -> random_next_;
-  } else { 
-    // random is singly-linked -- it's not as easy
-    /*
-      iterator present = iterator(random_head_, random_);
-      iterator next = present->next;    
-      for( ; next.ptr_ != itr.ptr_; next++,present++ )
-      ;    
-      present.ptr_ -> random_next_ = next.ptr_ -> random_next_;
-      itr.ptr_ -> chrono_next_ -> chrono_prev_ = itr.ptr_ -> chrono_prev_;
-    */
-    
-    Node<T> *present, next;
+  } else { // two or more nodes
+
+    /* Our plan in to get the node just before the node we wish to remove. Then
+     * we will link that node to the node after the one we wish to remove. */
+    Node<T> *present, *next;
     present = random_head_;
     next = present->random_next_;  
     for ( ; next != itr.ptr_; present = next, next = next->random_next_)
       ; // ride along until you get one before the node you want to remove
+
+    /* Have the node before the one we wish to remove point to the node after
+     * the node we wish to remove. */
     present->random_next_ = next->random_next_;
+
   }
+
   delete itr.ptr_;
+
   return temp;
 }
 
 template <class T>
 void MultiLL<T>::add(const T &value) {
+  // create the node we wish to add
   Node<T>* node = new Node(v);
-  if ( size_ == 0 ) {
-    chrono_head_ = node;
-    chrono_tail_ = node;
-    sorted_head_ = node;
-    sorted_tail_ = node;
+
+  if (size_ == 0) { // empty list
+    // point everything to the new node
+    chrono_head_ = chrono_tail_ = node;
+    sorted_head_ = sorted_tail_ = node;
     random_head_ = node;
-    ++size_;
-    return;
-  } else {
+    size_++;
+
+    return; // we're done
+
+  } else if (size_ == 1) {
     // arranage the chrono pointer for the new node
     chrono_tail_->chrono_next_ = node;
     node->chrono_prev_ = chrono_tail;
