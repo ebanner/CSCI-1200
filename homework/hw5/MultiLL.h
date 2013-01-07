@@ -39,6 +39,7 @@ class MultiLL {
   private:
     void copy_list(MultiLL<T> const &old);
     void destroy_list();
+    void insert_sorted(Node<T> *new_node); // assumes sorted_head_ & sorted_tail_ already point to a node
 
     // -- REPRESENTATION -- \\
     
@@ -92,7 +93,6 @@ typename MultiLL<T>::iterator MultiLL<T>::begin_random()
     // erase that number from the ordered number list so we don't pick it again
     ordered_nums.erase(std::find(ordered_nums.begin(), ordered_nums.end(), ordered_nums[rand_num]));
   }
-
 
   /* We must now link the nodes in the order of the random distribution that
    * was created. For example, if our random distribution is [ 2, 0, 1 ] then
@@ -211,91 +211,103 @@ void MultiLL<T>::add(const T &value) {
     return; // we're done -- easy!
 
   } else { // at least one new_node in the list -- hard...
+
     // The new node becomes the new chronological tail node
     new_node->chrono_prev_ = chrono_tail_;
     chrono_tail_->chrono_next_ = new_node;
     chrono_tail_ = new_node;
-    
-    /* The strategy for inserting our new node in sorted order is as follows:
-     * Start at the sorted head node and work our way down the sorted nodes,
-     * comparing each node's value to the value of the node we are trying to
-     * insert. The second we get to a node such that the value of our new node
-     * is <= the value of that node, then we will insert our new node BEFORE
-     * this node.
-     *
-     * This process is complicated by the fact that if we are adding a node
-     * that is goes at the end of the sorted list, then the value of our new
-     * node will never be <= the value of any node. This is the reason for the
-     * obfuscated if-else purgatory below. */
-    Node<T>* temp_node = sorted_head_;
-    for (temp_node = sorted_head_; temp_node != sorted_tail_; temp_node = temp_node->sorted_next_) {
-      // ride along until we get to a node we're <= to
-      if (value <= temp_node->value_)
-        break;
-    }
 
-    /* At this point, our new node's value is <= `temp_node' OR we got all the
-     * way to sorted end. */
-    if (temp_node == sorted_head_ && temp_node == sorted_tail_) { // special case: size 1
-      // compare against lone node, insert node, and fix head and tail
-      if (value <= sorted_head_->value_) {
-        // insert node before the head and fix the sorted head pointer
-        new_node->sorted_next_ = sorted_head_;
-        sorted_head_->sorted_prev_ = new_node;
-        sorted_head_ = new_node;
-      } else { // value > head node -- insert after sorted head node and fix sorted tail node
-        new_node->sorted_prev_ = sorted_tail_;
-        sorted_tail_->sorted_next_ = new_node;
-        sorted_tail_ = new_node;
-      }
-    } else if (temp_node == sorted_head_) {
-        /* New node must go before the head pointer becuase the new pointer's
-         * value <= head node's value AND there is more than one node in the
-         * list. Insert node before the sorted head and fix `sorted_head_'
-         * pointer. */
-        new_node->sorted_next_ = sorted_head_;
-        sorted_head_->sorted_prev_ = new_node;
-        sorted_head_ = new_node;
-    } else if (temp_node == sorted_tail_) {
-      /* We need to check whether the new node should go before the sorted tail
-       * or after the sorted tail (and become the new sorted tail). */
-      if (value <= sorted_tail_->value_) { 
-        /* Insert before the tail node -- no need to fix the sorted tail
-         * pointer.
-         * 
-         * Fix the new node's links. */
-        new_node->sorted_prev_ = sorted_tail_->sorted_prev_;
-        new_node->sorted_next_ = sorted_tail_;
-        // Fix the neighbors of the new node.
-        sorted_tail_->sorted_prev_->sorted_next_ = new_node;
-        sorted_tail_->sorted_prev_ = new_node;
-      } else { // value > sorted tail -- new node becomes new sorted tail
-        new_node->sorted_prev_ = sorted_tail_;
-        sorted_tail_->sorted_next_ = new_node;
-        sorted_tail_ = new_node;
-      }
-    } else { // no heads nor tails involved -- just fix sorted links
-      /* Recall--`temp_node' is pointing to the node that the new node needs
-       * to be inserted before. 
-       *
-       * Fix the new node's links. */
-      new_node->sorted_prev_ = temp_node->sorted_prev_;
-      new_node->sorted_next_ = temp_node;
-      // Fix the neighbors' links
-      temp_node->sorted_prev_->sorted_next_ = new_node;
-      temp_node->sorted_prev_ = new_node;
-    }
+    /* Fix the sorted links. */
+    insert_sorted(new_node);
   }
+}
+
+
+template <class T>
+void MultiLL<T>::insert_sorted(Node<T> *new_node) {
+  /* The strategy for inserting our new node in sorted order is as follows:
+   * Start at the sorted head node and work our way down the sorted nodes,
+   * comparing each node's value to the value of the node we are trying to
+   * insert. The second we get to a node such that the value of our new node
+   * is <= the value of that node, then we will insert our new node BEFORE
+   * this node.
+   *
+   * This process is complicated by the fact that if we are adding a node
+   * that is goes at the end of the sorted list, then the value of our new
+   * node will never be <= the value of any node. This is the reason for the
+   * obfuscated if-else purgatory below. 
+   *
+   * Note: this function assumes that sorted_head_ and sorted_tail_ already
+   * point to a node! */
+  T value = new_node->value_;
+  Node<T>* temp_node = sorted_head_;
+  for (temp_node = sorted_head_; temp_node != sorted_tail_; temp_node = temp_node->sorted_next_) {
+    // ride along until we get to a node we're <= to
+    if (value <= temp_node->value_)
+      break;
+  }
+
+  /* At this point, our new node's value is <= `temp_node' OR we got all the
+   * way to sorted end. */
+  if (temp_node == sorted_head_ && temp_node == sorted_tail_) { // special case: size 1
+    // compare against lone node, insert node, and fix head and tail
+    if (value <= sorted_head_->value_) {
+      // insert node before the head and fix the sorted head pointer
+      new_node->sorted_next_ = sorted_head_;
+      sorted_head_->sorted_prev_ = new_node;
+      sorted_head_ = new_node;
+    } else { // value > head node -- insert after sorted head node and fix sorted tail node
+      new_node->sorted_prev_ = sorted_tail_;
+      sorted_tail_->sorted_next_ = new_node;
+      sorted_tail_ = new_node;
+    }
+  } else if (temp_node == sorted_head_) {
+    /* New node must go before the head pointer becuase the new pointer's
+     * value <= head node's value AND there is more than one node in the
+     * list. Insert node before the sorted head and fix `sorted_head_'
+     * pointer. */
+    new_node->sorted_next_ = sorted_head_;
+    sorted_head_->sorted_prev_ = new_node;
+    sorted_head_ = new_node;
+  } else if (temp_node == sorted_tail_) {
+    /* We need to check whether the new node should go before the sorted tail
+     * or after the sorted tail (and become the new sorted tail). */
+    if (value <= sorted_tail_->value_) { 
+      /* Insert before the tail node -- no need to fix the sorted tail
+       * pointer.
+       * 
+       * Fix the new node's links. */
+      new_node->sorted_prev_ = sorted_tail_->sorted_prev_;
+      new_node->sorted_next_ = sorted_tail_;
+      // Fix the neighbors of the new node.
+      sorted_tail_->sorted_prev_->sorted_next_ = new_node;
+      sorted_tail_->sorted_prev_ = new_node;
+    } else { // value > sorted tail -- new node becomes new sorted tail
+      new_node->sorted_prev_ = sorted_tail_;
+      sorted_tail_->sorted_next_ = new_node;
+      sorted_tail_ = new_node;
+    }
+  } else { // no heads nor tails involved -- just fix sorted links
+    /* Recall--`temp_node' is pointing to the node that the new node needs
+     * to be inserted before. 
+     *
+     * Fix the new node's links. */
+    new_node->sorted_prev_ = temp_node->sorted_prev_;
+    new_node->sorted_next_ = temp_node;
+    // Fix the neighbors' links
+    temp_node->sorted_prev_->sorted_next_ = new_node;
+    temp_node->sorted_prev_ = new_node;
+  }
+
   size_++;
 }
 
 
-/* NEEDS FIXING
 template <class T> 
 void MultiLL<T>::copy_list(MultiLL<T> const & old) {
   size_ = old.size_;
   // Handle the special case of an empty list.
-  if (size_ == NULL) {
+  if (size_ == 0) {
     chrono_head_ = chrono_tail_ = NULL; 
     sorted_head_ = sorted_tail_ = NULL; 
     random_head_ = NULL;
@@ -320,7 +332,6 @@ void MultiLL<T>::copy_list(MultiLL<T> const & old) {
   // now go through each of the nodes and fix the sorted and random links
   for (old_p = chrono_head_; old_p != chrono_tail_; old_...
 }
-*/
 
 
 template <class T> 
