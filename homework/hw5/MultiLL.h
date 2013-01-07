@@ -30,7 +30,7 @@ class MultiLL {
     // return iterator to the beginning of the list
     iterator begin_chronological() const { return iterator( chrono_head_, chrono_ ); }
     iterator begin_sorted() const { return iterator( sorted_head_, sorted_ ); }
-    iterator begin_random() const { }
+    iterator begin_random();
 
     // return an iterator pointing to NULL, but the correct type
     iterator end_chronological() const { return iterator(chrono_); }
@@ -69,12 +69,11 @@ MultiLL<T>& MultiLL<T>::operator= (const MultiLL<T>& old) {
 }
 
 template <class T> 
-typename MultiLL<T>::iterator MultiLL<T>::begin_random(const unsigned int i)
+typename MultiLL<T>::iterator MultiLL<T>::begin_random()
 {
-  int n = 10;
-  // create a vector of n numbers
-  vector<int> ordered_nums;
-  for (int i = 0; i < n; i++) {
+  // create a vector of `size_' numbers
+  std::vector<int> ordered_nums;
+  for (int i = 0; i < size_; i++) {
     // populate the list with digits 0 to n-1
     ordered_nums.push_back(i);
   }
@@ -82,14 +81,16 @@ typename MultiLL<T>::iterator MultiLL<T>::begin_random(const unsigned int i)
   int rand_num;
   // create the random number generator
   MTRand mt_rand;
-  // create another vector to hold the numbers in random order
-  vector<int> random_nums;
-  for (int i = 0; i < n; i++) {
+  // create another vector that will hold the numbers in random order
+  std::vector<int> random_nums;
+  for (int i = 0; i < size_; i++) {
     /* Pick a random number from the remaining ordered number list and push it
      * back onto the random number list. */
     rand_num = mt_rand.randInt((int) ordered_nums.size()-1);
+    // add the number to our random sequence
     random_nums.push_back(ordered_nums[rand_num]);
-    ordered_nums.erase(find(ordered_nums.begin(), ordered_nums.end(), ordered_nums[rand_num]));
+    // erase that number from the ordered number list so we don't pick it again
+    ordered_nums.erase(std::find(ordered_nums.begin(), ordered_nums.end(), ordered_nums[rand_num]));
   }
 
 
@@ -98,16 +99,30 @@ typename MultiLL<T>::iterator MultiLL<T>::begin_random(const unsigned int i)
    * the random head will point to the second chronological node, the random
    * head node will point to the zero'th chronological node, and that node will
    * will point to the first chronological node. */
-  Node<T> *rand_ptr = chrono_head_; 
-  for (int i = 0; i < random_nums.size(); i++)
+  Node<T> *rand_node, *prev_random_node; 
+  for (int i = 0; i < size_; i++) {
+    rand_node = chrono_head_; // start from the beginning
     for (int j = 0; j < random_nums[i]; j++) {
-      rand_ptr = rand_ptr->chrono_next_;
+      // ride along until we point to the next random node
+      rand_node = rand_node->chrono_next_;
     }
-    if (i == 0) // point the head to this node
-      rand_head_ = rand_ptr;
 
+    if (i == 0) { // first random node -- point the random head here
+      random_head_ = rand_node;
+      prev_random_node = rand_node;
+    } else { // not the first random node in the list
+      // link the previous random node to this node
+      prev_random_node->random_next_ = rand_node;
+      // previous random node becomes this random node
+      prev_random_node = rand_node;
+    }
+  }
 
+  /* Link the last random node to the random head to complete circular
+   * linkedness. */
+  rand_node->random_next_ = random_head_;
 
+  return iterator(random_head_, random_);
 }
 
 template <class T> 
