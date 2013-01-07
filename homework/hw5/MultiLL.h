@@ -160,15 +160,14 @@ void MultiLL<T>::add(const T &value) {
     /* The strategy for inserting our new node in sorted order is as follows:
      * Start at the sorted head node and work our way down the sorted nodes,
      * comparing each node's value to the value of the node we are trying to
-     * insert. The second we get to a node whose value is NOT STRICTLY LESS
-     * THAN the value of our new node (and hence the value of our new node is
-     * <= to the value of that node), then we will insert our new node BEFORE
+     * insert. The second we get to a node such that the value of our new node
+     * is <= the value of that node, then we will insert our new node BEFORE
      * this node.
      *
      * This process is complicated by the fact that if we are adding a node
-     * that is goes at the end of the sorted list, then we will never encounter
-     * a node whose value is <= to the value of our new node. This is the
-     * reason for the obfuscated if-else purgatory below. */
+     * that is goes at the end of the sorted list, then the value of our new
+     * node will never be <= the value of any node. This is the reason for the
+     * obfuscated if-else purgatory below. */
     Node<T>* temp_node = sorted_head_;
     for (temp_node = sorted_head_; value > temp_node->value_; temp_node = temp_node->next_sorted_) {
       // ride along until we get to a node we're <= to
