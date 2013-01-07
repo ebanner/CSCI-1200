@@ -140,71 +140,92 @@ typename MultiLL<T>::iterator MultiLL<T>::erase(iterator itr) {
 template <class T>
 void MultiLL<T>::add(const T &value) {
   // create the node we wish to add
-  Node<T>* node = new Node(v);
+  Node<T>* new_node = new Node<T>(v);
 
   if (size_ == 0) { // empty list
-    // point everything to the new node
-    chrono_head_ = chrono_tail_ = node;
-    sorted_head_ = sorted_tail_ = node;
-    random_head_ = node;
+    // point everything to the new new_node
+    chrono_head_ = chrono_tail_ = new_node;
+    sorted_head_ = sorted_tail_ = new_node;
+    random_head_ = new_node;
     size_++;
 
-    return; // we're done
+    return; // we're done -- easy!
 
-  } else if (size_ == 1) {
-    // arranage the chrono pointer for the new node
-    chrono_tail_->chrono_next_ = node;
-    node->chrono_prev_ = chrono_tail;
-    chrono_tail_ = node;
-
+  } else { // at least one new_node in the list -- hard...
+    // The new node becomes the new chronological tail node
+    new_node->chrono_prev_ = chrono_tail;
+    chrono_tail_->chrono_next_ = new_node;
+    chrono_tail_ = new_node;
     
-    // arrange sorted pointers for the new node
-    Node<T>* temp = sorted_tail_;
-    while ( temp != sorted_head_ ) {
-      if ( temp->value_ < value ) {
-	  if ( temp == sorted_tail_ ) {
-	      // insert the new node at the end of sorted list
-	      sorted_tail_->sorted_next_ = node;
-	      node->sorted_prev_ = sorted_tail_;
-	      sorted_tail_ = node;
-	      return;
-
-	    } else {
-	      // insert the new node at the middle of sorted list
-	      Node<T>* temp2 = temp->sorted_next_;
-	      temp->sorted_next_ = node;
-	      node->sorted_prev_ = temp;
-	      node->sorted_next_ = temp2;
-	      temp2->sorted_prev_ = node;
-	      return;
-
-	    }
-      }
-
-      temp = temp->sorted_prev_;
+    /* The strategy for inserting our new node in sorted order is as follows:
+     * Start at the sorted head node and work our way down the sorted nodes,
+     * comparing each node's value to the value of the node we are trying to
+     * insert. The second we get to a node whose value is NOT STRICTLY LESS
+     * THAN the value of our new node (and hence the value of our new node is
+     * <= to the value of that node), then we will insert our new node BEFORE
+     * this node.
+     *
+     * This process is complicated by the fact that if we are adding a node
+     * that is goes at the end of the sorted list, then we will never encounter
+     * a node whose value is <= to the value of our new node. This is the
+     * reason for the obfuscated if-else purgatory below. */
+    Node<T>* temp_node = sorted_head_;
+    for (temp_node = sorted_head_; value > temp_node->value_; temp_node = temp_node->next_sorted_) {
+      // ride along until we get to a node we're <= to
+      if (temp_node == sorted_tail_)
+        break;
     }
 
-    if ( value < sorted_head_->value_) {
-      // we are inserting the node at the beginning of the sorted list
-      sorted_head_->sorted_prev_ = node;
-      node->sorted_next_ = sorted_head;
-      // fix the sorted head to point to the new node
-      sorted_head_ = node;
-      return;
-    } else { // value >= sorted_header->value_
-      if (size_ == 1) {
-	sorted_head_ -> sorted_next_ = node;
-	node-> sorted_prev_ = sorted_head_;
-	sorted_tail_ = node;
-	return;
-      } else {
-	Node<T>* temp2 = sorted_head_ -> sorted_next_;
-	sorted_head_->sorted_next_ = node;
-	node->sorted_prev_ = sorted_head_;
-	temp2->sorted_prev_ = node;
-	node->sorted_next_ = temp2;
-	return;
+    /* At this point, our new node's value is <= `temp_node' OR we got all the
+     * way to sorted end. */
+    if (temp_node == sorted_head_ && temp_node == sorted_tail_) { // special case: size 1
+      // compare against lone node, insert node, and fix head and tail
+      if (value <= sorted_head_->value) {
+        // insert node before the head and fix the sorted head pointer
+        new_node->sorted_next_ = sorted_head_;
+        sorted_head_->sorted_prev_ = new_node;
+        sorted_head_ = new_node;
+      } else { // value > head node -- insert after sorted head node and fix sorted tail node
+        new_node->sorted_prev_ = sorted_tail_;
+        sorted_tail->sorted_next_ = new_node;
+        sorted_tail_ = new_node;
       }
+    } else if (temp_node == sorted_head) {
+        /* New node must go before the head pointer becuase the new pointer's
+         * value <= head node's value AND there is more than one node in the
+         * list. Insert node before the sorted head and fix `sorted_head_'
+         * pointer. */
+        new_node->sorted_next_ = sorted_head_;
+        sorted_head_->sorted_prev_ = new_node;
+        sorted_head_ = new_node;
+    } else if (temp_node == sorted_tail) {
+      /* We need to check whether the new node should go before the sorted tail
+       * or after the sorted tail (and become the new sorted tail). */
+      if (value <= sorted_tail_->value) { 
+        /* Insert before the tail node -- no need to fix the sorted tail
+         * pointer.
+         * 
+         * Fix the new node's links. */
+        new_node->sorted_prev_ = sorted_tail_->sorted_prev_;
+        new_node->sorted_next_ = sorted_tail_;
+        // Fix the neighbors of the new node.
+        sorted_tail_->sorted_prev_->sorted_next_ = new_node;
+        sorted_tail_->sorted_prev = new_node;
+      } else { // value > sorted tail -- new node becomes new sorted tail
+        new_node->sorted_prev_ = sorted_tail_;
+        sorted_tail->sorted_next_ = new_node;
+        sorted_tail_ = new_node;
+      }
+    } else { // no heads nor tails involved -- just fix sorted links
+      /* Recall--`temp_node' is pointing to the node that the new node needs
+       * to be inserted before. 
+       *
+       * Fix the new node's links. */
+      new_node->sorted_prev_ = temp_node->sorted_prev_;
+      new_node->sorted_next_ = temp_node;
+      // Fix the neighbors' links
+      temp_node->sorted_prev_->sorted_next_ = new_node;
+      temp_node->sorted_prev_ = new_node;
     }
   }
 }
