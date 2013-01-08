@@ -237,14 +237,14 @@ void MultiLL<T>::insert_sorted(Node<T> *new_node) {
    * node will never be <= the value of any node. This is the reason for the
    * obfuscated if-else purgatory below. */
 
-  if (sorted_head_ == NULL) { // empty list
+  if (sorted_head_ == NULL) { // special case: empty list
     sorted_head_ = sorted_tail_ = new_node;
     return;
   }
 
   // at least one element in the list
   T value = new_node->value_;
-  Node<T>* temp_node = sorted_head_;
+  Node<T>* temp_node;
   for (temp_node = sorted_head_; temp_node != sorted_tail_; temp_node = temp_node->sorted_next_) {
     // ride along until we get to a node we're <= to
     if (value <= temp_node->value_)
@@ -324,11 +324,11 @@ void MultiLL<T>::copy_list(MultiLL<T> const & old) {
   // down the new list as it is built
   chrono_tail_ = chrono_head_;
   // old_p will point to the next node to be copied in the old list
-  Node<T>* old_p = old.chrono_head_ -> next_;
+  Node<T>* old_p = old.chrono_head_ -> chrono_next_;
   // copy the remainder of the old list, one node at a time
   while (old_p) {
     chrono_tail_ -> chrono_next_ = new Node<T>(old_p -> value_);
-    chrono_tail_ -> chrono_next_ -> prev_ = chrono_tail_;
+    chrono_tail_ -> chrono_next_ -> chrono_prev_ = chrono_tail_;
     chrono_tail_ = chrono_tail_ -> chrono_next_;
     old_p = old_p -> chrono_next_;
   }

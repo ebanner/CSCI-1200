@@ -145,6 +145,7 @@ int main() {
 
 
   
+  /*
   // -------------------
   // erase tests
 
@@ -180,6 +181,7 @@ int main() {
   assert (my_list.empty());
   assert (my_list.size() == 0);
   std::cout << "cleared the whole list!" << std::endl << std::endl;
+  */
 
 
 
@@ -200,6 +202,16 @@ int main() {
 
 
   std::cout << " ***  OUTPUT FROM YOUR TEST CASES ***" << std::endl;
+
+  // copy constructor
+  MultiLL<std::string> copy_list(my_list);
+
+  std::cout << "Old list:" << std::endl;
+  my_print(my_list);
+  /*
+  std::cout << "Copy of old list:" << std::endl;
+  my_print(copy_list);
+  */
 
 
 

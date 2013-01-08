@@ -1,10 +1,12 @@
 // Starting code for Checkpoints 2 and 3.  This includes
 // functions to read the grid and to output it.
 
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <list>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 
@@ -17,6 +19,11 @@ public:
   Point(int x0, int y0) : x(x0), y(y0) {}
   int x,y;
 };
+
+bool operator==(const Point &p, const Point &q)
+{
+  return p.x == q.x && p.y == q.y;
+}
 
 
 // Input the grid and the start location.  The input is a sequence of
@@ -87,6 +94,39 @@ void print_grid(vector<vector<bool> > const& blocked_grid, int start_x, int star
   }
 }
 
+int num_paths_recurse(std::vector<Point> path, vector<vector<bool> > walls, Point pos, int max_dist)
+{
+  if (pos.x == 0 && pos.y == 0) { // you've made it back to the origin
+    return 1;
+  } else if (abs(pos.x)+abs(pos.y) <= max_dist && std::find(path.begin(), path.end(), pos) == path.end()) { 
+
+    if (pos.x <= walls.size() && pos.y <= walls[0].size()) {
+      if (walls[pos.x][pos.y]) {
+        return 0; // there's a wall in the way
+      }
+    }
+
+    /* Distance did not increase, we haven't been on this location before, and
+     * there is not a wall here.
+     *
+     * Add the current location to the path. */
+    path.push_back(pos);
+
+    return num_paths_recurse(path, walls, Point(pos.x, pos.y-1), max_dist) +
+      num_paths_recurse(path, walls, Point(pos.x+1, pos.y), max_dist) +
+      num_paths_recurse(path, walls, Point(pos.x, pos.y+1), max_dist) +
+      num_paths_recurse(path, walls, Point(pos.x-1, pos.y), max_dist);
+  } else { // not a legal Point
+    return 0;
+  }
+}
+
+int num_paths(int x, int y, std::vector< vector<bool> > walls)
+{
+  std::vector<Point> path;
+
+  return num_paths_recurse(path, walls, Point(x,y), abs(x)+abs(y));
+}
 
 
 int main(int argc, char* argv[]) {
@@ -107,7 +147,7 @@ int main(int argc, char* argv[]) {
 
   // Start here with your code...
 
-
+  std::cout << "Number of paths from (" << start_x << ',' << start_y << ") to origin: " << num_paths(start_x, start_y, blocked_grid) << std::endl;
 
   return 0;
 }
