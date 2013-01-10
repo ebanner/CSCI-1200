@@ -105,7 +105,6 @@ int num_paths_recurse(std::vector<Point> path, vector<vector<bool> > walls, Poin
         return 0; // there's a wall in the way
       }
     }
-
     /* Distance did not increase, we haven't been on this location before, and
      * there is not a wall here.
      *
