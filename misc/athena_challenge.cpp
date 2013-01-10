@@ -13,7 +13,7 @@ class loc {
     int c;
 };
 
-int num_paths_recursive(std::vector<std::vector<bool> > board, loc pos, int num_moves,  int rows, int columns)
+int num_paths_recursive(std::vector<std::vector<bool> > board, loc pos, int num_moves, int rows, int columns)
 {
   if (pos.r == rows-1 && pos.c == 0) { // base case: you're in the bottom left corner
     if (num_moves == rows*columns) {
