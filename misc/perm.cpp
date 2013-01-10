@@ -18,7 +18,7 @@
  * permutation string and (2) the current character removed from the vector of
  * characters.
  *
- * I use the following notion to demonstrate the algorithm:
+ * I use the following notation to demonstrate the algorithm:
  *
  *            ``permute_recurse("A", ['B', 'C'])" == ``(A) [BC]"
  *
