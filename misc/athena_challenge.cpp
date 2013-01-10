@@ -20,7 +20,7 @@ bool legal_loc(std::vector<std::vector<bool> > board, const loc &pos, const int 
   return ((0 <= pos.r && pos.r <= rows-1) && (0 <= pos.c && pos.c <= columns-1) && ! board[pos.r][pos.c]);
 }
 
-int num_paths_recursive(std::vector<std::vector<bool> > board, const loc &pos, int num_moves, const int rows, const int columns)
+int num_paths_recursive(int **board, const loc &pos, int num_moves, const int rows, const int columns)
 {
   if (pos.r == rows-1 && pos.c == 0) { // base case: you're in the bottom left corner
     if (num_moves == rows*columns) {
@@ -51,10 +51,10 @@ int num_paths_recursive(std::vector<std::vector<bool> > board, const loc &pos, i
 
 int num_paths(const int rows, const int columns)
 {
-  std::vector<std::vector<bool> > board(rows);
+  int **board = new int*[rows];
   for (int r = 0; r < rows; r++)
     for (int c = 0; c < columns; c++)
-      board[r].push_back(false); // populate the entire board with every position marked as not being visited
+      board[r] = new int[columns]; // populate the entire board with every position marked as not being visited
 
   /* Find the number of paths to the bottom right corner starting at row 0,
    * column 0, having already moved once (to get to the first coordinate). */
