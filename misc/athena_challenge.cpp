@@ -30,7 +30,7 @@ int num_paths_recursive(int **board, const loc &pos, int num_moves, const int ro
     }
   } else { 
     //mark this position as being visited.
-    board[pos.r][pos.c] = true;
+    board[pos.r][pos.c] = 1;
 
     int sum = 0;
     if ((0 <= pos.r-1 && pos.r-1 <= rows-1) && (0 <= pos.c && pos.c <= columns-1) && ! board[pos.r-1][pos.c])
@@ -52,9 +52,12 @@ int num_paths_recursive(int **board, const loc &pos, int num_moves, const int ro
 int num_paths(const int rows, const int columns)
 {
   int **board = new int*[rows];
-  for (int r = 0; r < rows; r++)
-    for (int c = 0; c < columns; c++)
-      board[r] = new int[columns]; // populate the entire board with every position marked as not being visited
+  for (int r = 0; r < rows; r++) {
+    board[r] = new int[columns]; // populate the entire board with every position marked as not being visited
+    for (int c = 0; c < columns; c++) {
+      board[r][c] = 0;
+    }
+  }
 
   /* Find the number of paths to the bottom right corner starting at row 0,
    * column 0, having already moved once (to get to the first coordinate). */
