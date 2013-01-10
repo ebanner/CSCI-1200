@@ -42,10 +42,10 @@ int num_paths(int rows, int columns)
   std::vector<std::vector<bool> > board(rows);
   for (int r = 0; r < rows; r++)
     for (int c = 0; c < columns; c++)
-      board[r].push_back(false); // populate the entire board as every position not with positions not yet visited
+      board[r].push_back(false); // populate the entire board with every position marked as not being visited
 
   /* Find the number of paths to the bottom right corner starting at row 0,
-   * column 0, having already moved once (to get to the first coordinate. */
+   * column 0, having already moved once (to get to the first coordinate). */
   return num_paths_recursive(board, loc(0,0), 1, rows, columns);
 }
 
