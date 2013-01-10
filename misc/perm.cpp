@@ -36,32 +36,33 @@ void permute_recurse(std::string permutation_in_progress, std::vector<char> char
 {
   if (chars.size() == 0) {
     std::cout << permutation_in_progress << std::endl; // we've used all of the chars to build the permuation string
-  } else { // there are still character we must use to build the complete permutation string
+  } else { // there are still characters we must use to build the complete permutation string
 
-    /* If we could make a vector with an element removed on the fly, we
+    /* If we could make a create vector with an element removed on the fly, we
      * wouldn't need this temporary vector. */
     std::vector<char> copy; 
 
     for (int i = 0; i < chars.size(); i++) {
       copy = chars;
       copy.erase(std::find(copy.begin(), copy.end(), chars[i])); // erase the character from the vector
-      permute_recurse(permutation_in_progress+chars[i], copy); // make the recursive call t
+      permute_recurse(permutation_in_progress+chars[i], copy); // make the recursive call
     }
   }
 }
 
+/* Wrapper function for `permute_recurse'. */
 void permute(std::string permutee)
 {
   std::vector<char> chars;
   for (int offset = 0; offset < permutee.length(); offset++)
-    chars.push_back(permutee[offset]);
+    chars.push_back(permutee[offset]); // populate the vector will characters of the string to be permuted
 
   permute_recurse(std::string(""), chars);
 }
 
 main()
 {
-  std::string permutee = "abc";
+  std::string permutee = "ABC";
 
   permute(permutee);
 }
