@@ -183,8 +183,10 @@ void NextWord(/*const*/ MY_MAP &data, const std::string &present_word, std::stri
     std::map<std::string, int>::const_iterator it;
     for (it = data[present_word].begin(); it != data[present_word].end(); it++) {
       // find the most common next word
-      if (max_occurrences < it->second)
-        next_word = it->first;
+      if (it->second == max_occurrences && it->first < next_word)
+        next_word = it->first; // if there's a tie, only make the new word the next word if it's less alphabetically
+      else if (max_occurrences < it->second)
+        next_word = it->first; // this word has appeared more times, so make it the new next word
     }
   }
 }
