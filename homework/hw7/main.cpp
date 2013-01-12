@@ -15,6 +15,8 @@
 #include <vector>
 #include <map>
 
+#include "MersenneTwister.h"
+
 // ASSIGNMENT: FILL IN YOUR OWN MAP STRUCTURE
 typedef std::map<std::string, std::map<std::string, int> > MY_MAP;
 
@@ -140,7 +142,52 @@ void LoadSampleText(MY_MAP &data, const std::string &filename, int window, const
   }
 }
 
+void NextWord(/*const*/ MY_MAP &data, const std::string &present_word, std::string &next_word, bool random_flag)
+{
+  if (random_flag) {
+    /* We're going to build somewhat of a random distribution map. The easiest
+     * way to explain it is by example:
+     *
+     * Suppose we have the following map:
+     *  forest -> 2
+     *  hansel -> 1
+     *  bird   -> 3
+     *
+     * Then we will build a map of integers to strings of the following form:
+     *
+     * 0 -> forest
+     * 1 -> forest
+     * 2 -> hansel
+     * 3 -> bird
+     * 4 -> bird
+     * 5 -> bird 
+     *
+     * This will allow us to pick a random number and come up with one of these
+     * words based on their frequency. */
+    std::map<int, std::string> random_distribution;
+    int offset = 0, i = 0;
+    std::map<std::string, int>::const_iterator it;
+    for (it = data[present_word].begin(); it != data[present_word].end(); it++) {
+      for (int i = offset; i < offset+it->second; i++) {
+        random_distribution[i] = it->first;
+      }
+      offset += it->second;
+    }
 
+    MTRand m;
+    int random_offset = m.randInt(offset-1);
+    next_word = random_distribution[random_offset];
+  } else { // get the most common next word
+
+    int max_occurrences = 0;
+    std::map<std::string, int>::const_iterator it;
+    for (it = data[present_word].begin(); it != data[present_word].end(); it++) {
+      // find the most common next word
+      if (max_occurrences < it->second)
+        next_word = it->first;
+    }
+  }
+}
 
 int main () {
 
@@ -185,19 +232,26 @@ int main () {
       std::string selection_method;
       std::cin >> selection_method;
       bool random_flag;
-      if (selection_method == "random") {
-	random_flag = true;
-      } else {
-	assert (selection_method == "most_common");
-	random_flag = false;
+      if (selection_method == "random" || selection_method == "most_common") {
+        if (selection_method == "random")
+          random_flag = true;
+
+        /* Form a sentence with `length' words, starting with the words in
+         * sentence. */
+        std::string present_word, next_word;
+        for (int i = 0; i < sentence.size(); i++) { // for all of the words in the sentence
+          // print out the first word
+          std::cout << sentence[i] << ' ';
+
+          present_word = sentence[i];
+          for (int j = 0; j < length; j++, present_word = next_word) {
+            // find the most common word or the next random word
+            NextWord(data, present_word, next_word, random_flag);
+            std::cout << next_word << ' ';
+          }
+          std::cout << std::endl;
+        }
       }
-
-
-      //
-      // ASSIGNMENT: ADD YOUR COMMANDS HERE
-      //
-
-
     } else if (command == "quit") {
       break;
     } else {
