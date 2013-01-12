@@ -158,9 +158,8 @@ int main () {
       std::string parse_method;
       std::cin >> filename >> window >> parse_method;      
 
-      //
-      // ASSIGNMENT: ADD YOUR COMMANDS HERE
-      //
+      // populate data with all of the words in filename
+      LoadSampleText(data, filename, window, parse_method);
 
     } 
 
@@ -169,11 +168,12 @@ int main () {
     else if (command == "print") {
       std::vector<std::string> sentence = ReadQuotedWords(std::cin);
 
-      //
-      // ASSIGNMENT: ADD YOUR COMMANDS HERE
-      //
-
-
+      for (int i = 0; i < sentence.size(); i++) {
+        std::cout << sentence[i] << " (" << data[sentence[i]].size() << ")" << std::endl;
+        for (std::map<std::string, int>::iterator it = data[sentence[i]].begin(); it != data[sentence[i]].end(); it++) {
+          std::cout << sentence[i] << ' ' << it->first << " (" << it->second << ")" << std::endl;
+        }
+      }
     }
 
     // generate the specified number of words 
