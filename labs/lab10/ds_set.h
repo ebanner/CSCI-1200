@@ -93,39 +93,23 @@ private:
   int size_;
 
   // PRIVATE HELPER FUNCTIONS
-  TreeNode<T>* copy_tree(TreeNode<T>* old_root) {
-    // Implemented in Lab 10
-
-    if (old_root == NULL) {
-      root_ = NULL;
-      size_ = 0;
+  TreeNode<T>* copy_tree(TreeNode<T>* old_node) {
+    if (old_node == NULL) {
       return NULL;
     } else {
-      size_ = 1;
-      root_ = new TreeNode<T>(old_root->value);
-      // make a copy of all of the nodes
-      copy_recurse(root_, old_root);
-    }
-    
-    return root_;
-  }
+      // create a copy of the current node
+      TreeNode<T> *new_node = new TreeNode<T>(old_node->value);
 
-  void copy_recurse(TreeNode<T> *new_parent, TreeNode<T> *old_parent) {
+      // make copies of all of the nodes to the left and link
+      new_node->left = copy_tree(old_node->left);
+      // make copies of all of the nodes to the right and link
+      new_node->right = copy_tree(old_node->right);
 
-    if (old_parent->left == NULL) {
-      return;
-    } else {
-      new_parent->left = new TreeNode<T>(old_parent->left->value);
-      size_++;
-      copy_recurse(new_parent->left, old_parent->left);
-    } 
-    
-    if (old_parent->right == NULL) {
-      return;
-    } else {
-      new_parent->right = new TreeNode<T>(old_parent->right->value);
-      size_++;
-      copy_recurse(new_parent->right, old_parent->right);
+      /* Remember, YOU (new_node) are a node that someone is counting on! You
+       * must return a reference to yourself (new_node), so you can be
+       * someone's left or right (or in the case of the root, you're returning
+       * a pointer to the root node). */
+      return new_node;
     }
   }
 
@@ -195,6 +179,7 @@ private:
       }
     }
 
+    // didn't find the value
     return iterator(NULL);
   }
 
