@@ -1,0 +1,3 @@
+Known bugs:
+
+Copy constructor doesn't fix the sorted links (segfaults).
