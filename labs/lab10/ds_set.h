@@ -127,7 +127,7 @@ private:
   }
   */
 
-  /* Breadth-first iterative `find()' implementation. */
+  /* Iterative `find()' implementation. */
   iterator find(const T &key_value, TreeNode<T> *root) {
     /*
     std::list<TreeNode<T> *> nodes;
