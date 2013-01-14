@@ -133,5 +133,19 @@ int main() {
   for (ds_set<int>::iterator it = set3.begin(); it != set3.end(); it++)
     std::cout << *it << std::endl;
 
+  // test accumulating
+  
+  int initial_value = 0;
+  std::cout << "Summing up all values in the tree:" << std::endl;
+  set3.accumulate(initial_value);
+  std::cout << "Sum of all elements is: " << initial_value << std::endl;
+
+  std::string initial_string = std::string("");
+  std::cout << "Concatenating all strings in the set:" << std::endl;
+  set1.accumulate(initial_string);
+  std::cout << "Concatenation of all the strings: " << initial_string << std::endl;
+
+
+
   return 0;
 }

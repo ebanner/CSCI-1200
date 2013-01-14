@@ -4,6 +4,7 @@
 #define ds_set_h_
 #include <iostream>
 #include <utility>
+#include <cassert>
 
 // -------------------------------------------------------------------
 // TREE NODE CLASS 
@@ -158,6 +159,11 @@ public:
       return false;
     }
     return sanity_check(root_);
+  }
+
+  void accumulate(T &initial_value) {
+    for (iterator it = this->begin(); it != this->end(); it++)
+      initial_value += *it;
   }
 
 private:
