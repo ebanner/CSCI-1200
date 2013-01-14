@@ -1,0 +1,3 @@
+Known bugs:
+
+Probably croaks on a story of one word and a story that starts with `"'.
