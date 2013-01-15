@@ -11,6 +11,10 @@ bool City::addNeighbor(City *city) {
     return false;
   }
 
+  if (city->name == name) {
+    std::cerr << "City " << name << " cannot have " << city->name << " as its neighbor" << std::endl;
+    return false;
+  }
   // neighbor is not already a neighbor, so add them to the vector
   neighbors.push_back(city);
 }

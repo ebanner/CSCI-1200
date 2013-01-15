@@ -122,3 +122,38 @@ City* Graph::getCityWithName(const std::string &name) const {
   // didn't find the city
   return NULL;
 }
+
+
+/* For each city in the graph, output all of the cities that city is linked to.
+ * Output the location of evaders and pursuers. */
+std::ostream& operator<<(std::ostream &ostr, const Graph &city_graph)
+{
+  std::vector<City*> neighbors;
+  for (int i = 0; i < city_graph.cities.size(); i++) {
+    std::cout << "Cities " << city_graph.cities[i] << " are linked to:" << std::endl;
+    neighbors = city_graph.cities[i]->getNeighbors();
+    for (int j = 0; j < neighbors.size(); j++) {
+      std::cout << neighbors[j] << std::endl;
+    }
+  }
+
+  std::cout << "Evader " << city_graph.evader << " is at city " << city_graph.evader->getLocation();
+
+  for (int i = 0; i < city_graph.pursuers.size(); i++) {
+    std::cout << "Pursuer " << city_graph.pursuers[i]->getName() << 
+      " is at city " << city_graph.pursuers[i]->getLocation() << std::endl;
+  }
+}
+
+void Graph::destroy_graph()
+{
+  // delete the cities
+  for (int i = 0; i < cities.size(); i++)
+    delete cities[i];
+
+  if ( evader )
+    delete evader;
+
+  for (int i = 0; i < pursuers.size(); i++)
+    delete pursuers[i];
+}

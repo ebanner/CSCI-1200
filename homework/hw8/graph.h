@@ -20,7 +20,7 @@ class Graph {
 
 public:
   Graph() : evader(NULL) { };
-  ~Graph();
+  ~Graph() { this->destroy_graph(); };
 
   // ACCESSORS
   Person* getEvader() const { return evader; }
@@ -45,6 +45,7 @@ public:
 
   // helper function
   City *getCityWithName(const std::string& name) const;
+  void destroy_graph();
 
   // ==============
   // REPRESENTATION

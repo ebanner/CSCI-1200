@@ -5,4 +5,4 @@ all: $(CPPFILES)
 	g++ $(CPPFILES)
 
 clean:
-	rm a.out *.o *.gch
+	-@rm a.out *.o *.gch
