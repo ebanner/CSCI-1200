@@ -150,16 +150,17 @@ std::ostream& operator<<(std::ostream &ostr, const Graph &city_graph)
     }
     std::cout << std::endl;
   }
-  std::cout << std::endl;
 
-  if ( city_graph.evader )
+  if ( city_graph.evader ) {
     std::cout << "Evader " << city_graph.evader->getName() << 
       " is at city " << city_graph.evader->getLocation()->getName() << std::endl;
+  }
 
   for (int i = 0; i < city_graph.pursuers.size(); i++) {
     std::cout << "Pursuer " << city_graph.pursuers[i]->getName() << 
       " is at city " << city_graph.pursuers[i]->getLocation()->getName() << std::endl;
   }
+  std::cout << std::endl;
 
   return ostr;
 }

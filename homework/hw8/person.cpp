@@ -15,8 +15,9 @@ void Person::Move(City *city) {
   std::vector<City*>::const_iterator it;
   for (it = location->getNeighbors().begin(); it != location->getNeighbors().end(); it++) {
     if (*it == city) {
+      std::cerr << name << " moves from " << location->getName() << 
+        " to " << city->getName() << std::endl;
       location = city;
-      //std::cerr << "Successfully moved person " << name << " to location " << city->getName() << std::endl;
       return;
     }
   }
