@@ -1,5 +1,6 @@
 #include "graph.h"
 #include "city.h"
+#include "person.h"
 
 #include <iostream>
 #include <vector>
@@ -7,23 +8,25 @@
 bool Graph::addCity(const std::string& city_name) {
   City *city = getCityWithName(city_name);
 
-  // a NULL city means the city doesn't yet exists, so add it
+  // a NULL city means the city doesn't yet exist, so add it
   if (city == NULL) {
+    std::cerr << "Added city " << city_name << std::endl;
     cities.push_back(new City(city_name));
     return true;
   } else { // the city was already exists
-    std::cerr << city->getName() << " already exists." << std::endl;
+    std::cerr << "City " << city->getName() << " already exists." << std::endl;
     return false;
   }
 }
 
 // remove city if it already exists
 bool Graph::removeCity(const std::string& city_name) {
-  City *city = getCityByName(city_name);
+  City *city = getCityWithName(city_name);
 
   if (city != NULL) { // city already exists, so remove it
     for (std::vector<City*>::iterator it = cities.begin(); it != cities.end(); it++) {
       if (*it == city) {
+        std::cerr << "Deleting city " << city->getName() << std::endl;
         // delete all links to this city
         city->removeCityFromItsNeighbors();
         
@@ -32,6 +35,7 @@ bool Graph::removeCity(const std::string& city_name) {
 
         // destory the city -- never to be seen again
         delete city;
+        std::cerr << "City " << city->getName() << " is gone." << std::endl;
 
         return true;
       }
@@ -47,10 +51,10 @@ bool Graph::removeCity(const std::string& city_name) {
 
 // add links between the two cities
 bool Graph::addLink(const std::string& city_name1, const std::string& city_name2) {
-  City *city1 = getByCityName(city_name1);
-  City *city2 = getByCityName(city_name2);
+  City *city1 = getCityWithName(city_name1);
+  City *city2 = getCityWithName(city_name2);
 
-  bool city1_success = city1->addNeighbor(city2)
+  bool city1_success= city1->addNeighbor(city2);
   bool city2_success = city2->addNeighbor(city1);
 
   return city1_success && city2_success;
@@ -58,10 +62,10 @@ bool Graph::addLink(const std::string& city_name1, const std::string& city_name2
 
 // delete the links between the two cities
 bool Graph::removeLink(const std::string& city_name1, const std::string& city_name2) {
-  City *city1 = getByCityName(city_name1);
-  City *city2 = getByCityName(city_name2);
+  City *city1 = getCityWithName(city_name1);
+  City *city2 = getCityWithName(city_name2);
 
-  bool city1_success = city1->removeNeighbor(city2)
+  bool city1_success = city1->removeNeighbor(city2);
   bool city2_success = city2->removeNeighbor(city1);
 
   return city1_success && city2_success;
@@ -70,13 +74,13 @@ bool Graph::removeLink(const std::string& city_name1, const std::string& city_na
 bool Graph::placePursuer(const std::string& person_name, const std::string& city_name) {
   // ensure the pursuer does not already exist
   for (int i = 0; i < pursuers.size(); i++) {
-    if (pusuers[i]->getName() == person_name) {
+    if (pursuers[i]->getName() == person_name) {
       std::cerr << "Pursuer " << person_name << " already exists." << std::endl;
       return false;
     }
   }
 
-  City *city = getCityByName(city_name);
+  City *city = getCityWithName(city_name);
   // ensure the city exists
   if (city == NULL) {
     std::cerr << "Attempted to add pursuer " << person_name << " to " << city_name << 
@@ -84,6 +88,7 @@ bool Graph::placePursuer(const std::string& person_name, const std::string& city
     return false;
   }
 
+  std::cerr << "Placing pursuer " << person_name << " at city " << city_name << std::endl;
   // pursuer does not exist, so add the pursuer to the list of pursuers
   pursuers.push_back(new Person(person_name, city));
 }
@@ -95,7 +100,7 @@ bool Graph::placeEvader(const std::string& person_name, const std::string& city_
     return false;
   }
 
-  City *city = getCityByName(city_name);
+  City *city = getCityWithName(city_name);
   // ensure the city exists
   if (city == NULL) {
     std::cerr << "Attempted to add evader " << person_name << " to " << city_name << 
@@ -103,6 +108,7 @@ bool Graph::placeEvader(const std::string& person_name, const std::string& city_
     return false;
   }
 
+  std::cerr << "Placing evader " << person_name << " at city " << city_name << std::endl;
   // create the evader
   evader = new Person(person_name, city);
 }
