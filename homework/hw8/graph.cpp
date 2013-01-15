@@ -130,19 +130,24 @@ std::ostream& operator<<(std::ostream &ostr, const Graph &city_graph)
 {
   std::vector<City*> neighbors;
   for (int i = 0; i < city_graph.cities.size(); i++) {
-    std::cout << "Cities " << city_graph.cities[i] << " are linked to:" << std::endl;
+    std::cout << "Cities " << city_graph.cities[i]->getName() << " are linked to:" << std::endl;
     neighbors = city_graph.cities[i]->getNeighbors();
     for (int j = 0; j < neighbors.size(); j++) {
-      std::cout << neighbors[j] << std::endl;
+      std::cout << neighbors[j]->getName() << std::endl;
     }
   }
 
-  std::cout << "Evader " << city_graph.evader << " is at city " << city_graph.evader->getLocation();
+  if ( city_graph.evader )
+    std::cout << "Evader " << city_graph.evader << " is at city " << city_graph.evader->getLocation();
+  else
+    std::cout << "No evader" << std::endl;
 
   for (int i = 0; i < city_graph.pursuers.size(); i++) {
     std::cout << "Pursuer " << city_graph.pursuers[i]->getName() << 
       " is at city " << city_graph.pursuers[i]->getLocation() << std::endl;
   }
+
+  return ostr;
 }
 
 void Graph::destroy_graph()
