@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <algorithm>
+
 #include "person.h"
 #include "city.h"
 #include "graph.h"
@@ -69,6 +71,7 @@ int main(int argc, char* argv[]) {
       else 
         std::cout << "Error trying to place pursuer " << name1 << " in city " << name2 << std::endl;
     } else if (request == "print") {
+      city_graph.sortCities();
       std::cout << city_graph;
     } else if (request == "tick") {
       in_str >> count;

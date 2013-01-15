@@ -27,6 +27,8 @@ public:
   // Tell the neighboring cities to remove this City* from its vector of neighbors.
   void removeCityFromItsNeighbors();
 
+  void sortNeighbors();
+
 private: 
 
   // REPRESENTATION
@@ -35,5 +37,7 @@ private:
 };
 
 bool operator==(const City &city1, const City &city2);
+
+bool sort_by_name(const City *city1, const City *city2);
 
 #endif

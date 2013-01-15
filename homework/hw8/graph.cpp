@@ -4,17 +4,18 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool Graph::addCity(const std::string& city_name) {
   City *city = getCityWithName(city_name);
 
   // a NULL city means the city doesn't yet exist, so add it
   if (city == NULL) {
-    std::cerr << "Added city " << city_name << std::endl;
+    //std::cerr << "Added city " << city_name << std::endl;
     cities.push_back(new City(city_name));
     return true;
   } else { // the city was already exists
-    std::cerr << "City " << city->getName() << " already exists." << std::endl;
+    //std::cerr << "City " << city->getName() << " already exists." << std::endl;
     return false;
   }
 }
@@ -26,7 +27,7 @@ bool Graph::removeCity(const std::string& city_name) {
   if (city != NULL) { // city already exists, so remove it
     for (std::vector<City*>::iterator it = cities.begin(); it != cities.end(); it++) {
       if (*it == city) {
-        std::cerr << "Deleting city " << city->getName() << std::endl;
+        //std::cerr << "Deleting city " << city->getName() << std::endl;
         // delete all links to this city
         city->removeCityFromItsNeighbors();
         
@@ -35,13 +36,13 @@ bool Graph::removeCity(const std::string& city_name) {
 
         // destory the city -- never to be seen again
         delete city;
-        std::cerr << "City " << city->getName() << " is gone." << std::endl;
+        //std::cerr << "City " << city->getName() << " is gone." << std::endl;
 
         return true;
       }
     }
   } else { // we can't remove a city that doesn't exist
-    std::cerr << "Cannot remove " << city->getName() << ": it does not exist" << std::endl;
+    //std::cerr << "Cannot remove " << city->getName() << ": it does not exist" << std::endl;
     return false;
   }
 
@@ -54,6 +55,9 @@ bool Graph::addLink(const std::string& city_name1, const std::string& city_name2
   City *city1 = getCityWithName(city_name1);
   City *city2 = getCityWithName(city_name2);
 
+  if (! city1 || ! city2) // if either of them are not cities, we can't link them
+    return false;
+
   bool city1_success= city1->addNeighbor(city2);
   bool city2_success = city2->addNeighbor(city1);
 
@@ -65,6 +69,9 @@ bool Graph::removeLink(const std::string& city_name1, const std::string& city_na
   City *city1 = getCityWithName(city_name1);
   City *city2 = getCityWithName(city_name2);
 
+  if (! city1 || ! city2) // if either of them are not cities, we can't remove their links
+    return false;
+
   bool city1_success = city1->removeNeighbor(city2);
   bool city2_success = city2->removeNeighbor(city1);
 
@@ -75,7 +82,7 @@ bool Graph::placePursuer(const std::string& person_name, const std::string& city
   // ensure the pursuer does not already exist
   for (int i = 0; i < pursuers.size(); i++) {
     if (pursuers[i]->getName() == person_name) {
-      std::cerr << "Pursuer " << person_name << " already exists." << std::endl;
+      //std::cerr << "Pursuer " << person_name << " already exists." << std::endl;
       return false;
     }
   }
@@ -83,12 +90,14 @@ bool Graph::placePursuer(const std::string& person_name, const std::string& city
   City *city = getCityWithName(city_name);
   // ensure the city exists
   if (city == NULL) {
+    /*
     std::cerr << "Attempted to add pursuer " << person_name << " to " << city_name << 
       ", but " << city_name << " has not been realized as a nation." << std::endl;
+    */
     return false;
   }
 
-  std::cerr << "Placing pursuer " << person_name << " at city " << city_name << std::endl;
+  //std::cerr << "Placing pursuer " << person_name << " at city " << city_name << std::endl;
   // pursuer does not exist, so add the pursuer to the list of pursuers
   pursuers.push_back(new Person(person_name, city));
 }
@@ -96,19 +105,21 @@ bool Graph::placePursuer(const std::string& person_name, const std::string& city
 bool Graph::placeEvader(const std::string& person_name, const std::string& city_name) {
   // ensure the evader does not already exist
   if (evader != NULL) {
-    std::cerr << "An evader already resides at " << evader->getLocation() << std::endl;
+    //std::cerr << "An evader already resides at " << evader->getLocation() << std::endl;
     return false;
   }
 
   City *city = getCityWithName(city_name);
   // ensure the city exists
   if (city == NULL) {
+    /*
     std::cerr << "Attempted to add evader " << person_name << " to " << city_name << 
       ", but " << city_name << " has not been realized as a nation." << std::endl;
+    */
     return false;
   }
 
-  std::cerr << "Placing evader " << person_name << " at city " << city_name << std::endl;
+  //std::cerr << "Placing evader " << person_name << " at city " << city_name << std::endl;
   // create the evader
   evader = new Person(person_name, city);
 }
@@ -128,23 +139,26 @@ City* Graph::getCityWithName(const std::string &name) const {
  * Output the location of evaders and pursuers. */
 std::ostream& operator<<(std::ostream &ostr, const Graph &city_graph)
 {
+  std::cout << std::endl;
+
   std::vector<City*> neighbors;
   for (int i = 0; i < city_graph.cities.size(); i++) {
-    std::cout << "Cities " << city_graph.cities[i]->getName() << " are linked to:" << std::endl;
+    std::cout << "Neighbors for city " << city_graph.cities[i]->getName() << ":  ";
     neighbors = city_graph.cities[i]->getNeighbors();
     for (int j = 0; j < neighbors.size(); j++) {
-      std::cout << neighbors[j]->getName() << std::endl;
+      std::cout << neighbors[j]->getName() << ' ';
     }
+    std::cout << std::endl;
   }
+  std::cout << std::endl;
 
   if ( city_graph.evader )
-    std::cout << "Evader " << city_graph.evader << " is at city " << city_graph.evader->getLocation();
-  else
-    std::cout << "No evader" << std::endl;
+    std::cout << "Evader " << city_graph.evader->getName() << 
+      " is at city " << city_graph.evader->getLocation()->getName() << std::endl;
 
   for (int i = 0; i < city_graph.pursuers.size(); i++) {
     std::cout << "Pursuer " << city_graph.pursuers[i]->getName() << 
-      " is at city " << city_graph.pursuers[i]->getLocation() << std::endl;
+      " is at city " << city_graph.pursuers[i]->getLocation()->getName() << std::endl;
   }
 
   return ostr;
@@ -161,4 +175,13 @@ void Graph::destroy_graph()
 
   for (int i = 0; i < pursuers.size(); i++)
     delete pursuers[i];
+}
+
+void Graph::sortCities() {
+  // sort all of the cities by name
+  std::sort(cities.begin(), cities.end(), sort_by_name);
+
+  // sort each city's neighbors by name
+  for (int i = 0; i < cities.size(); i++)
+    cities[i]->sortNeighbors();
 }

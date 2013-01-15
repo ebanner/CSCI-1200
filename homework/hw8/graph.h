@@ -38,6 +38,8 @@ public:
   // Move the evader & pursuers.  Return false if the evader has been caught.
   bool tick(const std::string &evader_arg, const std::string &pursuer_arg); 
 
+  void sortCities();
+
   // OUTPUT
   friend std::ostream& operator<<(std::ostream &ostr, const Graph &city_graph);
 

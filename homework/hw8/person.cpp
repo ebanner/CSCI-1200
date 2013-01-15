@@ -7,7 +7,7 @@
 void Person::Move(City *city) {
   // ensure that this city is not NULL
   if (! city) {
-    std::cerr << "Attempted to move person " << name << " to a NULL city" << std::endl;
+    //std::cerr << "Attempted to move person " << name << " to a NULL city" << std::endl;
     return;
   }
 
@@ -16,12 +16,14 @@ void Person::Move(City *city) {
   for (it = location->getNeighbors().begin(); it != location->getNeighbors().end(); it++) {
     if (*it == city) {
       location = city;
-      std::cerr << "Successfully moved person " << name << " to location " << city->getName() << std::endl;
+      //std::cerr << "Successfully moved person " << name << " to location " << city->getName() << std::endl;
       return;
     }
   }
 
+  /*
   // the city is not a neighbor of the pursuer's current location
   std::cerr << city->getName() << " is not a neighbor of pursuer " << name << 
     "'s current location " << location->getName() << std::endl;
+  */
 }
