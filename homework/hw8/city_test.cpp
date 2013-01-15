@@ -25,8 +25,6 @@ int main()
   // try to add a duplicate neighbor
   city1.addNeighbor(&city4);
   city1.addNeighbor(&city5);
-  // add yourself as a neighbor
-  city1.addNeighbor(&city5);
 
   std::vector<City*> cities;
   cities.push_back(&city2);
