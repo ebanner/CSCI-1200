@@ -19,7 +19,7 @@ class City;
 class Graph {
 
 public:
-  Graph();
+  Graph() : evader(NULL) { };
   ~Graph();
 
   // ACCESSORS

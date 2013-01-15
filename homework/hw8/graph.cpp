@@ -1,19 +1,114 @@
+#include "graph.h"
+#include "city.h"
+
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool Graph::addCity(const std::string& city_name) {
   City *city = getCityWithName(city_name);
 
+  // a NULL city means the city doesn't yet exists, so add it
+  if (city == NULL) {
+    cities.push_back(new City(city_name));
+    return true;
+  } else { // the city was already exists
+    std::cerr << city->getName() << " already exists." << std::endl;
+    return false;
+  }
+}
+
+// remove city if it already exists
+bool Graph::removeCity(const std::string& city_name) {
+  City *city = getCityByName(city_name);
+
+  if (city != NULL) { // city already exists, so remove it
+    for (std::vector<City*>::iterator it = cities.begin(); it != cities.end(); it++) {
+      if (*it == city) {
+        // delete all links to this city
+        city->removeCityFromItsNeighbors();
+        
+        // remove the city from the vector of all cities
+        cities.erase(it);
+
+        // destory the city -- never to be seen again
+        delete city;
+
+        return true;
+      }
+    }
+  } else { // we can't remove a city that doesn't exist
+    std::cerr << "Cannot remove " << city->getName() << ": it does not exist" << std::endl;
+    return false;
+  }
+
+  std::cerr << "We should never get down here!" << std::cerr;
+  return false;
+}
+
+// add links between the two cities
+bool Graph::addLink(const std::string& city_name1, const std::string& city_name2) {
+  City *city1 = getByCityName(city_name1);
+  City *city2 = getByCityName(city_name2);
+
+  bool city1_success = city1->addNeighbor(city2)
+  bool city2_success = city2->addNeighbor(city1);
+
+  return city1_success && city2_success;
+}
+
+// delete the links between the two cities
+bool Graph::removeLink(const std::string& city_name1, const std::string& city_name2) {
+  City *city1 = getByCityName(city_name1);
+  City *city2 = getByCityName(city_name2);
+
+  bool city1_success = city1->removeNeighbor(city2)
+  bool city2_success = city2->removeNeighbor(city1);
+
+  return city1_success && city2_success;
+}
+
+bool Graph::placePursuer(const std::string& person_name, const std::string& city_name) {
+  // ensure the pursuer does not already exist
+  for (int i = 0; i < pursuers.size(); i++) {
+    if (pusuers[i]->getName() == person_name) {
+      std::cerr << "Pursuer " << person_name << " already exists." << std::endl;
+      return false;
+    }
+  }
+
+  City *city = getCityByName(city_name);
+  // ensure the city exists
+  if (city == NULL) {
+    std::cerr << "Attempted to add pursuer " << person_name << " to " << city_name << 
+      ", but " << city_name << " has not been realized as a nation." << std::endl;
+    return false;
+  }
+
+  // pursuer does not exist, so add the pursuer to the list of pursuers
+  pursuers.push_back(new Person(person_name, city));
+}
+
+bool Graph::placeEvader(const std::string& person_name, const std::string& city_name) {
+  // ensure the evader does not already exist
+  if (evader != NULL) {
+    std::cerr << "An evader already resides at " << evader->getLocation() << std::endl;
+    return false;
+  }
+
+  City *city = getCityByName(city_name);
+  // ensure the city exists
+  if (city == NULL) {
+    std::cerr << "Attempted to add evader " << person_name << " to " << city_name << 
+      ", but " << city_name << " has not been realized as a nation." << std::endl;
+    return false;
+  }
+
+  // create the evader
+  evader = new Person(person_name, city);
+}
 
 
-bool removeCity(const std::string& city_name);
-bool addLink(const std::string& city_name1, const std::string& city_name2);
-bool removeLink(const std::string& city_name1, const std::string& city_name2);
-bool placePursuer(const std::string& person_name, const std::string& city_name);
-bool placeEvader(const std::string& person_name, const std::string& city_name);
-
-
-City* City::getCityWithName(const std::string &name) const {
+City* Graph::getCityWithName(const std::string &name) const {
   for (int i = 0; i < cities.size(); i++)
     if (cities[i]->getName() == name)
       return cities[i];
@@ -21,4 +116,3 @@ City* City::getCityWithName(const std::string &name) const {
   // didn't find the city
   return NULL;
 }
-
