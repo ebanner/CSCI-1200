@@ -1,0 +1,7 @@
+Known bugs:
+
+  The `delelte_test' fails. For some reason, either a city's `neighbors'
+  vector gets filled with tons of cities, or the string that represents a name
+  of a city belonging to a person gets filled with garbage. The former occurred
+  on when we compiled on Xiaohu's computer and the latter occurred when I
+  compiled on my computer.
