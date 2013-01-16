@@ -25,6 +25,8 @@ int main() {
   Superhero f("Lumberman", "Jack", "Wood");
   Superhero g("Aquawoman", "Marie", "Water");
   Superhero h("Dash", "Aaron", "Speed");
+
+  Superhero::populateSuperpowerRank();
   
   // access information about the superheroes
   assert (a.getName() == "Elastigirl");
@@ -49,8 +51,6 @@ int main() {
   
   // CHECKPOINT 2 (uncomment when you're ready)
 
-  /*
-
   // superheroes start out good, but can be corrupted (negated)
   -b;
   -c;
@@ -73,8 +73,6 @@ int main() {
   //
   // add your own comparison tests here!
   //
-
-  */
 
   // -------------------------------------------------------
 
