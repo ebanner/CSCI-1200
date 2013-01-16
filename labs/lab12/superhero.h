@@ -25,6 +25,7 @@ class Superhero {
     const std::string& getName() const { return name; }
     const std::string& getPower() const { return superhuman_power; }
     bool isGood() { return good; }
+    const std::string& getTrueIdentity() const { return true_identity; }
 
     // output
     friend std::ostream& operator<<(std::ostream &ostr, const Superhero &superhero) {
@@ -35,6 +36,10 @@ class Superhero {
     // operators
     friend bool operator==(const Superhero &superhero1, const std::string &true_identity_guess) {
       return superhero1.true_identity == true_identity_guess;
+    }
+
+    friend bool operator==(const Superhero &superhero1, const Superhero &superhero2) {
+      return superhero1.name == superhero2.name;
     }
 
     friend bool operator!=(const Superhero &superhero1, const std::string &true_identity_guess) {

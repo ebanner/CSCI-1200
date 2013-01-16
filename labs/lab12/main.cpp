@@ -78,8 +78,6 @@ int main() {
 
   // CHECKPOINT 3 (uncomment when you're ready)
 
-  /*
-
   // superheroes can form teams
   Team team1;
   team1 += a;
@@ -112,8 +110,6 @@ int main() {
   // the most recently added member is always at the end of the name
   team4 += b;
   assert (team4.getName() == "Zovipiro");
-
-  */
 
 
   cout << "Passed all test cases." << endl;

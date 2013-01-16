@@ -15,7 +15,7 @@ public:
   std::string getName() const;
 
   // adding and removing a single superhero
-  void operator+=(const Superhero &a);
+  void operator+=(const Superhero &a) { superheroes.push_back(a); }
   void operator-=(const Superhero &a);
 
   // adding two teams together or a team and a superhero together
@@ -31,6 +31,5 @@ private:
 
 // non-member function because it doesn't need access to any Team variables
 Team operator+(const Superhero &a, const Superhero &b);
-
 
 #endif
