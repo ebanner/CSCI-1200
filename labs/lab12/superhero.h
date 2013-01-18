@@ -31,6 +31,8 @@ class Superhero {
     friend std::ostream& operator<<(std::ostream &ostr, const Superhero &superhero) {
       ostr << "Super" << (superhero.good? "hero":"villan") << superhero.name << 
         " has power " << superhero.superhuman_power << std::endl;
+
+      return ostr;
     }
 
     // operators
