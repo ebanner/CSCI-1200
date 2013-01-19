@@ -47,7 +47,6 @@ int main()
   cout << "\nHere is the actual heap.  Values should be 3, 6, 5, 12, 11, 23, 8, 13\n";
   pq_int.print_heap( cout );
   
-  /*
   cout << "\n\n"
        << "****************\n"
        << "* Checkpoint 2 *\n"
@@ -76,7 +75,6 @@ int main()
   cout << "After constructing from a 12-value vector, the size is " << pq_float.size() << endl
        << "the top, which should be -4 is " << pq_float.top() << endl
        << "and check_heap returns " << pq_float.check_heap() << endl;
-  */
 
   /*
   cout << "\n\n"
